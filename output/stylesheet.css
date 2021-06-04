@@ -1,0 +1,152 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #fff;
+  font-family: 'Crimson Pro', 'times';
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:link,
+a:visited {
+  color: #63aa47;
+}
+
+a:hover {
+  color: #f90;
+}
+
+mjx-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 60%; */
+}
+
+figcaption {
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+#main {
+  position: relative;
+
+  padding-right: calc(20% + 110px);
+  top: 40px;
+  left: calc(110px + 15%);
+}
+
+@media (min-width: calc(710px / (1 - 0.2))) { /* = (600 + 280) / (1 - 0.125) */
+  #main {
+    width: 600px;
+  }
+}
+
+#sidebar {
+  position: absolute;
+
+  top: 40px;
+  /* left: 5%; */
+  /* padding-left: 5%; */
+  width: calc(max(160px, 100px + 10%));
+
+  padding: 20px 20px 0 0;
+
+  border-right: 1px solid #ccc;
+
+  text-align: right;
+}
+
+@media (max-width: 600px) {
+  #main {
+    left: 0px;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  #sidebar {
+    display: none;
+    width: 0px;
+  }
+}
+
+#main h1 {
+  font-size: 40px;
+  font-weight: normal;
+
+  line-height: 40px;
+
+  letter-spacing: -1px;
+}
+
+#main h2 {
+  font-weight: 500;
+}
+
+#main p {
+  margin: 20px 0;
+
+  font-size: 17px;
+
+  line-height: 1.4em;
+}
+
+#main ul, #main ol {
+  margin: 20px;
+}
+
+#main li {
+  font-size: 15px;
+
+  line-height: 20px;
+}
+
+#main ul li {
+  list-style-type: square;
+}
+
+#sidebar h2 {
+  font-family: "Patrick Hand";
+
+  font-size: 24px;
+
+  font-weight: normal;
+
+  color: #555;
+
+  /* letter-spacing: 1px; */
+
+  line-height: 20px;
+}
+
+#sidebar ul {
+  list-style-type: none;
+
+  margin: 20px 0;
+}
+
+#sidebar li {
+
+  font-size: 18px;
+
+  font-weight: 400;
+
+  line-height: 30px;
+}
+

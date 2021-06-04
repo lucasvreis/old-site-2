@@ -1,0 +1,4 @@
+\(
+\newcommand{\mymacro}{This is my macro}
+\mymacro
+\)

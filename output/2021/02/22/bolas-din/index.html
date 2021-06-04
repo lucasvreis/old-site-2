@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>A Brand New Nanoc Site - Bolas Dinâmicas</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/stylesheet.css">
+    <link rel="stylesheet" href="/twemoji.css">
+    <link rel="preload" href="/twemoji.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script type="text/javascript">
+     l1 = false
+     l2 = false
+     MathJax = {
+         startup: {
+             ready: () => {
+                 l1 = true;
+                 if (l2) {
+                     MathJax.startup.defaultReady();
+                 };
+                 setTimeout(() => { if (!l2) { MathJax.startup.defaultReady() }}, 1000)
+             }
+         }
+     };
+
+     WebFont.load(
+         { google: { families: ['Crimson Pro:300,300italic,500,500italic', 'Patrick Hand'] },
+           active: () => { l2 = true; if (l1) { MathJax.startup.defaultReady() }; } }
+     );
+
+    </script>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <noscript>
+        <link rel="stylesheet" href="/twemoji.css">
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,500&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    </noscript>
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="Nanoc 4.12.2">
+
+</head>
+
+    <body>
+        <div id="main">
+            
+    <h1>Bolas Dinâmicas</h1>
+    <p>Tags: Greeting, Salutation</p>
+    <p>A parte preta nas imagens abaixo é o conjunto dos pontos que ficam a menos de <span class="math inline">\(r\)</span> de distância do ponto vermelho <span class="math inline">\(x\)</span> (ele tá bem pequeno, mas está lá) durante toda a trajetória dos primeiros <span class="math inline">\(n-1\)</span> iterados: a bola dinâmica <span class="math inline">\(B(x,n,r)\)</span>. Em outras palavras,</p>
+<p><span class="math display">\[B(x,n,r)=\{y : d(f^i(x),f^i(y)) &lt; r, \text{ para todo }\; i\in\{1,\dots,n-1\} \} \]</span></p>
+<p>Usamos essas bolas em uma das formas de definir a entropia topológica de uma dinâmica; se a dinâmica tem entropia topológica positiva, quando o <span class="math inline">\(n\)</span> aumenta precisamos de cada vez mais bolas de raio <span class="math inline">\(r\)</span> para cobrir uma parte do espaço: a dinâmica "gera informação" (a entropia) "evidenciando os detalhes" ao afastar os pontos uns dos outros, e assim as bolas dinâmicas tendem a perder pontos a cada iterado.</p>
+<figure>
+<img src="https://live.staticflickr.com/65535/51155270717_d61e5e62c6_o.png" alt="Imagem 1" style="width:100.0%" alt="Monocerus" /><figcaption aria-hidden="true">Monocerus</figcaption>
+</figure>
+<p><img src="https://live.staticflickr.com/65535/51157051050_f78fedd2fb_o_d.png" style="width:100.0%" /></p>
+<p><img src="https://live.staticflickr.com/65535/51156179448_1b0d05e762_o_d.png" style="width:100.0%" /></p>
+<p><img src="https://live.staticflickr.com/65535/51155280107_b710f11a06_o_d.png" style="width:100.0%" /></p>
+<p>Código fonte: <span class="spurious-link" target="dynamics.jl.html"><em>.html</em></span> [.html](dynamics.jl) / [.jl](notebook.jl)</p>
+
+
+        </div>
+        <div id="sidebar">
+            <a href="/"><h2>interseções <i class="twa twa-cat"></i></h2></a>
+            <ul>
+                
+                <li><a href="/feed">feed</a></li>
+                
+                <li><a href="/escritos">escritos</a></li>
+                
+                <li><a href="/coisas">outras coisas</a></li>
+                
+                <li><a href="/sobre">sobre</a></li>
+                
+            </ul>
+        </div>
+    </body>
+</html>
+

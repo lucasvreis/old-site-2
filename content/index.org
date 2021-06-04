@@ -1,0 +1,16 @@
+---
+title: "Denis’ Guide to Awesomeness"
+---
+
+* Olá!
+
+[[aaaaaa][aaaaa]]
+
+\(e^{i\pi} = 2 \pi\iint\)
+
+\xi hm
+
+ - \temoji{new-button} [[./about][Bolas dinâmicas]]
+ - \temoji{new-button} [Deslocamentos de Markov](/blog/ic/autovalores)
+
+   /aaaa/

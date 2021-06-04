@@ -1,0 +1,63 @@
+#!/usr/bin/env ruby
+
+ignore '/**/org-imports/*'
+
+route '/blog/**/*' do
+  y,m,d,slug = /(\d+)\-(\d+)\-(\d+)\-([^\/\.]+)/
+                 .match(item.identifier).captures
+
+  if item.identifier =~ "/blog/*.{html,org,md,erb}"
+    "/#{y}/#{m}/#{d}/#{slug}/index.html"
+  else
+    rest, = /\d+\-\d+\-\d+\-(.*)/
+             .match(item.identifier).captures
+    "/#{y}/#{m}/#{d}/#{rest}"
+  end
+end
+
+route '/**/index.*' do
+  item.identifier.without_ext + '.html'
+end
+
+route '/**/*.{html,org,md,erb}' do
+  item.identifier.without_ext + '/index.html'
+end
+
+route '/**/*' do
+  item.identifier.to_s
+end
+
+# Maybe we don't need html at all
+# compile '/**/*.html' do
+#   layout '/default.*'
+# end
+#
+
+compile '/feed.erb' do
+  filter :erb
+  layout '/default.*'
+end
+
+compile '/**/*.md' do
+  filter :kramdown
+  layout '/default.*'
+end
+
+compile '/**/*.org' do
+  # FIXME mudar para svgs "imersos" no html
+  filter :pandoc, args: [ {from: :org,
+                           to: :html5,
+                           lua_filter: './lib/latex-fig.lua'},
+                          :mathjax ]
+
+  if item.identifier =~ "/blog/*"
+    layout '/article.*'
+  else
+    layout '/default.*'
+  end
+end
+
+compile '/**/*' do
+end
+
+layout '/**/*', :erb

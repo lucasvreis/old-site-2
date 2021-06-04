@@ -1,0 +1,5 @@
+<% render "/default.*" do %>
+    <h1><%= @item[:title] %></h1>
+    <p>Tags: <%= tags_for(@item) %></p>
+    <%= yield %>
+<% end %>
