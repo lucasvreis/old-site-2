@@ -79,6 +79,10 @@ figcaption {
   text-align: right;
 }
 
+header {
+    display: none;
+}
+
 @media (max-width: 600px) {
   #main {
     left: 0px;
@@ -88,6 +92,47 @@ figcaption {
   #sidebar {
     display: none;
     width: 0px;
+  }
+  header {
+    margin: 10px 10px 10px 20px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+  }
+  header .blog-name {
+    display: inline-block;
+    width: 90%;
+  }
+  nav {
+    display: inline-block;
+    width: 10%;
+  }
+  nav ul, nav:active ul {
+    display: none;
+    position: absolute;
+    margin-top: -50px;
+    padding: 5px;
+    background: #fff;
+    border: 1px solid #444;
+    right: 10px;
+    width: auto;
+    border-radius: 4px 0 4px 4px;
+    z-index: 1;}
+  nav li {
+    text-align: left;
+    display: block;
+    padding: 5px;
+    margin: 0; }
+  header li a { border-bottom: none; }
+  header li a:hover { border-bottom: none; }
+  nav:hover ul{
+    top: 90px;
+    display: block; }
+  #menu-icon {
+    display: inline-block;
+    width: 20px;
+    margin-right: 10px;
+    margin-top: 5px;
   }
 }
 
@@ -139,7 +184,7 @@ figcaption {
   list-style-type: square;
 }
 
-#sidebar h2 {
+.blog-name h2 {
   font-family: "Patrick Hand";
 
   font-size: 24px;
