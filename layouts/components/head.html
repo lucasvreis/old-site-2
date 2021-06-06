@@ -1,12 +1,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>A Brand New Nanoc Site - <%= @item[:title] %></title>
+    <title><%= config[:name] %> - <%= @item[:title] %></title>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/stylesheet.css">
-    <link rel="stylesheet" href="/twemoji.css">
-    <link rel="preload" href="/twemoji.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="/css/stylesheet.css">
+    <link rel="stylesheet" href="/css/latex.css">
+    <link rel="stylesheet" href="/css/citations.css">
+    <link rel="preload" href="/css/twemoji.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/code.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 
@@ -16,6 +18,14 @@
      l1 = false
      l2 = false
      MathJax = {
+         tex: {
+             macros: {
+                 R: "{\\mathbb R}",
+                 Z: "{\\mathbb R}",
+                 Q: "{\\mathbb Q}",
+                 N: "{\\mathbb N}",
+             }
+         },
          startup: {
              ready: () => {
                  l1 = true;
@@ -38,7 +48,8 @@
     <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
     <noscript>
-        <link rel="stylesheet" href="/twemoji.css">
+        <link rel="stylesheet" href="/css/twemoji.css">
+        <link rel="stylesheet" href="/css/code.css">
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,500&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">

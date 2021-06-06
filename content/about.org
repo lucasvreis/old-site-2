@@ -1,4 +1,1 @@
-\(
-\newcommand{\mymacro}{This is my macro}
-\mymacro
-\)
+asdasdasd \tikz[baseline=-3.5mm,thick,minimum width=4mm] {\node {};\draw[->] (0,0)--(0,-5mm); } asdasdasd

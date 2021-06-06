@@ -1,0 +1,21 @@
+---
+title: artigos
+---
+
+<h1>Artigos</h1>
+
+<aside>Textos mais longos e com versões em PDF.</aside>
+
+<% @items.find_all("/artigos/*.{org,md}").each do |post| %>
+    <div class="post-list">
+        <h2><%= link_to post[:title], post.path %> <aside class="links">[<%= link_to "pdf", post.path[0..-2] + ".pdf" %>]</aside> </h2>
+        <aside><%= tags_for post %> ~ <%= post[:created_at] ? post[:created_at].strftime("%d/%m/%Y") : "sem data"  %></aside>
+        <excerpt> <%= post[:excerpt] %> </excerpt>
+        <!-- <article>
+             <% filter :fix_links, link: post.path do %>
+             <%= post.compiled_content %>
+             <% end %>
+             </article> -->
+    </div>
+<% end %>
+<p><a href="/archive">&larr; Archive</a></p>

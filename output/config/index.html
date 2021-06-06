@@ -1,0 +1,266 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>interseções - </title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/stylesheet.css">
+    <link rel="stylesheet" href="/css/latex.css">
+    <link rel="stylesheet" href="/css/citations.css">
+    <link rel="preload" href="/css/twemoji.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/code.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script type="text/javascript">
+     l1 = false
+     l2 = false
+     MathJax = {
+         tex: {
+             macros: {
+                 R: "{\\mathbb R}",
+                 Z: "{\\mathbb R}",
+                 Q: "{\\mathbb Q}",
+                 N: "{\\mathbb N}",
+             }
+         },
+         startup: {
+             ready: () => {
+                 l1 = true;
+                 if (l2) {
+                     MathJax.startup.defaultReady();
+                 };
+                 setTimeout(() => { if (!l2) { MathJax.startup.defaultReady() }}, 1000)
+             }
+         }
+     };
+
+     WebFont.load(
+         { google: { families: ['Crimson Pro:300,300italic,500,500italic', 'Patrick Hand'] },
+           active: () => { l2 = true; if (l1) { MathJax.startup.defaultReady() }; } }
+     );
+
+    </script>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <noscript>
+        <link rel="stylesheet" href="/css/twemoji.css">
+        <link rel="stylesheet" href="/css/code.css">
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,500&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    </noscript>
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="Nanoc 4.12.2">
+
+</head>
+
+    <body>
+        <div id="main">
+            
+    <h1></h1>
+    <aside>tags: (none)</aside>
+    <aside>data: </aside>
+    <p>Vamos usar o binding&nbsp;léxico:</p>
+<div class="sourceCode" id="cb1" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">;;; -*- lexical-binding: t; -*-</span></span></code></pre></div>
+<h1 id="o-básico">O&nbsp;básico</h1>
+<h2 id="informações-pessoais">Informações&nbsp;pessoais</h2>
+<p>Meus dados, qual a utilidade&nbsp;disso?</p>
+<div class="sourceCode" id="cb2" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">setq</span> user-full-name <span class="st">&quot;Lucas Viana Reis&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>      user-mail-address <span class="st">&quot;l240191@dac.unicamp.br&quot;</span>)</span></code></pre></div>
+<h2 id="tema">Tema</h2>
+<h3 id="escolha">Escolha</h3>
+<div class="sourceCode" id="cb3" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">setq</span> doom-theme &#39;doom-material)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">;; Make theme selection less distracting</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>(<span class="kw">defvar</span><span class="fu"> custom-themes-exclude</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  &#39;(doom-acario-light</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    doom-acario-dark</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    doom-badger</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    doom-dark+</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    doom-henna</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    doom-homage-white</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    doom-Iosvkem</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    doom<span class="dv">-1337</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    doom-molokai</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    doom-sourcerer</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    doom-peacock</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    doom-wilmersdorf</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    doom-manegarm</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    doom-ephemeral))</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>(advice-add &#39;custom-available-themes :filter-return</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>            (<span class="kw">lambda</span> (l)</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>              (seq-difference</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>               (seq-filter (<span class="kw">lambda</span> (x) (s-prefix? <span class="st">&quot;doom-&quot;</span> (<span class="kw">symbol-name</span> x))) l)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>               custom-themes-exclude #&#39;eq)))</span></code></pre></div>
+<h3 id="fontes">Fontes</h3>
+<div class="sourceCode" id="cb4" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">setq</span> doom-font                (font-spec :family <span class="st">&quot;JetBrains Mono&quot;</span> :size <span class="dv">19</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>      doom-variable-pitch-font (font-spec :family <span class="st">&quot;Overpass&quot;</span> :size <span class="dv">19</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>      doom-serif-font          (font-spec :family <span class="st">&quot;IBM Plex Mono&quot;</span> :weight &#39;light)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>      doom-unicode-font        (font-spec :family <span class="st">&quot;JuliaMono&quot;</span> :weight &#39;normal))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co">;; Colocamos uma ordem de prioridade para tentar ter todos os unicodes e emojis.</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>(add-hook! &#39;after-setting-font-hook</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  (set-fontset-font <span class="kw">t</span> &#39;unicode (font-spec :family <span class="st">&quot;JuliaMono&quot;</span>))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  (set-fontset-font <span class="kw">t</span> &#39;unicode <span class="st">&quot;Twemoji&quot;</span> <span class="kw">nil</span> &#39;prepend))</span></code></pre></div>
+<h3 id="faces-e-ícones">Faces e&nbsp;ícones</h3>
+<p>Deixamos os comentários itálicas, e os <code>keywords</code>&nbsp;oblíquos.</p>
+<div class="sourceCode" id="cb5" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(custom-set-faces!</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  &#39;(font-lock-comment-face :slant italic)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  &#39;(font-lock-keyword-face :slant oblique)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  &#39;(yas-field-highlight-face :box (:color <span class="st">&quot;dark green&quot;</span>) :inherit <span class="kw">nil</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  &#39;(doom-modeline-buffer-modified :foreground <span class="st">&quot;orange&quot;</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  &#39;(doom-modeline-info :foreground <span class="st">&quot;white&quot;</span>))</span></code></pre></div>
+<p>Ajusta o tamanho dos&nbsp;ícones.</p>
+<div class="sourceCode" id="cb6" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">setq</span> all-the-icons-scale-factor <span class="fl">0.88</span>)</span></code></pre></div>
+<h2 id="dashboard">Dashboard</h2>
+<h3 id="estético">Estético</h3>
+<p>Pequenas modificações ao&nbsp;dashboard:</p>
+<div class="sourceCode" id="cb7" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">;; Desabilita o modeline</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>(add-hook! &#39;+doom-dashboard-mode-hook (hide-mode-line-mode <span class="dv">1</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">;; Desabilita o &quot;benchmark&quot;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>(remove-hook &#39;window-setup-hook #&#39;doom-display-benchmark-h)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<h3 id="banner">Banner</h3>
+<p>Pequenos acrobatas, que&nbsp;tal?</p>
+<div class="sourceCode" id="cb8" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">defun</span><span class="fu"> doom-dashboard-draw-ascii-emacs-banner-fn </span>()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  (<span class="kw">let*</span> ((banner</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>          &#39;(<span class="st">&quot;&quot;</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;   o__  __o   </span><span class="sc">\\</span><span class="st">o__ __o__ __o      o__ __o/      __o__      __o__&quot;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;  /v      |&gt;   |     |     |&gt;    /v     |      /&gt;  </span><span class="sc">\\</span><span class="st">      /&gt;  </span><span class="sc">\\</span><span class="st"> &quot;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot; /&gt;      //   / </span><span class="sc">\\</span><span class="st">   / </span><span class="sc">\\</span><span class="st">   / </span><span class="sc">\\</span><span class="st">   /&gt;     / </span><span class="sc">\\</span><span class="st">   o/           </span><span class="sc">\\</span><span class="st">o    &quot;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot; </span><span class="sc">\\</span><span class="st">o    o/     </span><span class="sc">\\</span><span class="st">o/   </span><span class="sc">\\</span><span class="st">o/   </span><span class="sc">\\</span><span class="st">o/   </span><span class="sc">\\</span><span class="st">      </span><span class="sc">\\</span><span class="st">o/  &lt;|             v</span><span class="sc">\\</span><span class="st">   &quot;</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;  v</span><span class="sc">\\</span><span class="st">  /v __o   |     |     |     o      |    </span><span class="sc">\\\\</span><span class="st">             &lt;</span><span class="sc">\\</span><span class="st">  &quot;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;   &lt;</span><span class="sc">\\</span><span class="st">/&gt; __/&gt;  / </span><span class="sc">\\</span><span class="st">   / </span><span class="sc">\\</span><span class="st">   / </span><span class="sc">\\</span><span class="st">    &lt;</span><span class="sc">\\</span><span class="st">__  / </span><span class="sc">\\</span><span class="st">    _</span><span class="sc">\\</span><span class="st">o__&lt;/  _</span><span class="sc">\\</span><span class="st">o__&lt;/  &quot;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">&quot;&quot;</span>))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>         (longest-line (<span class="kw">apply</span> #&#39;max (<span class="kw">mapcar</span> #&#39;length banner))))</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    (put-text-property</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>     (point)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>     (<span class="kw">dolist</span> (line banner (point))</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>       (insert (+doom-dashboard--center</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                +doom-dashboard--width</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>                (concat</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>                 line (<span class="kw">make-string</span> (<span class="kw">max</span> <span class="dv">0</span> (<span class="op">-</span> longest-line (<span class="kw">length</span> line)))</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                                   <span class="dv">32</span>)))</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>))</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>     &#39;face &#39;doom-dashboard-banner)))</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>(<span class="kw">setq</span> +doom-dashboard-ascii-banner-fn #&#39;doom-dashboard-draw-ascii-emacs-banner-fn)</span></code></pre></div>
+<p>A fonte padrão é itálica e deixa os acrobatas tortos, vamos resolver&nbsp;isso:</p>
+<div class="sourceCode" id="cb9" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(custom-set-faces!</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  &#39;(doom-dashboard-banner</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    :inherit font-lock-comment-face</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    :slant normal))</span></code></pre></div>
+<h1 id="minha-biblioteca-elisp">Minha biblioteca&nbsp;elisp</h1>
+<h2 id="pasta-bibioteca">Pasta-bibioteca</h2>
+<p>Com algumas bibliotecas externas, por&nbsp;exemplo.</p>
+<div class="sourceCode" id="cb10" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>(add-load-path! <span class="st">&quot;lisp/lib&quot;</span>)</span></code></pre></div>
+<h2 id="excluir-todos-os-conselhos">Excluir todos os&nbsp;conselhos</h2>
+<div class="sourceCode" id="cb11" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">defun</span><span class="fu"> advice-unadvice </span>(sym)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Remove all advices from symbol SYM.&quot;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  (interactive <span class="st">&quot;aFunction symbol: &quot;</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  (advice-mapc (<span class="kw">lambda</span> (advice _props) (advice-remove sym advice)) sym))</span></code></pre></div>
+<h2 id="conselhos-úteis"><span class="dquo">&#8220;</span>Conselhos&#8221;&nbsp;úteis</h2>
+<p>Para desabilitar as mensagens&nbsp;chatas:</p>
+<div class="sourceCode" id="cb12" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">defun</span><span class="fu"> advice--inhibit-message </span>(f &amp;<span class="kw">rest</span> r) (<span class="kw">let</span> ((inhibit-message <span class="kw">t</span>)) (<span class="kw">apply</span> f r)))</span></code></pre></div>
+<h1 id="emacs-em-geral">Emacs em&nbsp;geral</h1>
+<h2 id="edição">Edição</h2>
+<h3 id="variáveis-comuns">Variáveis&nbsp;comuns</h3>
+<div class="sourceCode" id="cb13" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>(setq-default fill-column <span class="dv">80</span>)</span></code></pre></div>
+<h3 id="salvando">Salvando</h3>
+<p>Desabilita uma mensagem que rapidamente aparece na tela e&nbsp;some.</p>
+<p>Era para resolver algo que aparece com o <code>literate</code>, mas não resolve e não sei como&nbsp;resolver.</p>
+<div class="sourceCode" id="cb14" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">;; </span><span class="al">FIXME</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>(advice-add &#39;save-buffer :around #&#39;advice--inhibit-message)</span></code></pre></div>
+<h2 id="me-organize"><span class="caps">ME</span>&nbsp;<span class="caps">ORGANIZE</span>!</h2>
+<p>Coisas que precisam ir para algum&nbsp;lugar…</p>
+<div class="sourceCode" id="cb15" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(remove-hook! &#39;(org-mode-hook text-mode-hook) #&#39;flyspell-mode)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>(<span class="kw">when</span> (display-graphic-p)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  (<span class="kw">setq</span> good-scroll-duration <span class="fl">0.08</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  (good-scroll-mode <span class="dv">1</span>))</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>(<span class="kw">setq</span> window-divider-default-bottom-width <span class="dv">2</span>  <span class="co">; default is 1</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>      window-divider-default-right-width <span class="dv">2</span>  <span class="co">; default is 1</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>      vterm-shell <span class="st">&quot;fish&quot;</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>      ispell-dictionary <span class="st">&quot;brasileiro&quot;</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>      delete-by-moving-to-trash <span class="kw">t</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>      mouse-autoselect-window <span class="kw">nil</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>      lsp-idle-delay <span class="fl">0.1</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>      company-idle-delay <span class="fl">0.1</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>      mouse-wheel-scroll-amount &#39;(<span class="dv">1</span> ((shift) . <span class="dv">1</span>)) <span class="co">;; one line at a time</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>      mouse-wheel-progressive-speed <span class="kw">nil</span> <span class="co">;; don&#39;t accelerate scrolling</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>      scroll-step <span class="dv">1</span>) <span class="co">;; keyboard scroll one line at a time</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>(pcre-mode +<span class="dv">1</span>)</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+<h2 id="linha-em-branco-no-topo">Linha em branco no&nbsp;topo</h2>
+<div class="sourceCode" id="cb16" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">setq</span> header-line-format <span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<h2 id="maximizar-a-janela">Maximizar a&nbsp;janela?</h2>
+<p>Maximizar a janela ao&nbsp;iniciar?</p>
+<div class="sourceCode" id="cb17" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">;; (add-to-list &#39;initial-frame-alist &#39;(fullscreen . maximized))</span></span></code></pre></div>
+<h1 id="configurações-de-pacotes">Configurações de&nbsp;pacotes</h1>
+<div class="sourceCode" id="cb18" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>(load! <span class="st">&quot;lisp/bindings&quot;</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>(load! <span class="st">&quot;lisp/use-packages&quot;</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co">;; &quot;Let&#39;s make this work, at any cost&quot;</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>(<span class="kw">dolist</span> (<span class="kw">type</span> &#39;(major minor))</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  (<span class="kw">let</span> ((folder (<span class="kw">format</span> <span class="st">&quot;~/.doom.d/lisp/%s/&quot;</span> <span class="kw">type</span>)))</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    (<span class="kw">dolist</span> (file (file-expand-wildcards (concat folder <span class="st">&quot;*.el&quot;</span>)))</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>      (<span class="kw">let</span> ((f (file-name-sans-extension (file-name-nondirectory file))))</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        (<span class="kw">eval</span> `(after! ,(<span class="kw">intern</span> f) (load! ,f ,folder)))))))</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span></code></pre></div>
+
+
+            <div class="page-foot">
+  Site em construção... <i class="twa twa-building-construction"></i> <br>
+  <a href="javascript:var i,s,ss=['/js/kh.js','https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'];for(i=0;i!=ss.length;i++){s=document.createElement('script');s.src=ss[i];document.body.appendChild(s);}void(0);" >
+      Katamari!  <i class="twa twa-volleyball"></i>
+  </a> <br>
+  <!-- <i class="twa twa-globe-showing-americas"></i>
+       <i class="twa twa-waving-hand"></i>
+       <i class="twa twa-rainbow-flag"></i>
+       <i class="twa twa-waving-hand-medium-skin-tone"></i>
+       <i class="twa twa-transgender-flag"></i>
+       <i class="twa twa-waving-hand-dark-skin-tone"></i>
+       <i class="twa twa-seedling"></i> -->
+</div>
+
+        </div>
+        <div id="sidebar">
+            <a href="/"><h2>interseções <i class="twa twa-cat"></i></h2></a>
+            <ul>
+                
+                <li><a href="/feed">feed</a></li>
+                
+                <li><a href="/artigos">artigos</a></li>
+                
+                <li><a href="/tags">tags</a></li>
+                
+                <li><a href="/coisas">outras coisas</a></li>
+                
+                <li><a href="/sobre">sobre</a></li>
+                
+            </ul>
+        </div>
+    </body>
+</html>
+

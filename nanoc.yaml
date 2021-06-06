@@ -1,8 +1,8 @@
-text_extensions: [ 'adoc', 'asciidoc', 'atom', 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'ms', 'mustache', 'org', 'php', 'rb', 'rdoc', 'sass', 'scss', 'slim', 'tex', 'txt', 'xhtml', 'xml' ]
+text_extensions: [ 'adoc', 'asciidoc', 'atom', 'coffee', 'css', 'erb', 'haml', 'handlebars', 'hb', 'htm', 'html', 'js', 'less', 'markdown', 'md', 'ms', 'mustache', 'org', 'php', 'rb', 'rdoc', 'sass', 'scss', 'slim', 'tex', 'txt', 'xhtml', 'xml', 'svg' ]
 
 prune:
   auto_prune: true
-  exclude: [ 'media' ]
+  # exclude: [ 'media' ]
 
 data_sources:
   - type: filesystem
@@ -14,6 +14,7 @@ name: interseções
 
 tree:
   - [feed, /feed]
-  - [escritos, /escritos]
+  - [artigos, /artigos]
+  - [tags, /tags]
   - [outras coisas, /coisas]
   - [sobre, /sobre]

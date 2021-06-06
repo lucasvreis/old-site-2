@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>interseções - Alguns contraexemplos de grupos</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/stylesheet.css">
+    <link rel="stylesheet" href="/css/latex.css">
+    <link rel="stylesheet" href="/css/citations.css">
+    <link rel="preload" href="/css/twemoji.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/code.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script type="text/javascript">
+     l1 = false
+     l2 = false
+     MathJax = {
+         tex: {
+             macros: {
+                 R: "{\\mathbb R}",
+                 Z: "{\\mathbb R}",
+                 Q: "{\\mathbb Q}",
+                 N: "{\\mathbb N}",
+             }
+         },
+         startup: {
+             ready: () => {
+                 l1 = true;
+                 if (l2) {
+                     MathJax.startup.defaultReady();
+                 };
+                 setTimeout(() => { if (!l2) { MathJax.startup.defaultReady() }}, 1000)
+             }
+         }
+     };
+
+     WebFont.load(
+         { google: { families: ['Crimson Pro:300,300italic,500,500italic', 'Patrick Hand'] },
+           active: () => { l2 = true; if (l1) { MathJax.startup.defaultReady() }; } }
+     );
+
+    </script>
+
+    <!-- MathJax -->
+    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <noscript>
+        <link rel="stylesheet" href="/css/twemoji.css">
+        <link rel="stylesheet" href="/css/code.css">
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,500&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    </noscript>
+
+    <!-- you don't need to keep this, but it's cool for stats! -->
+    <meta name="generator" content="Nanoc 4.12.2">
+
+</head>
+
+    <body>
+        <div id="main">
+            
+    <h1>Alguns contraexemplos de grupos</h1>
+    <aside>tags: grupos e representações, disciplinas</aside>
+    <aside>data: 2021-05-01</aside>
+    <p>Esse semestre estou fazendo a disciplina de grupos e representações. Como quase sempre, alguns dos teoremas levantam a óbvia pergunta &#8220;e se eu não supor isso aqui?&#8221;, e a resposta costuma ser encontrar um contraexemplo. Estarei compilando uma lista com com os contraexemplos que consegui resolver. Vamos&nbsp;lá:</p>
+<div class="theorem">
+<p>Seja <span class="math inline">\(G\)</span> um grupo. Se <span class="math inline">\(N\)</span> for normal em <span class="math inline">\(H\)</span> e <span class="math inline">\(H\)</span> for subgrupo característico de <span class="math inline">\(G\)</span>, então <span class="math inline">\(N \triangleleft G\)</span>.</p>
+</div>
+<p>E se trocamos os papéis supondo que <span class="math inline">\(N\)</span> é característico em <span class="math inline">\(H\)</span> e <span class="math inline">\(H\)</span> é normal em <span class="math inline">\(G\)</span>?</p>
+<p>Outro&nbsp;teorema:</p>
+<div class="theorem">
+<p>Se <span class="math inline">\(G\)</span> é grupo abeliano, então todo epimorfismo <span class="math inline">\(\varphi \colon G \to \Z^n\)</span> cinde e vale <span class="math inline">\(G \cong \ker\varphi \oplus \Z^n\)</span>.</p>
+</div>
+<p>Vamos ver como o teorema falha se <span class="math inline">\(G\)</span> não é&nbsp;abeliano:</p>
+<p>O primeiro contraexemplo que pensei foi em relação a <span class="math inline">\(G\)</span> não ser produto direto. A ideia era &#8220;bagunçar&#8221; um grupo abeliano e ainda ter um epimorfismo dele em <span class="math inline">\(\Z\)</span>, e pensei no grupo de simetrias de um plano <span class="math inline">\(\Z^2\)</span> em que é permitido trocar os dois eixos (mas preservando a direção deles). Concretamente, isso é um produto semidireto <span class="math inline">\(S_2\rtimes_{\phi}\Z^2\)</span>, onde <span class="math inline">\(\phi : S_2 \to \text{Aut}(\Z^2)\)</span> é dada por <span class="math inline">\(\phi(s)(z) = s(z)\)</span>, onde interpretamos a permutação <span class="math inline">\(s\)</span> como uma função que pode trocar as coordenadas da dupla <span class="math inline">\(z\)</span>.</p>
+<p>Definimos a <span class="math inline">\(\varphi : G \to \Z\)</span> como <span class="math inline">\(\varphi((s,(a,b))) = a + b\)</span>.</p>
+<p>Esse grupo quase não funcionou como contraexemplo (pelo menos da primeira forma que eu pensei), mas com ajuda de <a href="https://twitter.com/chico_melllo"><span class="citation" data-cites="franchico">@franchico</span></a> vimos que ele não pode mesmo ser um produto&nbsp;direto.</p>
+<p>O segundo, contraexemplo para a conclusão toda, veio da observação que <span class="math inline">\(\varphi : G \to \Z^n\)</span> sempre cinde se <span class="math inline">\(n=1\)</span>. Então a ideia é modificar <span class="math inline">\(\Z^2\)</span> de forma que ele não seja mais&nbsp;comutativo.</p>
+<p>Fixe três coisas <span class="math inline">\(a, b\)</span> e <span class="math inline">\(s\)</span>. Podemos escrever <span class="math inline">\(\Z^2\)</span> como o grupo abeliano livre gerado por <span class="math inline">\(a\)</span> e <span class="math inline">\(b\)</span>, i.e. <span class="math inline">\(\langle a, b \mid ab=ba \rangle\)</span>. Com isso, vamos tornar o grupo &#8220;anticomutativo&#8221; com o &#8220;sinal&#8221; sendo o elemento <span class="math inline">\(s\)</span>, assim: <span class="math display">\[ G = \langle a,b,s \mid ab = sba, \; as=sa, \; bs=sb, \; s^2 = 1 \rangle&nbsp;\]</span></p>
+<p>Como sabemos reordenar as letras e cancelar pares de <span class="math inline">\(s\)</span>, todo elemento do grupo é da forma <span class="math inline">\(s^ia^jb^k\)</span> com <span class="math inline">\(i \in \Z_2\)</span> e <span class="math inline">\(j,k \in \Z\)</span>. Então podemos associar <span class="math inline">\(G = \Z_2 \times \Z \times \Z\)</span>, de forma que a multiplicação&nbsp;é</p>
+<p><span class="math display">\[(i_1,j_1,k_1)(i_2,j_2,k_2) = (i_1 + i_2 + k_1j_2,\; j_1 + j_2,\; k_1 +&nbsp;k_2).\]</span></p>
+<p>Note que o termo <span class="math inline">\(k_1j_2\)</span> aparece porque simplificando a multiplicação <span class="math inline">\(s^{i_1}a^{j_1}b^{k_1}s^{i_2}a^{j_2}b^{k_2}\)</span>, podemos andar com o <span class="math inline">\(s\)</span> para obter <span class="math inline">\(s^{i_1 + i_2}a^{j_1}b^{k_1}a^{j_2}b^{k_2}\)</span>, e então precisamos trocar <span class="math inline">\(b^{k_1}\)</span> por <span class="math inline">\(a^{j_2}\)</span>, o que envolve <span class="math inline">\(k_1j_2\)</span> trocas de <span class="math inline">\(a\)</span> e <span class="math inline">\(b\)</span>.</p>
+<p>Definindo <span class="math inline">\(\varphi(i,j,k) = (j,k) \in \Z^2\)</span>, ela é claramente um epimorfismo. Mas <span class="math inline">\(\varphi\)</span> não cinde, pois se cindisse com <span class="math inline">\(\mu\)</span>, então&nbsp;valeria</p>
+<p><span class="math display">\[\mu(1,0)\in\{(0,1,0), (1,1,0)\}, \quad \mu(0,1)\in\{(0,0,1),&nbsp;(1,0,1)\}\]</span></p>
+<p>e é simples ver que em qualquer escolha eles não comutam (precisam comutar para ser&nbsp;homomorfismo).</p>
+<p><br />
+Mais um, sugerido por <a href="https://twitter.com/chico_melllo"><span class="citation" data-cites="franchico">@franchico</span></a>:</p>
+<div class="theorem">
+<p>Suponha que <span class="math inline">\(H \cong G\)</span> são grupos isomorfos, <span class="math inline">\(N \triangleleft G\)</span>, <span class="math inline">\(M
+\triangleleft H\)</span> e <span class="math inline">\(N \cong M\)</span>. É verdade que <span class="math inline">\(G/N \cong H/M\)</span>?</p>
+</div>
+<p>Não é difícil ver que a preposição é equivalente ao caso particular &#8221;<span class="math inline">\(M,&nbsp;N
+\triangleleft G\)</span> e <span class="math inline">\(M \cong N\)</span> implica <span class="math inline">\(G/N \cong G/M\)</span>?&#8221;.</p>
+<p>Um contraexemplo: no grupo <span class="math inline">\(S_3 \times \Z_6\)</span>, os subgrupos <span class="math inline">\(\{1\}\times\Z_3\)</span> e <span class="math inline">\(A_3\times\{1\}\)</span> são normais e isomorfos entre si, já que <span class="math inline">\(A_3\cong\Z_3\)</span>.&nbsp;Mas:</p>
+<p><span class="math display">\[(S_3\times\Z_6) / (\{1\}\times\Z_3) \cong S_3\times\Z_2,\]</span> <span class="math display">\[(S_3\times\Z_6) / (A_3\times\{1\}) \cong&nbsp;\Z_2\times\Z_6,\]</span></p>
+<p>segundo é abeliano, mas o primeiro não! Então os dois quocientes não são isomorfos.&nbsp;c.n.q.d.</p>
+<p><br />
+</p>
+<figure>
+<img src="http:cnqd.svg" style="width: 15em; padding-right: 3em;" alt="(a parte pintada se extende infinitamente, preenchendo o universo.)" /><figcaption aria-hidden="true">(a parte pintada se extende infinitamente, preenchendo o universo.)</figcaption>
+</figure>
+<p><br />
+Mais&nbsp;um:</p>
+<div class="theorem">
+<p>Suponha que <span class="math inline">\(H \leq G\)</span> e <span class="math inline">\([G : H]\)</span> é finito. O número de conjugados de <span class="math inline">\(H\)</span> é&nbsp;finito?</p>
+</div>
+
+
+            <div class="page-foot">
+  Site em construção... <i class="twa twa-building-construction"></i> <br>
+  <a href="javascript:var i,s,ss=['/js/kh.js','https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'];for(i=0;i!=ss.length;i++){s=document.createElement('script');s.src=ss[i];document.body.appendChild(s);}void(0);" >
+      Katamari!  <i class="twa twa-volleyball"></i>
+  </a> <br>
+  <!-- <i class="twa twa-globe-showing-americas"></i>
+       <i class="twa twa-waving-hand"></i>
+       <i class="twa twa-rainbow-flag"></i>
+       <i class="twa twa-waving-hand-medium-skin-tone"></i>
+       <i class="twa twa-transgender-flag"></i>
+       <i class="twa twa-waving-hand-dark-skin-tone"></i>
+       <i class="twa twa-seedling"></i> -->
+</div>
+
+        </div>
+        <div id="sidebar">
+            <a href="/"><h2>interseções <i class="twa twa-cat"></i></h2></a>
+            <ul>
+                
+                <li><a href="/feed">feed</a></li>
+                
+                <li><a href="/artigos">artigos</a></li>
+                
+                <li><a href="/tags">tags</a></li>
+                
+                <li><a href="/coisas">outras coisas</a></li>
+                
+                <li><a href="/sobre">sobre</a></li>
+                
+            </ul>
+        </div>
+    </body>
+</html>
+

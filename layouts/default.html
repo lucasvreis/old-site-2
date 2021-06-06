@@ -4,6 +4,7 @@
     <body>
         <div id="main">
             <%= yield %>
+            <%= render '/components/foot.html' %>
         </div>
         <div id="sidebar">
             <a href="/"><h2><%= @config[:name] %> <i class="twa twa-cat"></i></h2></a>

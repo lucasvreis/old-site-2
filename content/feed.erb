@@ -1,5 +1,5 @@
 ---
-title: The most awesome article!
+title: feed
 ---
 
 <h1>Blog</h1>
@@ -9,9 +9,11 @@ title: The most awesome article!
 <% sorted_articles[0, 3].each do |post| %>
     <div class="post-list">
         <h2><%= link_to post[:title], post.path %></h2>
-        <aside>Posted at: <%= post[:created_at] %></aside>
+        <aside>tags: <%= tags_for post %> ~ <%= post[:created_at].strftime("%d/%m/%Y") %></aside>
         <article>
-            <%= post.compiled_content %>
+            <% filter :fix_links, link: post.path do %>
+                <%= post.compiled_content %>
+            <% end %>
         </article>
     </div>
 <% end %>
