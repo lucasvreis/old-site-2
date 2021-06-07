@@ -19,3 +19,18 @@
   padding-left: 15px;
   font-style: italic;
 }
+.proposition {
+  border-radius: 7px;
+  border-width: 1px;
+  border-style: solid;
+  padding-right: 15px;
+  padding-left: 15px;
+  font-style: italic;
+}
+.proposition p:before {
+  content: "Proposição.";
+  padding-right: 6px;
+  font-style: normal;
+  font-weight: bold;
+  display: inline-block;
+}

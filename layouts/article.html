@@ -1,6 +1,5 @@
 <% render "/default.*" do %>
     <h1><%= @item[:title] %></h1>
-    <aside>tags: <%= tags_for @item %></aside>
-    <aside>data: <%= @item[:created_at] %></aside>
+    <aside>tags: <%= tags_for @item, base_url: '/tags/', none_text: '(nenhuma)' %> ~ postado em <%= @item[:created_at] ? @item[:created_at].strftime("%d/%m/%Y") : "sem data"  %></aside>
     <%= yield %>
 <% end %>

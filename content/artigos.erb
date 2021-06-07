@@ -8,8 +8,8 @@ title: artigos
 
 <% @items.find_all("/artigos/*.{org,md}").each do |post| %>
     <div class="post-list">
-        <h2><%= link_to post[:title], post.path %> <aside class="links">[<%= link_to "pdf", post.path[0..-2] + ".pdf" %>]</aside> </h2>
-        <aside><%= tags_for post %> ~ <%= post[:created_at] ? post[:created_at].strftime("%d/%m/%Y") : "sem data"  %></aside>
+        <h2><%= link_to post[:title], post.path %> <aside class="links"><%= link_to "[pdf]", post.path[0..-2] + ".pdf" %></aside> </h2>
+        <aside>tags: <%= tags_for post, base_url: '/tags/', none_text: '(nenhuma)' %> ~ <%= post[:created_at] ? post[:created_at].strftime("%d/%m/%Y") : "sem data"  %></aside>
         <excerpt> <%= post[:excerpt] %> </excerpt>
         <!-- <article>
              <% filter :fix_links, link: post.path do %>

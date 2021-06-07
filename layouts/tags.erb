@@ -1,0 +1,12 @@
+<% render "/default.*" do %>
+    <h2><%= @item[:tag] %></h2>
+
+    <aside>páginas com a tag "<%= @item[:tag] %>".</aside>
+    <ul>
+        <% items_with_tag(@item[:tag]).each do |i| %>
+            <li><h3><%= link_to i[:title], i %></h3>
+                <aside><%= tags_for i %> ~ <%= i[:created_at] ? i[:created_at].strftime("%d/%m/%Y") : "sem data"  %></aside>
+            </li>
+        <% end %>
+    </ul>
+<% end %>

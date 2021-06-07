@@ -1,0 +1,13 @@
+---
+title: tags
+---
+
+<h1>Etiquetas</h1>
+
+<p></p>
+
+<ul>
+    <% @config[:tags].sort_by{|s| I18n.transliterate s}.each do |tag| %>
+        <li><%= link_for_tag tag, '/tags/' %></li>
+    <% end %>
+</ul>

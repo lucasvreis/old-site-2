@@ -112,7 +112,16 @@ caixas com vários fios que entram ou saem, um para cada fator do produto:
   \node[vs,between= f-ts-1 and f-ts-2,yshift=1mm,xshift=.7mm]
   {$...$};
 \end{tikzpicture}
+#+end_export
 
+Conhecemos duas "receitas de bolo" para produzir uma transformação linear a
+partir de outras duas, $f$ e $g$: o produto tensorial $f\otimes g$, e, se $f$ e
+$g$ concordarem domínio com contradomínio, a composta $f\circ g$. Nos diagramas,
+a composição de duas funções é ilustrada como na figura abaixo. Note que se
+tivermos mais caixas empilhadas, a associatividade da composição garante que não
+precisamos nos importar com parênteses.
+
+#+begin_export latex
 \begin{tikzpicture}[disp]
     \matrix (c2) {
       \node (s)   {};
@@ -137,13 +146,6 @@ caixas com vários fios que entram ou saem, um para cada fator do produto:
     -- node[vs] {$U$} (e);
 \end{tikzpicture}
 #+end_export
-
-Conhecemos duas "receitas de bolo" para produzir uma transformação linear a
-partir de outras duas, $f$ e $g$: o produto tensorial $f\otimes g$, e, se $f$ e
-$g$ concordarem domínio com contradomínio, a composta $f\circ g$. Nos diagramas,
-a composição de duas funções é ilustrada como na figura da direita. Note que se
-tivermos mais caixas empilhadas, a associatividade da composição garante que não
-precisamos nos importar com parênteses.
 
 Representamos produtos tensoriais de funções ao colocar as suas caixas lado a
 lado:
@@ -288,6 +290,9 @@ contradomínios das funções -- é possível abordar essas noções de maneira 
 pouco mais formal a partir de transformações naturais e outros conceitos da
 teoria das categorias, mas não faremos isso aqui.
 
+Podemos representar um escalar $\lambda\in\F$ ou um vetor $v\in V$ como na
+figura abaixo:
+
 #+begin_export latex
 \begin{tikzpicture}[disp]
   \centering
@@ -301,10 +306,7 @@ teoria das categorias, mas não faremos isso aqui.
 \end{tikzpicture}
 #+end_export
 
-Podemos representar um escalar $\lambda\in\F$ ou um vetor $v\in V$ como na
-figura acima.
-
-Porque falamos de transformações antes de escalares ou vetores? A razão para
+Por que falamos de transformações antes de escalares ou vetores? A razão para
 isso é que do ponto de vista formal, as coisas ficam um pouco mais simples se
 pensarmos que escalares e vetores também são funções lineares: cada escalar
 $\lambda$ pode ser visto como a transformação $\lambda:\F\to\F$ dada por
@@ -1066,4 +1068,4 @@ diagramas de fio e algumas regras de reescrita, como pode ser visto em
  cite:zotero-92. Essa linguagem vem sendo utilizada para simplificar circuitos
 quânticos @kissinger2020, por exemplo.
 
-bibliography:content/artigos/refs.bib
+bibliography:content/artigos/org-imports/diagramas-de-tensores.bib

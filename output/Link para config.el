@@ -1,1 +1,0 @@
-/home/lucas/.doom.d/config.el

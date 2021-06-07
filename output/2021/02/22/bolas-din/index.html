@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>interseções - Bolas Dinâmicas</title>
 
     <!-- Stylesheets -->
@@ -63,11 +63,30 @@
 </head>
 
     <body>
-        <div id="main">
+        <canvas style="position:fixed; top:0; left:0; z-index:-1"></canvas>
+          <header>
+              <a href="/" class="blog-name"><h2>interseções <i class="twa twa-cat"></i></h2></a>
+              <nav>
+                  <ul>
+                      
+                      <li><a href="/feed">feed</a></li>
+                      
+                      <li><a href="/artigos">artigos</a></li>
+                      
+                      <li><a href="/tags">tags</a></li>
+                      
+                      <li><a href="/coisas">outras coisas</a></li>
+                      
+                      <li><a href="/sobre">sobre</a></li>
+                      
+                  </ul>
+                  <img src="/assets/hamburger.svg" id="menu-icon">
+              </nav>
+          </header>
+          <div id="main">
             
     <h1>Bolas Dinâmicas</h1>
-    <aside>tags: iniciação científica, sistemas dinâmicos</aside>
-    <aside>data: 2021-02-22</aside>
+    <aside>tags: <a href="/tags/iniciação científica" rel="tag">iniciação científica</a>, <a href="/tags/sistemas dinâmicos" rel="tag">sistemas dinâmicos</a> ~ postado em 22/02/2021</aside>
     <p>A parte preta nas imagens abaixo é o conjunto dos pontos que ficam a menos de <span class="math inline">\(r\)</span> de distância do ponto vermelho <span class="math inline">\(x\)</span> (ele tá bem pequeno, mas está lá) durante toda a trajetória dos primeiros <span class="math inline">\(n-1\)</span> iterados: a bola dinâmica <span class="math inline">\(B(x,n,r)\)</span>. Em outras&nbsp;palavras,</p>
 <p><span class="math display">\[B(x,n,r)=\{y : d(f^i(x),f^i(y)) &lt; r, \text{ para todo }\; i\in\{1,\dots,n-1\} \}&nbsp;\]</span></p>
 <p>Usamos essas bolas em uma das formas de definir a entropia topológica de uma dinâmica; se a dinâmica tem entropia topológica positiva, quando o <span class="math inline">\(n\)</span> aumenta precisamos de cada vez mais bolas de raio <span class="math inline">\(r\)</span> para cobrir uma parte do espaço: a dinâmica &#8220;gera informação&#8221; (a entropia) &#8220;evidenciando os detalhes&#8221; ao afastar os pontos uns dos outros, e assim as bolas dinâmicas tendem a perder pontos a cada&nbsp;iterado.</p>
@@ -96,7 +115,7 @@
 
         </div>
         <div id="sidebar">
-            <a href="/"><h2>interseções <i class="twa twa-cat"></i></h2></a>
+            <a href="/" class="blog-name"><h2>interseções <i class="twa twa-cat"></i></h2></a>
             <ul>
                 
                 <li><a href="/feed">feed</a></li>

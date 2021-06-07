@@ -1,16 +1,5 @@
 ---
-title: "Denis’ Guide to Awesomeness"
+title: "Olá"
 ---
 
-* Olá!
-
-[[aaaaaa][aaaaa]]
-
-\(e^{i\pi} = 2 \pi\iint\)
-
-\xi hm
-
- - [[./about][Bolas dinâmicas]]
- - [Deslocamentos de Markov](/blog/ic/autovalores)
-
-   /aaaa/
+Bem vindos ao site não-terminado!

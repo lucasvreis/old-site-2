@@ -2,7 +2,7 @@ text_extensions: [ 'adoc', 'asciidoc', 'atom', 'coffee', 'css', 'erb', 'haml', '
 
 prune:
   auto_prune: true
-  # exclude: [ 'media' ]
+  exclude: [ '.git' ]
 
 data_sources:
   - type: filesystem
@@ -18,3 +18,8 @@ tree:
   - [tags, /tags]
   - [outras coisas, /coisas]
   - [sobre, /sobre]
+
+deploy:
+  default:
+    kind: git
+    branch: gh-pages

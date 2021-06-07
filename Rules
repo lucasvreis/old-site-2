@@ -32,6 +32,30 @@ end
 #   layout '/default.*'
 # end
 
+require 'set'
+
+preprocess do
+  tags = Set.new
+  @items.each do |item|
+    if item[:tags]
+      item[:tags].each { |t| tags.add(t.downcase) }
+    end
+  end
+
+  tags.each do |tag|
+    @items.create(
+      "",
+      { :tag => tag },
+      "/tags/#{tag}/index.html")
+  end
+
+  @config[:tags] = tags
+end
+
+compile '/tags/**/*' do
+  layout '/tags.*'
+end
+
 compile '/media/*svg' do
   filter :scale_svgs, scale: 1.3
 end
@@ -47,10 +71,10 @@ compile '/**/*.md' do
 end
 
 compile '/**/*.org' do
-  # FIXME mudar para svgs "imersos" no html
   args = [{:from => :org,
            :to => :html5,
-           :metadata => 'lang:pt-BR'},
+           :metadata => 'lang:pt-BR',
+           :shift_heading_level_by => 1 },
           :mathjax]
 
   args += [{:lua_filter => './lib/org_bib.lua',
@@ -63,8 +87,8 @@ compile '/**/*.org' do
 
   filter :typogruby
 
-  if item.identifier =~ "/blog/*"
-    layout '/article.*'
+  if @item[:layout]
+    layout @item[:layout]
   else
     layout '/article.*'
   end

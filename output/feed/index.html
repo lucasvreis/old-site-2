@@ -2,7 +2,7 @@
 <html lang="pt-br">
     <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>interseções - feed</title>
 
     <!-- Stylesheets -->
@@ -63,15 +63,35 @@
 </head>
 
     <body>
-        <div id="main">
+        <canvas style="position:fixed; top:0; left:0; z-index:-1"></canvas>
+          <header>
+              <a href="/" class="blog-name"><h2>interseções <i class="twa twa-cat"></i></h2></a>
+              <nav>
+                  <ul>
+                      
+                      <li><a href="/feed">feed</a></li>
+                      
+                      <li><a href="/artigos">artigos</a></li>
+                      
+                      <li><a href="/tags">tags</a></li>
+                      
+                      <li><a href="/coisas">outras coisas</a></li>
+                      
+                      <li><a href="/sobre">sobre</a></li>
+                      
+                  </ul>
+                  <img src="/assets/hamburger.svg" id="menu-icon">
+              </nav>
+          </header>
+          <div id="main">
             <h1>Blog</h1>
 
-<p></p>
+<aside>Páginas mais curtas e mais frequentes.</aside>
 
 
     <div class="post-list">
         <h2><a href="/2021/05/01/contraexemplos/">Alguns contraexemplos de grupos</a></h2>
-        <aside>tags: grupos e representações, disciplinas ~ 01/05/2021</aside>
+        <aside>tags: <a href="/tags/grupos e representações" rel="tag">grupos e representações</a>, <a href="/tags/álgebra" rel="tag">álgebra</a>, <a href="/tags/disciplinas" rel="tag">disciplinas</a> ~ 01/05/2021</aside>
         <article>
             
                 <p>Esse semestre estou fazendo a disciplina de grupos e representações. Como quase sempre, alguns dos teoremas levantam a óbvia pergunta &#8220;e se eu não supor isso aqui?&#8221;, e a resposta costuma ser encontrar um contraexemplo. Estarei compilando uma lista com com os contraexemplos que consegui resolver. Vamos&nbsp;lá:</p>
@@ -119,11 +139,14 @@ Mais&nbsp;um:</p>
 
             
         </article>
+        
+            <hr>
+        
     </div>
 
     <div class="post-list">
         <h2><a href="/2021/02/22/bolas-din/">Bolas Dinâmicas</a></h2>
-        <aside>tags: iniciação científica, sistemas dinâmicos ~ 22/02/2021</aside>
+        <aside>tags: <a href="/tags/iniciação científica" rel="tag">iniciação científica</a>, <a href="/tags/sistemas dinâmicos" rel="tag">sistemas dinâmicos</a> ~ 22/02/2021</aside>
         <article>
             
                 <p>A parte preta nas imagens abaixo é o conjunto dos pontos que ficam a menos de <span class="math inline">\(r\)</span> de distância do ponto vermelho <span class="math inline">\(x\)</span> (ele tá bem pequeno, mas está lá) durante toda a trajetória dos primeiros <span class="math inline">\(n-1\)</span> iterados: a bola dinâmica <span class="math inline">\(B(x,n,r)\)</span>. Em outras&nbsp;palavras,</p>
@@ -139,9 +162,9 @@ Mais&nbsp;um:</p>
 
             
         </article>
+        
     </div>
 
-<p><a href="/archive">&larr; Archive</a></p>
 
             <div class="page-foot">
   Site em construção... <i class="twa twa-building-construction"></i> <br>
@@ -159,7 +182,7 @@ Mais&nbsp;um:</p>
 
         </div>
         <div id="sidebar">
-            <a href="/"><h2>interseções <i class="twa twa-cat"></i></h2></a>
+            <a href="/" class="blog-name"><h2>interseções <i class="twa twa-cat"></i></h2></a>
             <ul>
                 
                 <li><a href="/feed">feed</a></li>
