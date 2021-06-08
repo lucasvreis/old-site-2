@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="/css/citations.css">
     <link rel="preload" href="/css/twemoji.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="/css/code.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <script type="text/javascript" src="/js/extras.js"></script>
+    <!-- <script type="text/javascript" src="/js/paper-full.min.js"></script> -->
+    <!-- <script type="text/paperscript" src="/js/myDrawing.js" canvas="fundo"></script> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 
@@ -63,8 +66,8 @@
 </head>
 
     <body>
-        <canvas style="position:fixed; top:0; left:0; z-index:-1"></canvas>
-          <header>
+        <canvas style="position:fixed; top:0; left:0; z-index:-1" id="fundo" resize></canvas>
+        <header>
               <a href="/" class="blog-name"><h2>interseções <i class="twa twa-cat"></i></h2></a>
               <nav>
                   <ul>
@@ -88,6 +91,27 @@
 
 <aside>Páginas mais curtas e mais frequentes.</aside>
 
+
+    <div class="post-list">
+        <h2><a href="/2021/06/07/Teorema de Dini/">Teorema de Dini mais forte</a></h2>
+        <aside>tags: (nenhuma) ~ 07/06/2021</aside>
+        <article>
+            
+                <p>O teorema de Dini&nbsp;diz:</p>
+<div class="theorem">
+<p>Seja <span class="math inline">\(\{f_n\}_{n=1}^{\infty}\)</span> uma sequência monótona de funções <span class="math inline">\(f_i\colon&nbsp;K
+\to \R\)</span> contínuas, onde <span class="math inline">\(K\)</span> é compacto, que converge pontualmente para uma função <span class="math inline">\(f\)</span> contínua. Então a sequência também converge uniformemente (para <span class="math inline">\(f\)</span>).</p>
+</div>
+<p>O teorema é equivalente ao caso <span class="math inline">\(f=0\)</span>, então vamos apenas nos preocupar com esse caso. Faremos o seguinte: por compaticidade, existem sequências <span class="math inline">\(\{x_i\}_{i=1}^{\infty}\)</span> e <span class="math inline">\(\{y_i\}_{i=1}^{\infty}\)</span> tais que <span class="math inline">\(f_i(x_i)&nbsp;=
+\max f_i\)</span> e <span class="math inline">\(f_i(y_i) = \min f_i\)</span>, com respectivos pontos de acumulação <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>.</p>
+<p>O teorema agora se reduz a mostrar que <span class="math inline">\(\lim f(x_i) = \lim f(y_i) = 0\)</span>.</p>
+
+            
+        </article>
+        
+            <hr>
+        
+    </div>
 
     <div class="post-list">
         <h2><a href="/2021/05/01/contraexemplos/">Alguns contraexemplos de grupos</a></h2>
@@ -167,10 +191,12 @@ Mais&nbsp;um:</p>
 
 
             <div class="page-foot">
-  Site em construção... <i class="twa twa-building-construction"></i> <br>
-  <a href="javascript:var i,s,ss=['/js/kh.js','https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'];for(i=0;i!=ss.length;i++){s=document.createElement('script');s.src=ss[i];document.body.appendChild(s);}void(0);" >
-      Katamari!  <i class="twa twa-volleyball"></i>
-  </a> <br>
+  Site em construção... <i class="twa twa-building-construction"></i> <br><br>
+    <a href="javascript:var i,s,ss=['/js/kh.js','https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'];for(i=0;i!=ss.length;i++){s=document.createElement('script');s.src=ss[i];document.body.appendChild(s);}void(0);" >
+        Katamari!  <i class="twa twa-volleyball"></i></a>
+     ~ <a href="#void" id="extra2">
+        Boids  <i class="twa twa-bird"></i></a>
+    <br>
   <!-- <i class="twa twa-globe-showing-americas"></i>
        <i class="twa twa-waving-hand"></i>
        <i class="twa twa-rainbow-flag"></i>
