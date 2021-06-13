@@ -2,3 +2,6 @@ output/
 tmp/
 .log/
 crash.log
+Gemfile.lock
+Guardfile
+Steepfile
