@@ -1,0 +1,22 @@
+---
+title: Teorema de Dini ligeiramente mais forte
+kind: article
+draft: true
+---
+
+#+latex_header: \newcommand{\R}{\mathbb{R}}
+
+O teorema de Dini diz:
+
+#+begin_theorem
+Seja \(\{f_n\}_{n=1}^{\infty}\) uma sequência monótona de
+funções \(f_i : K\to \R\) contínuas, onde \(K\) é compacto, que converge
+pontualmente para uma função \(f\) contínua. Então a sequência também converge
+uniformemente (para \(f\)).
+#+end_theorem
+
+O enunciado é equivalente ao caso \(f=0\), então vamos apenas nos preocupar com esse caso. Faremos o seguinte: por compaticidade, existe uma sequência  \(\{x_i\}_{i=1}^{\infty}\) e \(|f_i(x_i)| = \max |f_i|\).
+
+O teorema agora fica equivalente a mostrar que \(\lim |f_i(x_i)| = 0\). Como podemos fazer isso? Por absurdo, suponha que não vale esse limite. Então (de novo, por ser compacto) existe \(\varepsilon > 0\) tal que podemos tomar uma subsequência convergente \((x_{i_k})_{k=1}^\infty\) onde \(|f_{i_k}(x_{i_k})| \geq \varepsilon\) para todo \(k\). Sendo \(x = \lim x_{i_k}\), seja \(n_0\) tal que \(f_{n_0}(x) < \varepsilon/2\) (dado pela convergência pontual). Seja também \(\delta > 0\) tal que \(|f_{n_0}(x) - f_{n_0}(y)| < \varepsilon / 2\) sempre que \(|x - y| < \delta\), assim, \(|f_{n_0}(y)| < \varepsilon\) nesse intervalo. Temos algumas possibilidades para continuar:
+
+ 1. Com a hipótese original, i.e., se a sequência for monótona, chegamos facilmente a um absurdo pois \(|f_n(y)| \leq |f_{n_0}(y)| < \varepsilon\) em todo esse intervalo aberto, o

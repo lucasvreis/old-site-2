@@ -3,6 +3,7 @@ group :nanoc do
   gem 'guard-nanoc'
 end
 gem 'adsf'
+gem 'adsf-live'
 gem 'webrick'
 gem 'nanoc', '~> 4.3'
 gem 'kramdown'

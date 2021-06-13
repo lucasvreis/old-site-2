@@ -1,1 +1,4 @@
 output/
+tmp/
+.log/
+crash.log

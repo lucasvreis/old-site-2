@@ -16,7 +16,7 @@
 # and, you'll have to watch "config/Guardfile" instead of "Guardfile"
 
 # frozen_string_literal: true
-
+notification :off
 guard 'nanoc' do
   watch('nanoc.yaml') # Change this to config.yaml if you use the old config file name
   watch('Rules')

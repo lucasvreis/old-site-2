@@ -3,7 +3,7 @@
 ignore '/**/org-imports/*'
 
 route '/blog/**/*' do
-  y,m,d,slug = /(\d+)\-(\d+)\-(\d+)\-([^\/\.]+)/
+  y,m,d,slug = /(\d+)\-(\d+)\-(\d+)[\- ]([^\/\.]+)/
                  .match(item.identifier).captures
 
   if item.identifier =~ "/blog/*.{html,org,md,erb}"
@@ -37,6 +37,13 @@ require 'set'
 preprocess do
   tags = Set.new
   @items.each do |item|
+    if item.identifier =~ "/blog/*.{html,org,md,erb}"
+      date,slug = /(\d+\-\d+\-\d+)[\- ]([^\/\.]+)/
+                     .match(item.identifier).captures
+      item[:title] ||= slug
+      item[:created_at] ||= Date.parse(date)
+    end
+
     if item[:tags]
       item[:tags].each { |t| tags.add(t.downcase) }
     end

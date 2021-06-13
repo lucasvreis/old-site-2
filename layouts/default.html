@@ -2,8 +2,8 @@
 <html lang="pt-br">
     <%= render '/components/head.html' %>
     <body>
-        <canvas style="position:fixed; top:0; left:0; z-index:-1"></canvas>
-          <header>
+        <canvas style="position:fixed; top:0; left:0; z-index:-1" id="fundo" resize></canvas>
+        <header>
               <a href="/" class="blog-name"><h2><%= @config[:name] %> <i class="twa twa-cat"></i></h2></a>
               <nav>
                   <ul>
