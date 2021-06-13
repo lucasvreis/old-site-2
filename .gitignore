@@ -1,6 +1,6 @@
-output/
-tmp/
-.log/
+output
+tmp
+.log
 crash.log
 Gemfile.lock
 Guardfile
