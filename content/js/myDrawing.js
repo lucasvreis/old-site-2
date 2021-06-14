@@ -1,6 +1,12 @@
 // Adapted from Flocking Processing example by Daniel Schiffman:
 // http://processing.org/learning/topics/flocking.html
 
+var steer = new Point()
+
+function sqlength(p) {
+    return p.x * p.x + p.y * p.y;
+}
+
 var Boid = Base.extend({
     initialize: function(position, maxSpeed, maxForce) {
         var strength = Math.random() * 0.5;
@@ -23,13 +29,15 @@ var Boid = Base.extend({
     },
 
     calculateTail: function() {
-        var pieceLength = 5;
-        var point = this.position;
+
+        // var pieceLength = 5;
+        // var point = this.position;
         var segment = this.path.firstSegment;
-        segment.point = point;
-        var vector = segment.point - segment.next.point;
-        vector.length = pieceLength;
-        segment.next.point = segment.point - vector;
+        segment.next.point = segment.point;
+        segment.point = this.position;
+        // var vector = segment.point - segment.next.point;
+        // vector.length = pieceLength;
+        // segment.next.point = segment.point - vector;
     },
 
     createItems: function() {
@@ -52,12 +60,14 @@ var Boid = Base.extend({
 
     update: function() {
         // Update velocity
-      this.vector += this.acceleration;
-      // Limit speed (vector#limit?)
-      this.vector.length = Math.min(this.maxSpeed, this.vector.length);
-      this.position += this.vector;
-      // Reset acceleration to 0 each cycle
-      this.acceleration = new Point();
+        this.vector += this.acceleration;
+        // Limit speed (vector#limit?)
+        if (sqlength(this.vector) > this.maxSpeed * this.maxSpeed) {
+            this.vector.length = this.maxSpeed;
+        }
+        this.position += this.vector;
+        // Reset acceleration to 0 each cycle
+        this.acceleration = new Point();
     },
 
     seek: function(target) {
@@ -91,32 +101,34 @@ var Boid = Base.extend({
     steer: function(target, slowdown) {
         var steer,
             desired = target - this.position;
-        var distance = desired.length;
+        var distance = sqlength(desired);
         // Two options for desired vector magnitude
         // (1 -- based on distance, 2 -- maxSpeed)
-        if (slowdown && distance < 100) {
+        if (slowdown && distance < 10000) {
             // This damping is somewhat arbitrary:
-            desired.length = this.maxSpeed * (distance / 100);
+            desired.length = this.maxSpeed * (Math.sqrt(distance) / 100);
         } else {
             desired.length = this.maxSpeed;
         }
         steer = desired - this.vector;
-        steer.length = Math.min(this.maxForce, steer.length);
+        if (this.maxForce * (this.maxForce < sqlength(steer))) {
+            steer.length = this.maxForce;
+        }
         return steer;
     },
 
     separate: function(boids) {
         var desiredSeperation = 30;
-        var steer = new Point();
+        steer.x = 0;
+        steer.y = 0;
         var count = 0;
         // For every boid in the system, check if it's too close
         for (var i = 0, l = boids.length; i < l; i++) {
-            var other = boids[i];
-            var vector = this.position - other.position;
-            var distance = vector.length;
-            if (distance > 0 && distance < desiredSeperation) {
+            var vector = this.position - boids[i].position;
+            var distance = sqlength(vector);
+            if (distance > 0 && distance < desiredSeperation * desiredSeperation) {
                 // Calculate vector pointing away from neighbor
-                steer += vector.normalize(1 / distance);
+                steer += vector.normalize(1 / Math.sqrt(distance));
                 count++;
             }
         }
@@ -127,7 +139,9 @@ var Boid = Base.extend({
             // Implement Reynolds: Steering = Desired - Velocity
             steer.length = this.maxSpeed;
             steer -= this.vector;
-            steer.length = Math.min(steer.length, this.maxForce);
+            if (this.maxForce * (this.maxForce < sqlength(steer))) {
+                steer.length = this.maxForce;
+            }
         }
         return steer;
     },
@@ -136,12 +150,13 @@ var Boid = Base.extend({
     // For every nearby boid in the system, calculate the average velocity
     align: function(boids) {
         var neighborDist = 25;
-        var steer = new Point();
+        steer.x = 0;
+        steer.y = 0;
         var count = 0;
         for (var i = 0, l = boids.length; i < l; i++) {
             var other = boids[i];
-            var distance = this.position.getDistance(other.position);
-            if (distance > 0 && distance < neighborDist) {
+            var distance = this.position.getDistance(other.position, true);
+            if (distance > 0 && distance < neighborDist * neighborDist) {
                 steer += other.vector;
                 count++;
             }
@@ -153,7 +168,9 @@ var Boid = Base.extend({
             // Implement Reynolds: Steering = Desired - Velocity
             steer.length = this.maxSpeed;
             steer -= this.vector;
-            steer.length = Math.min(steer.length, this.maxForce);
+            if (this.maxForce * (this.maxForce < sqlength(steer))) {
+                steer.length = this.maxForce;
+            }
         }
         return steer;
     },
@@ -163,34 +180,36 @@ var Boid = Base.extend({
     // calculate steering vector towards that location
     cohesion: function(boids) {
         var neighborDist = 100;
-        var sum = new Point();
+        steer.x = 0;
+        steer.y = 0;
         var count = 0;
         for (var i = 0, l = boids.length; i < l; i++) {
             var other = boids[i];
-            var distance = this.position.getDistance(other.position);
-            if (distance > 0 && distance < neighborDist) {
-                sum += other.position; // Add location
+            var distance = this.position.getDistance(other.position, true);
+            if (distance > 0 && distance < neighborDist * neighborDist) {
+                steer += other.position; // Add location
                 count++;
             }
         }
         if (count > 0) {
-            sum /= count;
+            steer /= count;
             // Steer towards the location
-            return this.steer(sum, false);
+            return this.steer(steer, false);
         }
-        return sum;
+        return steer;
     }
 });
 
 var boids = [];
 
 // Add the boids:
-for (var i = 0; i < 70; i++) {
+for (var i = 0; i < 500; i++) {
   var position = Point.random() * view.size;
   boids.push(new Boid(position, 6, 0.01));
 }
 
 enabled = true;
+
 
 function onFrame(event) {
     if (enabled) {
