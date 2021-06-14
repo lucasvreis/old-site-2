@@ -105,3 +105,7 @@ compile '/**/*' do
 end
 
 layout '/**/*', :erb
+
+postprocess do
+  system("cp -r ./content/media ./output")
+end
