@@ -2,12 +2,12 @@
 # It will NOT be updated and reflects only the
 # installation profile at installation time.
 selected_scheme scheme-custom
-TEXDIR $HOME/texlive
+TEXDIR /home/runner/texlive
 TEXMFCONFIG $TEXMFSYSCONFIG
 TEXMFHOME $TEXMFLOCAL
-TEXMFLOCAL $HOME/texlive/texmf-local
-TEXMFSYSCONFIG $HOME/texlive/texmf-config
-TEXMFSYSVAR $HOME/texlive/texmf-var
+TEXMFLOCAL /home/runner/texlive/texmf-local
+TEXMFSYSCONFIG /home/runner/texlive/texmf-config
+TEXMFSYSVAR /home/runner/texlive/texmf-var
 TEXMFVAR $TEXMFSYSVAR
 binary_x86_64-linux 1
 collection-basic 1
