@@ -28,7 +28,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ~/texlive
-        key: texlive
+        key: texlive2
     
     - name: Install texlive
       if: steps.cache-tl.outputs.cache-hit != 'true'
