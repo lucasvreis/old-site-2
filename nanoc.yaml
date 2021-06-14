@@ -16,6 +16,7 @@ tree:
   - [feed, /feed]
   - [artigos, /artigos]
   - [tags, /tags]
+  - [eu recomendo, /favoritos]
   - [outras coisas, /coisas]
   - [sobre, /sobre]
 

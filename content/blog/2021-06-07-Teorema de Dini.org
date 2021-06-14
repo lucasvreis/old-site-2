@@ -1,6 +1,6 @@
 ---
 title: Teorema de Dini ligeiramente mais forte
-kind: article
+# kind: article
 draft: true
 ---
 
