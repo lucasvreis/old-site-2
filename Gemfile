@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
+gem 'nanoc', '~> 4.3'
 group :nanoc do
   gem 'guard-nanoc'
 end
 gem 'adsf'
 gem 'adsf-live'
 gem 'webrick'
-gem 'nanoc', '~> 4.3'
 gem 'kramdown'
 gem 'steep'
 gem 'pandoc-ruby'
