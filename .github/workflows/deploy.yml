@@ -27,12 +27,10 @@ jobs:
       run: |
         curl -sLO https://github.com/jgm/pandoc/releases/download/2.14.0.2/pandoc-2.14.0.2-1-amd64.deb
         sudo dpkg -i pandoc-2.14.0.2-1-amd64.deb
-        sudo apt-get install pdf2svg
+        sudo apt-get install pdf2svg texlive-full
         
     - name: Build
-      uses: xu-cheng/texlive-action/full@v1
-      with:
-       run: bundle exec nanoc
+      run: bundle exec nanoc
     
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@4.1.4
