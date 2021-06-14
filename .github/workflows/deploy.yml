@@ -28,7 +28,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ~/texlive
-        key: texlive2
+        key: texlive3
     
     - name: Install texlive
       if: steps.cache-tl.outputs.cache-hit != 'true'
@@ -37,7 +37,7 @@ jobs:
         mkdir install-tl
         tar -xf install-tl-unx.tar.gz --directory=install-tl --strip-components=1
         cd install-tl
-        ./install-tl -profile texlive.profile
+        ./install-tl -profile "$GITHUB_WORKSPACE/texlive.profile"
     
     - name: Add texlive to PATH
       run: echo "$HOME/texlive/bin" >> $GITHUB_PATH
