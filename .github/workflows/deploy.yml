@@ -28,7 +28,7 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ~/texlive
-        key: texlive3
+        key: texlive4
     
     - name: Install texlive
       if: steps.cache-tl.outputs.cache-hit != 'true'
@@ -40,7 +40,7 @@ jobs:
         ./install-tl -profile "$GITHUB_WORKSPACE/texlive.profile"
     
     - name: Add texlive to PATH
-      run: echo "$HOME/texlive/bin" >> $GITHUB_PATH
+      run: echo "$HOME/texlive/bin/x86_64-linux" >> $GITHUB_PATH
       
     - name: Install pandoc and pdf2svg
       run: |
