@@ -3,7 +3,7 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>interseções - Teorema de Dini mais forte</title>
+    <title>interseções - Teorema de Dini ligeiramente mais forte</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/css/stylesheet.css">
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/css/citations.css">
     <link rel="preload" href="/css/twemoji.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="/css/code.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <script type="text/javascript" src="/js/extras.js"></script>
+    <script type="text/javascript" src="/js/extras.js" defer></script>
     <!-- <script type="text/javascript" src="/js/paper-full.min.js"></script> -->
     <!-- <script type="text/paperscript" src="/js/myDrawing.js" canvas="fundo"></script> -->
 
@@ -88,15 +88,17 @@
           </header>
           <div id="main">
             
-    <h1>Teorema de Dini mais forte</h1>
+    <h1>Teorema de Dini ligeiramente mais forte</h1>
     <aside>tags: (nenhuma) ~ postado em 07/06/2021</aside>
     <p>O teorema de Dini&nbsp;diz:</p>
 <div class="theorem">
-<p>Seja <span class="math inline">\(\{f_n\}_{n=1}^{\infty}\)</span> uma sequência monótona de funções <span class="math inline">\(f_i\colon&nbsp;K
-\to \R\)</span> contínuas, onde <span class="math inline">\(K\)</span> é compacto, que converge pontualmente para uma função <span class="math inline">\(f\)</span> contínua. Então a sequência também converge uniformemente (para <span class="math inline">\(f\)</span>).</p>
+<p>Seja <span class="math inline">\(\{f_n\}_{n=1}^{\infty}\)</span> uma sequência monótona de funções <span class="math inline">\(f_i : K\to \R\)</span> contínuas, onde <span class="math inline">\(K\)</span> é compacto, que converge pontualmente para uma função <span class="math inline">\(f\)</span> contínua. Então a sequência também converge uniformemente (para <span class="math inline">\(f\)</span>).</p>
 </div>
-<p>O teorema é equivalente ao caso <span class="math inline">\(f=0\)</span>, então vamos apenas nos preocupar com esse caso. Faremos o seguinte: por compaticidade, existe uma sequência <span class="math inline">\(\{x_i\}_{i=1}^{\infty}\)</span> e <span class="math inline">\(|f_i(x_i)| = \max |f_i|\)</span>, que tem um ponto de acumulação <span class="math inline">\(x\)</span>.</p>
-<p>O teorema agora se reduz a mostrar que <span class="math inline">\(\lim f(x_i) = 0\)</span>.</p>
+<p>O enunciado é equivalente ao caso <span class="math inline">\(f=0\)</span>, então vamos apenas nos preocupar com esse caso. Faremos o seguinte: por compaticidade, existe uma sequência <span class="math inline">\(\{x_i\}_{i=1}^{\infty}\)</span> e <span class="math inline">\(|f_i(x_i)| = \max |f_i|\)</span>.</p>
+<p>O teorema agora fica equivalente a mostrar que <span class="math inline">\(\lim |f_i(x_i)| = 0\)</span>. Como podemos fazer isso? Por absurdo, suponha que não vale esse limite. Então (de novo, por ser compacto) existe <span class="math inline">\(\varepsilon &gt; 0\)</span> tal que podemos tomar uma subsequência convergente <span class="math inline">\((x_{i_k})_{k=1}^\infty\)</span> onde <span class="math inline">\(|f_{i_k}(x_{i_k})| \geq \varepsilon\)</span> para todo <span class="math inline">\(k\)</span>. Sendo <span class="math inline">\(x = \lim x_{i_k}\)</span>, seja <span class="math inline">\(n_0\)</span> tal que <span class="math inline">\(f_{n_0}(x) &lt; \varepsilon/2\)</span> (dado pela convergência pontual). Seja também <span class="math inline">\(\delta &gt; 0\)</span> tal que <span class="math inline">\(|f_{n_0}(x) - f_{n_0}(y)| &lt; \varepsilon / 2\)</span> sempre que <span class="math inline">\(|x - y| &lt; \delta\)</span>, assim, <span class="math inline">\(|f_{n_0}(y)| &lt; \varepsilon\)</span> nesse intervalo. Temos algumas possibilidades para&nbsp;continuar:</p>
+<ol>
+<li>Com a hipótese original, i.e., se a sequência for monótona, chegamos facilmente a um absurdo pois <span class="math inline">\(|f_n(y)| \leq |f_{n_0}(y)| &lt; \varepsilon\)</span> em todo esse intervalo aberto,&nbsp;o</li>
+</ol>
 
 
             <div class="page-foot">
@@ -106,13 +108,6 @@
      ~ <a href="#void" id="extra2">
         Boids  <i class="twa twa-bird"></i></a>
     <br>
-  <!-- <i class="twa twa-globe-showing-americas"></i>
-       <i class="twa twa-waving-hand"></i>
-       <i class="twa twa-rainbow-flag"></i>
-       <i class="twa twa-waving-hand-medium-skin-tone"></i>
-       <i class="twa twa-transgender-flag"></i>
-       <i class="twa twa-waving-hand-dark-skin-tone"></i>
-       <i class="twa twa-seedling"></i> -->
 </div>
 
         </div>

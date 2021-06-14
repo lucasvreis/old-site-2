@@ -1,63 +1,67 @@
 // Adapted from Flocking Processing example by Daniel Schiffman:
 // http://processing.org/learning/topics/flocking.html
 
+var steer = new Point()
+
+
 var Boid = Base.extend({
     initialize: function(position, maxSpeed, maxForce) {
         var strength = Math.random() * 0.5;
         this.acceleration = new Point();
         this.vector = Point.random() * 2 - 1;
-        this.position = position.clone();
+        this.position = position;
         this.radius = 30;
         this.maxSpeed = maxSpeed + strength;
         this.maxForce = maxForce + strength;
-        this.count = 0;
         this.createItems();
     },
 
-    run: function(boids) {
-      this.lastLoc = this.position.clone();
-      this.flock(boids);
-      this.borders();
-      this.update();
-      this.calculateTail();
+    run: function(boids, temp) {
+        this.flock(boids, temp);
+        this.borders();
+        this.update();
+        this.calculateTail();
     },
 
     calculateTail: function() {
-        var pieceLength = 5;
-        var point = this.position;
+
+        // var point = this.position;
         var segment = this.path.firstSegment;
-        segment.point = point;
-        var vector = segment.point - segment.next.point;
-        vector.length = pieceLength;
-        segment.next.point = segment.point - vector;
+        segment.next.point = segment.point;
+        segment.point = this.position;
+        // var vector = segment.point - segment.next.point;
+        // vector.length = 5;
+        // segment.next.point = segment.point - vector;
     },
 
     createItems: function() {
         this.path = new Path({
-          strokeColor: Color.random(),
-          strokeWidth: 2,
-          strokeCap: 'round'
+            strokeColor: Color.random(),
+            strokeWidth: 2,
+            strokeCap: 'round'
         });
-      for (var i = 0; i < 2; i++)
-          this.path.add(new Point());
+        for (var i = 0; i < 2; i++)
+            this.path.add(new Point(this.position));
     },
 
     // We accumulate a new acceleration each time based on three rules
-    flock: function(boids) {
-      var separation = this.separate(boids) * 2;
-      var alignment = this.align(boids);
-      var cohesion = this.cohesion(boids);
-      this.acceleration += separation + alignment + cohesion;
+    flock: function(boids, temp) {
+        var separation = this.separate(boids, temp) * 1.5;
+        var alignment = this.align(boids, temp) * 1.5;
+        var cohesion = this.cohesion(boids, temp);
+        this.acceleration += separation + alignment + cohesion;
     },
 
     update: function() {
         // Update velocity
-      this.vector += this.acceleration;
-      // Limit speed (vector#limit?)
-      this.vector.length = Math.min(this.maxSpeed, this.vector.length);
-      this.position += this.vector;
-      // Reset acceleration to 0 each cycle
-      this.acceleration = new Point();
+        this.vector += this.acceleration;
+        // Limit speed (vector#limit?)
+        if (this.vector.length > this.maxSpeed) {
+            this.vector.length = this.maxSpeed;
+        }
+        this.position += this.vector;
+        // Reset acceleration to 0 each cycle
+        this.acceleration = new Point();
     },
 
     seek: function(target) {
@@ -101,19 +105,23 @@ var Boid = Base.extend({
             desired.length = this.maxSpeed;
         }
         steer = desired - this.vector;
-        steer.length = Math.min(this.maxForce, steer.length);
+        if (this.maxForce < steer.length) {
+            steer.length = this.maxForce;
+        }
         return steer;
     },
 
-    separate: function(boids) {
+    separate: function(boids, temp) {
         var desiredSeperation = 30;
-        var steer = new Point();
+        steer.x = 0;
+        steer.y = 0;
         var count = 0;
         // For every boid in the system, check if it's too close
-        for (var i = 0, l = boids.length; i < l; i++) {
-            var other = boids[i];
-            var vector = this.position - other.position;
+        for (var i = 0; i < N; i++) {
+            // var vector = new Point();
+            var vector = this.position - boids[i].position;
             var distance = vector.length;
+            temp[i] = distance;
             if (distance > 0 && distance < desiredSeperation) {
                 // Calculate vector pointing away from neighbor
                 steer += vector.normalize(1 / distance);
@@ -127,22 +135,24 @@ var Boid = Base.extend({
             // Implement Reynolds: Steering = Desired - Velocity
             steer.length = this.maxSpeed;
             steer -= this.vector;
-            steer.length = Math.min(steer.length, this.maxForce);
+            if (this.maxForce < steer.length) {
+                steer.length = this.maxForce;
+            }
         }
         return steer;
     },
 
     // Alignment
     // For every nearby boid in the system, calculate the average velocity
-    align: function(boids) {
+    align: function(boids, temp) {
         var neighborDist = 25;
-        var steer = new Point();
+        steer.x = 0;
+        steer.y = 0;
         var count = 0;
-        for (var i = 0, l = boids.length; i < l; i++) {
-            var other = boids[i];
-            var distance = this.position.getDistance(other.position);
+        for (var i = 0, l = N; i < l; i++) {
+            var distance = temp[i];
             if (distance > 0 && distance < neighborDist) {
-                steer += other.vector;
+                steer += boids[i].vector;
                 count++;
             }
         }
@@ -153,7 +163,9 @@ var Boid = Base.extend({
             // Implement Reynolds: Steering = Desired - Velocity
             steer.length = this.maxSpeed;
             steer -= this.vector;
-            steer.length = Math.min(steer.length, this.maxForce);
+            if (this.maxForce < steer.length) {
+                steer.length = this.maxForce;
+            }
         }
         return steer;
     },
@@ -161,41 +173,44 @@ var Boid = Base.extend({
     // Cohesion
     // For the average location (i.e. center) of all nearby boids,
     // calculate steering vector towards that location
-    cohesion: function(boids) {
+    cohesion: function(boids, temp) {
         var neighborDist = 100;
-        var sum = new Point();
+        steer.x = 0;
+        steer.y = 0;
         var count = 0;
-        for (var i = 0, l = boids.length; i < l; i++) {
-            var other = boids[i];
-            var distance = this.position.getDistance(other.position);
+        for (var i = 0, l = N; i < l; i++) {
+            var distance = temp[i];
             if (distance > 0 && distance < neighborDist) {
-                sum += other.position; // Add location
+                steer += boids[i].position; // Add location
                 count++;
             }
         }
         if (count > 0) {
-            sum /= count;
+            steer /= count;
             // Steer towards the location
-            return this.steer(sum, false);
+            return this.steer(steer, false);
         }
-        return sum;
+        return steer;
     }
 });
 
-var boids = [];
+var N = 100;
+var boids = Array(N);
+var temp = new Float32Array(N);
 
 // Add the boids:
-for (var i = 0; i < 70; i++) {
+for (var i = 0; i < N; i++) {
   var position = Point.random() * view.size;
-  boids.push(new Boid(position, 6, 0.01));
+  boids[i] = new Boid(position, 6, 0.01);
 }
 
 enabled = true;
 
+
 function onFrame(event) {
     if (enabled) {
-        for (var i = 0, l = boids.length; i < l; i++) {
-            boids[i].run(boids);
+        for (var i = 0, l = N; i < l; i++) {
+            boids[i].run(boids,temp);
         }
     }
 }
