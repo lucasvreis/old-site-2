@@ -17,11 +17,12 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2.3.1
         
-    - name: Set up Ruby
+    - name: Setup Ruby and Pandoc
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.0'
         bundler-cache: true
+      run: sudo apt-get install pandoc
         
     - name: Build
       run: bundle exec nanoc
