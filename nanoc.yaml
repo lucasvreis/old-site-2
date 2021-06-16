@@ -7,10 +7,14 @@ prune:
 data_sources:
   - type: filesystem
     encoding: utf-8
+  - type: comment_data
+    items_root: /data/comments
 
 feed_url: "/blog/"
 
-name: interseções
+base_url: "https://lucasvreis.github.io"
+
+name: abobringela
 
 tree:
   - [feed, /feed]

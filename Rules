@@ -23,6 +23,14 @@ route '/**/*.{html,org,md,erb}' do
   item.identifier.without_ext + '/index.html'
 end
 
+route '/assets/**/*' do
+  '/' + /[^\/]*$/.match(item.identifier).to_s
+end
+
+route '/data/**/*' do
+  nil
+end
+
 route '/**/*' do
   item.identifier.to_s
 end
@@ -63,7 +71,7 @@ compile '/tags/**/*' do
   layout '/tags.*'
 end
 
-compile '/media/*svg' do
+compile '/media/*.svg' do
   filter :scale_svgs, scale: 1.3
 end
 
@@ -97,12 +105,18 @@ compile '/**/*.org' do
   if @item[:layout]
     layout @item[:layout]
   else
-    layout '/article.*'
+    layout '/artigo.*'
   end
+end
+
+compile '/data/comments/**/*' do
+  filter :kramdown
 end
 
 compile '/**/*' do
 end
+
+layout '/**/*.slim', :slim
 
 layout '/**/*', :erb
 
