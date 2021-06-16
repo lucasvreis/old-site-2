@@ -1,5 +1,6 @@
 ---
 title: "Olá"
+uuid: principal
 ---
 
 Bem vindos ao site não-terminado!
