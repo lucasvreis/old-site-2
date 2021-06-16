@@ -8,7 +8,7 @@ comments:
   # Names of the fields the form is allowed to submit. If a field that is
   # not here is part of the request, an error will be thrown.
   allowedFields: ["name", "email", "url", "message"]
-  # allowedOrigins: ["localhost", "lucasvreis.github.io"]
+  allowedOrigins: ["localhost", "lucasvreis.github.io"]
 
   # (*) REQUIRED
   #
@@ -23,7 +23,7 @@ comments:
   # (*) REQUIRED
   #
   # Destination path (filename) for the data files. Accepts placeholders.
-  filename: "entry{@timestamp}"
+  filename: "{@date:YYYY-MM-DD-h:mm:ss}-{@id}"
 
   # The format of the generated data files. Accepted values are "json", "yaml"
   # or "frontmatter"
@@ -37,7 +37,7 @@ comments:
     date:
       type: date
       options:
-        format: "timestamp-seconds"
+        format: "iso8601"
 
   # Whether entries need to be appproved before they are published to the main
   # branch. If set to `true`, a pull request will be created for your approval.
@@ -67,7 +67,7 @@ comments:
   # (*) REQUIRED
   #
   # Destination path (directory) for the data files. Accepts placeholders.
-  path: "_data/comments/{options.slug}"
+  path: "data/comments/{options.slug}"
 
   # Names of required fields. If any of these isn't in the request or is empty,
   # an error will be thrown.
@@ -80,3 +80,10 @@ comments:
 
   githubAuth.clientId: "nzU61y9nK2Lj3HEbP9E6l07xzL+WI9OLPs2NAMRjEdFoM1CvyeT0i9RpVof9Wnr0GPrygzYuEot+9pBqwC1WeptzytLa9VYqZOM3D76fWl7Qb6P98psZVAUeVjIy8Ym5ro+MkXPbV6OJY9/K7k4mS02Cyo3CyGwdhQjwZpSV6ZRsoMPOwn8MSAePE4Gw9pz9nLK7ZmiWLsht0tSBU3q9sBGrT4re17VI51FVHJMhnav9Ggx7V1GAeT0jziPSHkEYwAsJDpq/yjHq8Co4kJ1Eof0dMmCpfE7BAy/GbF8A0uLQPRxYT5QjDJMeHXqeTYas6a1nQuoQdwcB8ptw+i/SEw=="
   githubAuth.clientSecret: "KWwSABMUf2MwqQODgsFCMDb1fHbgR4/BIExRa6rBjmzyXWPvGxRpsJ51cxoR1mcQFMWhCaMXzoM4usX1sPDk00dEvWgEp2jURWvafp59sMyolL98XGYmmYXTaS19rk6Tn4AxPTbQoqBbnUNhkM907erHl6ZwndSLu9taCohuaxwwsgSKqlomW7SaqHvb2h1uFSdsszBnQn4NAD0Huaky9nfrmDnkmaeeBfh8Mq0Ip3RcMT/g0NMXwV82eAxqZFW94pbrs8cjerSGJu3AbwvBR+dLPSu7B0/O2Hjr9+/bPPf9PoEKl8p0qjnA94CF6VvATJY6TBhYIm5O4AgcUxN4eg=="
+
+  akismet:
+    enabled: true
+    author: "name"
+    authorEmail: "email"
+    authorUrl: "website"
+    content: "message"
