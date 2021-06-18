@@ -9,11 +9,16 @@ message: |-
   Assim, não deve ficar esculhambado não.
 
   #Título
-  Viu só? Markdown \(1+\int x\).
+  Viu só? Markdown \\(1+\int x\\).
 
   ```python
   print("Oi gente")
   ```
+  http://google.com
+
+  **aaa** _bb_ ~~ccc~~
+
+  <p> Eu sou perigoso!!! </p>
 
   ##Subtítulo
   Espere só para ver como é.

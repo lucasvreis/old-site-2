@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", function(){
     e.preventDefault();
     var s;
     s = document.createElement('script');
-    s.src = '/js/paper-full.min.js';
+    s.src = '/paper-full.min.js';
     document.head.appendChild(s);
     s = document.createElement('script');
-    s.src = '/js/myDrawing.js';
+    s.src = '/myDrawing.js';
     s['type'] = 'text/paperscript';
     s.setAttribute('canvas', 'fundo');
     document.head.appendChild(s);

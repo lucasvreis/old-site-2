@@ -4,14 +4,13 @@
     <title><%= config[:name] %> - <%= @item[:title] %></title>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/stylesheet.css">
-    <link rel="stylesheet" href="/latex.css">
-    <link rel="stylesheet" href="/citations.css">
+    <link rel="stylesheet" href="/stylesheet.css" type="text/css" />
+    <link rel="stylesheet" href="/latex.css" type="text/css" />
+    <link rel="stylesheet" href="/comments.css" type="text/css" />
+    <link rel="stylesheet" href="/citations.css" type="text/css" />
     <link rel="preload" href="/twemoji.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="/code.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <script type="text/javascript" src="/extras.js" defer></script>
-    <!-- <script type="text/javascript" src="/js/paper-full.min.js"></script> -->
-    <!-- <script type="text/paperscript" src="/js/myDrawing.js" canvas="fundo"></script> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 
@@ -47,8 +46,7 @@
 
     </script>
 
-    <!-- MathJax -->
-    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <%= render "/components/scripts.slim" %>
 
     <noscript>
         <link rel="stylesheet" href="/twemoji.css">

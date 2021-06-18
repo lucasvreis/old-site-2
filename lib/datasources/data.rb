@@ -16,8 +16,9 @@ class CommentsDataSource < Nanoc::DataSource
                       parsed["message"],
                       { name: parsed["name"],
                         email: parsed["email"],
-                        time: parsed["date"],
+                        time: Date.parse(parsed["date"]),
                         id: parsed["_id"],
+                        no: i,
                         replying_to: parsed["replying_to"]
                       },
                       '/' + uuid + '/' + i.to_s

@@ -8,28 +8,4 @@
 
   == yield
 
-  form id="comment-form" method="POST" action="https://lucastatic.herokuapp.com/v3/entry/github/lucasvreis/lucasvreis.github.io/main/comments"
-    input[name="options[redirect]" type="hidden" value=""]
-    input[name="options[slug]" type="hidden" value="#{@item[:uuid] || slug}"]
-    label
-      | Escreva o nome desse blog (verificação anti-spam)
-      br
-      input[name="nome do blog" required pattern="^[a][b][o][b]ringe[l]a$"]
-    br
-    label
-      | Nome:
-      input name="fields[name]" type="text"
-    br
-    label
-      | E-mail:
-      input name="fields[email]" type="email"
-    br
-    label
-      | Mensagem:
-      textarea name="fields[message]"
-    br
-    button[type="submit"] Enviar
-
-  script src="commentForm.js"
-
   == render "/components/comments.*"

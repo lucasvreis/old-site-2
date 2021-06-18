@@ -14,7 +14,7 @@ feed_url: "/blog/"
 
 base_url: "https://lucasvreis.github.io"
 
-name: abobringela
+name: interseções
 
 tree:
   - [feed, /feed]

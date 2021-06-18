@@ -38,10 +38,6 @@ img {
   width: 60%;
 }
 
-.tikzfig {
-  width: unset;
-}
-
 figcaption {
   text-align: center;
 }
@@ -137,12 +133,12 @@ header {
 }
 
 #main h1 {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: normal;
 
-  line-height: 40px;
+  /* line-height: 40px; */
 
-  letter-spacing: -1px;
+  letter-spacing: -0.2px;
 }
 
 #main h2 {
@@ -231,9 +227,7 @@ header {
 }
 
 aside {
-  margin-top: -5px;
   font-size: 90%;
-  padding-top: 0.5em;
   color: #777;
 }
 
@@ -302,9 +296,10 @@ aside.links {
   display: inline;
   font-size: 14px;
 }
-aside a:link, aside a:visited {
-  color: #777;
-}
+
+/* aside a:link, aside a:visited { */
+  /* color: #777; */
+/* } */
 
 /* Scale canvas with resize attribute to full size */
 canvas[resize] {

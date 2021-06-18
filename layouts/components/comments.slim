@@ -1,3 +1,49 @@
-  - for comment in get_comments
-    hr
+hr.end
+
+h2.comments Comentários e respostas
+
+- for comment in get_comments
+  .comment
+    .header
+      svg data-jdenticon-value="comment[:name]"
+      .info
+        title = comment[:name]
+        aside = comment[:time].strftime('%a %d %b %Y')
     == comment.compiled_content
+    .end
+      aside
+        a href="" Responder
+        a href="" Editar
+
+form id="comment-form" method="POST" action="https://lucastatic.herokuapp.com/v3/entry/github/lucasvreis/lucasvreis.github.io/main/comments"
+  input[name="options[redirect]" type="hidden" value=""]
+  input[name="options[slug]" type="hidden" value="#{@item[:uuid] || slug}"]
+  label#haha
+    | Armadilha para robôs spammers, não escreva nada aqui!
+    input type="text" name="fields[password]" tabindex="banana" autocomplete="off"
+  br
+  label
+    | Nome:
+    input name="fields[name]" type="text" maxlength="30"
+  br
+  label
+    | Mensagem:
+    textarea name="fields[message]" maxlength="10000"
+  markdown:
+    Os dois campos abaixo **são opcionais** e possuem dois propósitos: _garantir a
+    unicidade_ do seu ícone (assim ninguém pode se passar por você) e permitir que
+    você _edite_ ou _apague_ o seu comentário.
+  p Deixe em branco caso não queira utilizá-los. Não é necessário "criar nova conta",
+    apenas escreva campos novos ou reutilize anteriores.
+  label
+    | Usuário.
+    input name="fields[email]" type="email" maxlength="100"
+  br
+  label
+    | Senha:
+    input name="fields[key]" type="password" maxlength="30"
+  br
+  br
+  button[type="submit"] Enviar
+
+script src="commentForm.js"

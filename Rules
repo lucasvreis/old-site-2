@@ -23,6 +23,10 @@ route '/**/*.{html,org,md,erb}' do
   item.identifier.without_ext + '/index.html'
 end
 
+route '/assets/css/**/*.less' do
+  '/' + /[^\/]*$/.match(item.identifier.without_ext).to_s + '.css'
+end
+
 route '/assets/**/*' do
   '/' + /[^\/]*$/.match(item.identifier).to_s
 end
@@ -81,7 +85,7 @@ compile '/*.erb' do
 end
 
 compile '/**/*.md' do
-  filter :kramdown
+  filter :redcarpet
   layout '/default.*'
 end
 
@@ -110,7 +114,13 @@ compile '/**/*.org' do
 end
 
 compile '/data/comments/**/*' do
-  filter :kramdown
+  filter :redcarpet,
+         options: { fenced_code_blocks: true, autolink: true },
+         renderer_options: { no_images: true, escape_html: true, safe_links_only: true }
+end
+
+compile '/**/*.less' do
+  filter :less
 end
 
 compile '/**/*' do
