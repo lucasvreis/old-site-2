@@ -1,6 +1,7 @@
-_id: 9f7f3e70-ce3f-11eb-9be3-9b594af30337
+_id: 74b75796-e0b0-48f8-a96d-470f7ed643fd
 name: Lucas
 user: 89c3d5d02de80d45fd903bfe69b9dc11
+ref: 9f7f3e70-ce3f-11eb-9be3-9b594af30337
 message: |-
    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse blandit
    metus dolor, eget maximus nulla finibus sit amet. Aliquam consectetur eu nibh
@@ -12,9 +13,7 @@ message: |-
    sagittis arcu sed tortor tempor auctor. Nam ac magna vel neque rutrum luctus.
 
    ```python
-   print("abracadabra")
-   for i in list:
-      fun()
+   print("Oi gente")
    ```
    http://google.com
 

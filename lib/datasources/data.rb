@@ -15,7 +15,7 @@ class CommentsDataSource < Nanoc::DataSource
         list.append new_item(
                       parsed["message"],
                       { name: parsed["name"],
-                        email: parsed["email"],
+                        ref: parsed["ref"],
                         time: Date.parse(parsed["date"]),
                         id: parsed["_id"],
                         no: i,

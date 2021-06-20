@@ -9,8 +9,6 @@ h2.comments {
 
 #haha {
     position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
     height: 0 !important;
     width: 0 !important;
     z-index: -1 !important;
@@ -21,20 +19,23 @@ h2.comments {
     border-radius: 7px;
     border-width: 1px;
     border-style: solid;
+    border-color: #ccc;
     padding-right: 15px;
     padding-left: 15px;
+    margin-bottom: 1em;
 
     .header {
-        margin-top: 15px;
+        margin-top: 10px;
         display: flex;
 
         svg {
             display: inline;
+            margin-top: 1.5px;
             border-radius: 7px;
-            margin-left: 0;
-            margin-right: 10px;
-            width: 40px;
-            height: 40px;
+            margin-left: -3px;
+            margin-right: 5px;
+            width: 35px;
+            height: 35px;
         }
 
         title {
@@ -43,14 +44,10 @@ h2.comments {
             // font-style: italic;
             font-size: 18px;
         }
-        title::after {
-            content: " escreveu:";
-            font-weight: 300;
-            font-size: 15px;
-        }
 
         aside {
             font-style: italic;
+            font-size: 13px;
         }
 
         .info {
@@ -58,20 +55,29 @@ h2.comments {
         }
     }
 
+    p {
+        margin: 5px 0;
+    }
+
     h1 {
-        font-size: 30px;
+        font-size: 24px;
     }
 
     h2 {
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .end {
+        padding-top: 1em;
         padding-bottom: 1em;
-        font-style: italic;
+        // font-style: italic;
         font-weight: 500;
+        font-size: 15px;
+
         aside {
-            padding-top: 0;
+            a {
+                margin-right: 10px;
+            }
         }
     }
 }
@@ -83,3 +89,13 @@ h2.comments {
         resize: none;
     }
 }
+
+.editor-toolbar {
+    padding: 0px 5px !important;
+}
+
+.EasyMDEContainer .CodeMirror {
+    padding: 0 !important;
+}
+
+

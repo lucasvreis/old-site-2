@@ -8,4 +8,5 @@
 
   == yield
 
-  == render "/components/comments.*"
+  - if @item[:uuid]
+    == render "/components/comments.*"

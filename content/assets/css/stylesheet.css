@@ -19,7 +19,7 @@ a {
 
 a:link,
 a:visited {
-  color: #63aa47;
+  color: #739c31;
 }
 
 a:hover {
@@ -55,7 +55,7 @@ figcaption {
 
 @media (min-width: calc(710px / (1 - 0.2))) { /* = (600 + 280) / (1 - 0.125) */
   #main {
-    width: 600px;
+    width: 650px;
   }
 }
 
@@ -159,11 +159,15 @@ header {
 }
 
 #main p {
-  margin: 15px 0;
+  margin: 10px 0;
 
   font-size: 17px;
 
   line-height: 1.4em;
+}
+
+#main strong {
+  font-weight: 500;
 }
 
 #main ul, #main ol {
@@ -233,15 +237,19 @@ aside {
 
 code {
   font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
-  font-size: 80%;
+  font-size: 13px;
   margin: 0;
 }
 pre {
   margin-top: .5em;
   margin-bottom: 0.25em;
-  padding-bottom: 0.25em;
   overflow: auto;
+  background: #eee6;
+  border-radius: 10px;
+  padding: 5px;
 }
+
+
 pre code {
   padding: 0;
   overflow: visible;
