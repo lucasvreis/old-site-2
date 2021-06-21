@@ -32,11 +32,11 @@ form id="comment-form" method="POST" action="https://lucastatic.herokuapp.com/v3
   p Deixe em branco caso não queira utilizá-los. Não é necessário "criar nova conta",
     apenas escreva campos novos ou reutilize anteriores.
   label
-    | Usuário.
-    input name="fields[email]" type="email" maxlength="100"
+    | apelido secreto.
+    input name="fields[user]" type="text" maxlength="80"
   br
   label
-    | Senha:
+    | senha:
     input name="fields[key]" type="password" maxlength="30"
   br
   br
@@ -44,4 +44,4 @@ form id="comment-form" method="POST" action="https://lucastatic.herokuapp.com/v3
 
 javascript:
   const uuid = '#{@item[:uuid]}'
-script src="/commentForm.js"
+<script src="/commentForm.js" defer></script>

@@ -4,5 +4,5 @@ class ScaleSVGsFilter < Nanoc::Filter
   def run(content, params = {})
     content.sub(/width="([\d\.]+)pt"/) { |m| "width=\"#{params[:scale]*Float($1)}pt\"" }
       .sub(/height="([\d\.]+)pt"/) { |m| "height=\"#{params[:scale]*Float($1)}pt\"" }
- end
+  end
 end

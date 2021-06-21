@@ -1,0 +1,52 @@
+<script type="text/javascript" src="/extras.js" defer></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<script type="text/javascript">
+ l1 = false
+ l2 = false
+ MathJax = {
+     loader: {load: ['[tex]/mathtools']},
+     tex: {
+         inlineMath: [['$', '$'], ['\\(', '\\)']],
+         macros: {
+             R: "{\\mathbb R}",
+             Z: "{\\mathbb R}",
+             Q: "{\\mathbb Q}",
+             N: "{\\mathbb N}",
+         },
+         packages: {'[+]': ['mathtools']}
+     },
+     startup: {
+         ready: () => {
+             l1 = true
+             if (l2) {
+                 MathJax.startup.defaultReady()
+             }
+             setTimeout(() => { if (!l2) { MathJax.startup.defaultReady() }}, 10000)
+         }
+     }
+ };
+
+ WebFont.load(
+     { google: { families: ['Crimson Pro:300,300italic,500,500italic', 'Patrick Hand'] },
+       active: () => { l2 = true; if (l1) { MathJax.startup.defaultReady() }; } }
+ );
+</script>
+
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+
+<script type="text/javascript">
+ const jdenticon_config = { padding: 0 }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.0/dist/jdenticon.min.js" defer
+        integrity="sha384-VngWWnG9GS4jDgsGEUNaoRQtfBGiIKZTiXwm9KpgAeaRn6Y/1tAFiyXqSzqC8Ga/" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+<script src="https://unpkg.com/easymde@2.15.0/dist/easymde.min.js" defer crossorigin="anonymous"></script>
+
+<script src="https://kit.fontawesome.com/6660da8cb8.js" crossorigin="anonymous" defer></script>

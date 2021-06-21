@@ -13,8 +13,8 @@ latex: t
 Esse foi o segundo (e último) trabalho da disciplina de Álgebra Linear Avançada,
 novamente pensei que seria interessante postar aqui. +Por enquanto, ainda não+
 +consegui adaptar totalmente o tikz e a parte de referências para o modelo de+
-+site, então recomendo fortemente ler em PDF!+ já consegui ajeitar tudo com a
-nova plataforma do site, a versão abaixo está totalmente de acordo com o PDF!
++site, então recomendo fortemente ler em PDF.+ Já consegui ajeitar tudo com a
+nova plataforma do site, a versão abaixo está totalmente de acordo com o PDF.
 
 * O que são tensores?
 
