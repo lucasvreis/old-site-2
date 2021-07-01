@@ -88,7 +88,7 @@ compile '/**/*.md' do
 end
 
 compile '/**/*.org' do
-  args = [{:from => :org,
+  args = [{:from => "org+smart",
            :to => :html5,
            :metadata => 'lang:pt-BR',
            :shift_heading_level_by => 1 },
@@ -102,7 +102,7 @@ compile '/**/*.org' do
 
   filter :pandoc, args: args
 
-  filter :typogruby
+  # filter :typogruby
 
   if @item[:layout]
     layout @item[:layout]
