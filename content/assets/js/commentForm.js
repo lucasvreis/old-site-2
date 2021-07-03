@@ -154,9 +154,13 @@ detail.addEventListener('toggle', e => {
 })
 
 form.addEventListener('submit', e => {
-  e.preventDefault();
-  const fd = new FormData(form);
-  const xhr = new XMLHttpRequest();
+  e.preventDefault()
+
+  document.getElementById("mensagem").value = mde.value();
+
+  const fd = new FormData(form)
+  const xhr = new XMLHttpRequest()
+
   xhr.addEventListener('load', e => {
     alert("Comentário enviado! Agora ele precisa ser aprovado.")
   });
