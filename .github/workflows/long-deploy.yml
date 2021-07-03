@@ -3,11 +3,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Build an deploy
-
-on:
-  push:
-    branches: [ main ]
+name: Long build an deploy
 
 jobs:
   build-and-deploy:

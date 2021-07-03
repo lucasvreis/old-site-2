@@ -1,0 +1,51 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Short build an deploy
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    
+    - name: Checkout
+      uses: actions/checkout@v2.3.1
+        
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.0'
+        bundler-cache: true
+
+    - name: Cache pandoc
+      id: cache-pd
+      uses: actions/cache@v2
+      with:
+        path: ~/pandoc
+        key: pandoc
+
+    - name: Install pandoc
+      if: steps.cache-pd.outputs.cache-hit != 'true'
+      run: |
+        mkdir ~/pandoc
+        cd ~/pandoc
+        curl -sLO https://github.com/jgm/pandoc/releases/download/2.14.0.3/pandoc-2.14.0.3-linux-amd64.tar.gz
+        tar -xf pandoc-2.14.0.3-linux-amd64.tar.gz --strip-components=1
+
+    - name: Add pandoc to path
+      run: echo "$HOME/pandoc/bin" >> $GITHUB_PATH
+
+    - name: Build
+      run: bundle exec nanoc
+    
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@4.1.4
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: output # The folder the action should deploy.
