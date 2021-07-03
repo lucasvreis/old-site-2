@@ -205,7 +205,7 @@
 
 #+begin_hide
 \[
-\newcommand{\R}{\mathbb{R}}
+\renewcommand{\R}{\mathbb{R}}
 \newcommand{\car}{\operatorname{car}}
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\tr}{\operatorname{tr}}

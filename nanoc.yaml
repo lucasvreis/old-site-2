@@ -2,7 +2,7 @@ text_extensions: [ 'adoc', 'asciidoc', 'atom', 'coffee', 'css', 'erb', 'haml', '
 
 prune:
   auto_prune: true
-  exclude: [ '.git' ]
+  exclude: [ '.git', 'media' ]
 
 data_sources:
   - type: filesystem
@@ -17,10 +17,10 @@ base_url: "https://lucasvreis.github.io"
 name: interseções
 
 tree:
-  - [feed, /feed]
+  - [blog, /feed]
+  - [notas, /notas]
   - [artigos, /artigos]
   - [tags, /tags]
-  - [eu recomendo, /favoritos]
   - [outras coisas, /coisas]
   - [sobre, /sobre]
 

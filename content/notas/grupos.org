@@ -1,0 +1,12 @@
+---
+title: Representações de grupos (notas)
+tags: [representações, grupos]
+uuid: notas-rep-grupos
+---
+
+* Lema de Schur
+#+begin_lemma
+Seja \(\rho\) uma representação irredutível do grupo \(G\) sobre um espaço vetorial
+\(V\), \(\rho\), \(\parallel\) \(\BbA \rho\).
+#+end_lemma
+

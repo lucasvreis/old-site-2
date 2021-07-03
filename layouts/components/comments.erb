@@ -1,0 +1,51 @@
+<hr class="end"/>
+
+<h2 class=comments>Comentários e respostas</h2>
+
+<% comms, tree = get_comments %>
+
+<% for comm in comms %>
+    <%=render '/components/comment.erb', comment: comm, tree: tree, nesting: 0 %>
+<% end %>
+
+<details id="novo-comentário">
+    <summary><h3>Novo comentário</h3></summary>
+    <div id="action-description"></div>
+
+    <form method="POST" id="comment-form" action="https://lucastatic.herokuapp.com/v3/entry/github/lucasvreis/lucasvreis.github.io/main/commentshttinputps://lucastatic.herokuapp.com/v3/entry/github/lucasvreis/lucasvreis.github.io/main/comments">
+        <input type="hidden" name="options[slug]" value="<%=@item[:uuid] %>" />
+        <input type="hidden" name="options[action]" value="ans" />
+        <input type="hidden" name="fields[ref]" value="" id="ref-input" />
+        <label id="haha">Armadilha para robôs spammers, não escreva nada aqui!
+            <input type="text" name="fields[password]" tabindex="banana" autocomplete="off" />
+        </label>
+        <textarea aria-label="Conteúdo do comentário" id="mensagem" name="fields[message]" maxlength="10000"></textarea>
+        <label>Nome:
+            <input name="fields[name]" type="text" maxlength="30"/>
+        </label>
+        <br />
+        <p> Os dois campos abaixo <strong>são opcionais</strong> e possuem dois propósitos: <i>garantir a
+            unicidade</i> do seu ícone (assim ninguém pode se passar por você) e permitir que
+            você <i>edite</i> ou <i>apague</i> o seu comentário.
+        </p>
+        <p> Deixe em branco caso não queira utilizá-los. Não é necessário "criar nova conta",
+            apenas escreva campos novos ou reutilize anteriores.
+        </p>
+        <label>Apelido secreto.
+            <input name="fields[user]" type="text" maxlength="80"/>
+        </label>
+        <br />
+        <label>
+            Senha:
+            <input name="fields[key]" type="password" maxlength="30"/>
+        </label>
+        <br />
+        <br />
+        <button type="submit">Enviar</button>
+    </form>
+</details>
+
+<script type="text/javascript">
+ const uuid = '<%=@item[:uuid] %>'
+</script>
+<script src="/commentForm.js" defer></script>

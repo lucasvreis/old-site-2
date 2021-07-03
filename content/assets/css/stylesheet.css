@@ -4,10 +4,31 @@
   padding: 0;
 }
 
+body, pre {
+  transition: background .2s;
+}
+
+hr {
+  transition: background-color .2s;
+}
+
+#sidebar, .comment {
+  transition: border-color .2s;
+}
+
+#main, h2 a, li a, aside, aside a {
+  transition:color .2s;
+}
+
+img[src$=".svg"] {
+  transition: filter .4s;
+}
+
 body {
-  background: #fff;
+  background: #fffffd;
   font-family: 'Crimson Pro', 'times';
   font-weight: 300;
+  color: #111;
   text-rendering: optimizeLegibility;
   font-kerning: normal;
   scroll-behavior: smooth;
@@ -22,13 +43,14 @@ a:visited {
   color: #739c31;
 }
 
-a:hover {
-  color: #f90;
+#main p a:link,
+#main p a:visited {
+  text-decoration: underline;
+  color: unset;
 }
 
-mjx-container {
-  overflow-x: auto;
-  overflow-y: hidden;
+a:hover {
+  color: #f90;
 }
 
 img {
@@ -47,6 +69,7 @@ figcaption {
 }
 
 #main {
+  font-size: 17px;
   position: relative;
   width: calc(80% - 110px);
   top: 40px;
@@ -82,6 +105,7 @@ header {
   #main {
     width: unset;
     left: 0px;
+    top: 10px;
     padding-left: 5%;
     padding-right: 5%;
   }
@@ -161,7 +185,6 @@ header {
 #main p {
   margin: 10px 0;
 
-  font-size: 16px;
 
   line-height: 1.4em;
 }
@@ -171,20 +194,23 @@ header {
 }
 
 #main ul, #main ol {
-  margin: 20px;
+  margin: 0px;
 }
 
 #main li {
-  font-size: 16px;
-
   line-height: 1.4em;
 }
 
 #main ul li {
-  list-style-type: square;
+  list-style: none;
 }
 
-.blog-name h2 {
+#main ul li:before {
+    content: '~';
+    margin: 0 8px;
+}
+
+.blog-name a {
   font-family: "Patrick Hand";
 
   font-size: 24px;
@@ -208,7 +234,7 @@ header {
 
   font-size: 18px;
 
-  font-weight: 400;
+  font-weight: 500;
 
   line-height: 30px;
 }
@@ -220,7 +246,7 @@ header {
 }
 
 .page-foot {
-    font-size: 80%;
+    font-size: 70%;
     font-family: Arial, serif;
     color: #a6a2a0;
     text-align: center;
@@ -231,7 +257,7 @@ header {
 }
 
 aside {
-  font-size: 90%;
+  font-size: 85%;
   color: #777;
 }
 
@@ -248,7 +274,6 @@ pre {
   border-radius: 10px;
   padding: 5px;
 }
-
 
 pre code {
   padding: 0;
@@ -313,4 +338,33 @@ aside.links {
 canvas[resize] {
     width: 100%;
     height: 100%;
+}
+
+.dark-mode button {
+  width: 30px;
+  height: 30px;
+  display: inline;
+  padding-left: 1px;
+  padding-top: 3px;
+  border: transparent;
+  border-radius: 50%;
+  background: none;
+}
+.dark-mode button:hover {
+  background: #ccc3;
+}
+
+header .dark-mode {
+  margin-right: 8%;
+  margin-top: 2px;
+}
+
+#sidebar .dark-mode {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+}
+
+object {
+    pointer-events: none;
 }

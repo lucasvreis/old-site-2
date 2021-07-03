@@ -1,0 +1,29 @@
+<div class="comment" id="<%= @comment[:id] %>" original="<%=h @comment.compiled_content(snapshot: :raw) %>">
+    <div class="header">
+        <svg data-jdenticon-value="<%=@comment[:name] %>"></svg>
+        <div class="info">
+            <title><%=@comment[:name] %></title>
+            <aside>
+                <%=@comment[:time].strftime('%a %d %b %Y') %>
+            </aside>
+        </div>
+    </div>
+    <%=@comment.compiled_content %>
+
+    <div class="end">
+        <aside>
+            <% if @nesting < 3 %>
+                <a href="#novo-comentário" onclick="answerComment('<%= @comment[:id] %>');">
+                    Responder
+                </a>
+            <% end %>
+            <a href="#novo-comentario">Editar</a>
+            <a href="#novo-comentario">Apagar</a>
+        </aside>
+    </div>
+    <% if @nesting < 3 && @tree[@comment[:id]] %>
+        <% for comm in @tree[@comment[:id]] %>
+            <%=render "/components/comment.erb", comment: comm, tree: @tree, nesting: @nesting + 1 %>
+        <% end %>
+    <% end %>
+</div>

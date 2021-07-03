@@ -50,12 +50,19 @@ require 'set'
 
 preprocess do
   tags = Set.new
+  notas = []
+
   @items.each do |item|
     if item.identifier =~ "/blog/*.{html,org,md,erb}"
       date,slug = /(\d+\-\d+\-\d+)[\- ]([^\/\.]+)/
                      .match(item.identifier).captures
       item[:title] ||= slug
       item[:created_at] ||= Date.parse(date)
+
+    elsif item.identifier =~ "/notas/**/*.{org,md}"
+      item[:tags] ||= []
+      item[:tags].append "anotações"
+      notas.append item.identifier
     end
 
     if item[:tags]
@@ -71,6 +78,7 @@ preprocess do
   end
 
   @config[:tags] = tags
+  @config[:notas] = notas
 end
 
 compile '/tags/**/*' do
@@ -78,7 +86,7 @@ compile '/tags/**/*' do
 end
 
 compile '/*.erb' do
-  filter :erb
+  filter :erubi
   layout '/default.*'
 end
 
@@ -94,7 +102,9 @@ compile '/**/*.org' do
            :shift_heading_level_by => 1 },
           :mathjax]
 
-  args += [{:lua_filter => './lib/org_bib.lua',
+  args += [{:lua_filter => './lib/emoji.lua'}] if @item[:emoji]
+
+  args += [{:lua_filter => './lib/org-bib.lua',
             :csl => 'citstyle.csl'},
            :citeproc] if @item[:citations]
 
@@ -102,12 +112,10 @@ compile '/**/*.org' do
 
   filter :pandoc, args: args
 
-  # filter :typogruby
-
   if @item[:layout]
     layout @item[:layout]
   else
-    layout '/artigo.*'
+    layout '/artigo.erb'
   end
 end
 
@@ -126,31 +134,33 @@ end
 
 layout '/**/*.slim', :slim
 
-layout '/**/*', :erb
+layout '/**/*.{html,erb}', :erubi
 
 postprocess do
-  svg_scale = 1.3
+  svg_scale = 1.2
 
-  unless Dir.exists? '.output/media/'
+  unless Dir.exists? './output/media'
     Dir.mkdir './output/media/'
   end
 
   for fname in Dir.children "./content/media"
-    fout = File.open("./output/media/" + fname, "w")
-    first = true
-    File.foreach("./content/media/" + fname) {
-      |s|
-      if first
-        fout.puts(
-          s.sub(/width="([\d\.]+)pt"/) { |m|
-            "width=\"#{svg_scale * $1.to_f}pt\""
-          }.sub(/height="([\d\.]+)pt"/) { |m|
-            "height=\"#{svg_scale * $1.to_f}pt\""
-          })
-      else
-        fout.puts(s)
-      end
-    }
-    fout.close
+    unless File.exists? './output/media/' + fname
+      fout = File.open("./output/media/" + fname, "w")
+      first = true
+      File.foreach("./content/media/" + fname) {
+        |s|
+        if first
+          fout.puts(
+            s.sub(/width="([\d\.]+)pt"/) { |m|
+              "width=\"#{svg_scale * $1.to_f}pt\""
+            }.sub(/height="([\d\.]+)pt"/) { |m|
+              "height=\"#{svg_scale * $1.to_f}pt\""
+            })
+        else
+          fout.puts(s)
+        end
+      }
+      fout.close
+    end
   end
 end

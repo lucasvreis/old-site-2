@@ -4,27 +4,43 @@
     <body>
         <canvas style="position:fixed; top:0; left:0; z-index:-1" id="fundo" resize></canvas>
         <header>
-              <a href="/" class="blog-name"><h2><%= @config[:name] %> <i class="twa twa-cat"></i></h2></a>
-              <nav>
-                  <ul>
-                      <% @config[:tree].each do |leaf| %>
-                      <li><a href="<%= leaf[1] %>"><%= leaf[0] %></a></li>
-                      <% end %>
-                  </ul>
-                  <img src="/hamburger.svg" id="menu-icon">
-              </nav>
-          </header>
-          <div id="main">
+            <h2 class="blog-name"><a href="/"><%= @config[:name] %> <i class="twa twa-cat"></i></a></h2>
+            <div class="dark-mode">
+                <button onclick="darkToggle()">
+                    <object data="/darkmode.svg" type="image/svg+xml">
+                        Dark
+                    </object>
+                </button>
+            </div>
+            <nav>
+                <ul>
+                    <% @config[:tree].each do |leaf| %>
+                    <li><a href="<%= leaf[1] %>"><%= leaf[0] %></a></li>
+                    <% end %>
+                </ul>
+                <object id="menu-icon" data="/hamburger.svg" type="image/svg+xml">
+                    Menu
+                </object>
+            </nav>
+        </header>
+        <div id="main">
             <%= yield %>
             <%= render '/components/foot.html' %>
         </div>
         <div id="sidebar">
-            <a href="/" class="blog-name"><h2><%= @config[:name] %> <i class="twa twa-cat"></i></h2></a>
+            <h2 class="blog-name"><a href="/"><%= @config[:name] %> <i class="twa twa-cat"></i></a></h2>
             <ul>
                 <% @config[:tree].each do |leaf| %>
                 <li><a href="<%= leaf[1] %>"><%= leaf[0] %></a></li>
                 <% end %>
             </ul>
+            <div class="dark-mode">
+                <button onClick="darkToggle()">
+                    <object data="/darkmode.svg" type="image/svg+xml">
+                        Dark
+                    </object>
+                </button>
+            </div>
         </div>
     </body>
 </html>

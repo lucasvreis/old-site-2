@@ -1,0 +1,23 @@
+---
+title: notas
+---
+
+<h1>Notas</h1>
+
+<aside>Anotações feitas para disciplinas.</aside>
+
+<% @config[:notas].each_with_index do |id, i| %>
+    <% post = @items[id] %>
+    <div class="post-list">
+        <h2><%= link_to post[:title], post.path %></h2>
+        <aside>tags: <%= tags_for post, base_url: '/tags/', none_text: '(nenhuma)' %> ~ <%= post[:created_at] ? post[:created_at].strftime("%d/%m/%Y") : "sem data" %></aside>
+        <article>
+            <% filter :fix_links, link: post.path do %>
+                <%= post.compiled_content %>
+            <% end %>
+        </article>
+        <% if i != sorted_articles[0, 3].size-1 %>
+            <hr>
+        <% end %>
+    </div>
+<% end %>

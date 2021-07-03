@@ -1,0 +1,76 @@
+.dark {
+
+@paper: #efefef;
+@background: #171716;
+
+body {
+    background: @background;
+    color: #ffffff;
+}
+
+a:link,
+a:visited {
+    color: #eeff9d;
+}
+
+.blog-name a {
+    color: #f5e7e3;
+}
+
+#sidebar {
+    border-right-color: #4e5351;
+}
+
+aside {
+    color: #d4c7b2;
+}
+
+hr {
+    background-color: #565b59;
+}
+
+pre {
+    background-color: rgba(47, 48, 48, 0.4);
+}
+
+img[src$=".svg"] {
+    filter: invert() hue-rotate(180deg);
+}
+
+// BOTÃO DO DARK MODE
+//
+.dark-mode button:hover {
+  background: #fff3;
+}
+
+
+// COMENTÁRIOS
+//
+#main .comment {
+    border-color: #565b59;
+    .header svg {
+        // background: #ffffff;
+    }
+}
+
+// EDITOR MARKDOWN
+//
+.CodeMirror {
+    color: white;
+    border-color: @paper;
+    background-color: inherit
+}
+.cm-s-easymde .CodeMirror-cursor {
+    border-color: @paper
+}
+.editor-toolbar > * {
+    color: white
+}
+.editor-toolbar > .active, .editor-toolbar > button:hover, .editor-preview pre, .cm-s-easymde .cm-comment {
+    background-color: #222
+}
+.editor-preview {
+    background-color: @background
+}
+
+}

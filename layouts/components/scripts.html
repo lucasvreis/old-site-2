@@ -6,6 +6,36 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <script type="text/javascript">
+
+function darkToggle() {
+     if (document.documentElement.classList.contains("dark")) {
+         document.documentElement.classList.remove("dark")
+         document.querySelectorAll('.dark-mode object').forEach(e => {
+             e.data = "/darkmode.svg"
+         })
+         document.getElementById("menu-icon").getSVGDocument()
+                 .querySelector("path").setAttribute("fill", "#b09f80")
+     } else {
+         document.documentElement.classList.add("dark")
+         document.querySelectorAll('.dark-mode object').forEach(e => {
+             e.data = "/darkmode-on.svg"
+         })
+         document.getElementById("menu-icon").getSVGDocument()
+                 .querySelector("path").setAttribute("fill", "#f2e7d3")
+     }
+ }
+
+ window.jdenticon_config = {
+     lightness: {
+         color: [0.51, 0.70],
+         grayscale: [0.38, 0.47]
+     },
+     saturation: {
+         color: 0.66,
+         grayscale: 0.70
+     },
+ };
+
  l1 = false
  l2 = false
  MathJax = {
@@ -37,6 +67,32 @@
  );
 </script>
 
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous"> -->
+
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script> -->
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script> -->
+
+<!-- <script>
+     document.addEventListener("DOMContentLoaded", function() {
+     renderMathInElement(document.body, {
+     macros: {
+     "\\RR": "{\\mathbb R}",
+     "\\ZZ": "{\\mathbb R}",
+     "\\QQ": "{\\mathbb Q}",
+     "\\NN": "{\\mathbb N}",
+     },
+     globalGroup: true,
+     });
+     });
+     </script> -->
+<!-- <style type="text/css" media="screen">
+     .katex { font-size: 0.95em; }
+     </style>
+-->
+
 <script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
 
 <script type="text/javascript">
@@ -46,7 +102,3 @@
 <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.0/dist/jdenticon.min.js" defer
         integrity="sha384-VngWWnG9GS4jDgsGEUNaoRQtfBGiIKZTiXwm9KpgAeaRn6Y/1tAFiyXqSzqC8Ga/" crossorigin="anonymous"></script>
 
-<link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
-<script src="https://unpkg.com/easymde@2.15.0/dist/easymde.min.js" defer crossorigin="anonymous"></script>
-
-<script src="https://kit.fontawesome.com/6660da8cb8.js" crossorigin="anonymous" defer></script>

@@ -1,6 +1,15 @@
 ---
 title: "Olá"
 uuid: principal
+comments: t
+emoji: t
 ---
 
-Bem vindos ao site não-terminado!
+Bem vindos! :slightly-smiling-face:
+
+Algumas coisas para se fazer aqui:
+- [[./feed][Postagens do blog]]
+
+Alguns links de fora:
+- [[https://github.com/lucasvreis][Meu Github]]
+- [[https://twitter.com/lucas_vreis][Twitter]]

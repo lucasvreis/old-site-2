@@ -22,7 +22,10 @@ h2.comments {
     border-color: #ccc;
     padding-right: 15px;
     padding-left: 15px;
-    margin-bottom: 1em;
+
+    .comment {
+        margin: 9px -6px;
+    }
 
     .header {
         margin-top: 10px;
@@ -31,11 +34,11 @@ h2.comments {
         svg {
             display: inline;
             margin-top: 1.5px;
-            border-radius: 7px;
             margin-left: -3px;
             margin-right: 5px;
             width: 35px;
             height: 35px;
+            opacity: 100%;
         }
 
         title {
@@ -77,17 +80,34 @@ h2.comments {
         aside {
             a {
                 margin-right: 10px;
+                font-size: 14px;
             }
         }
     }
 }
 
-#comment-form {
-    textarea {
-        width: 100%;
-        height: 300px;
-        resize: none;
+#novo-comentário {
+    margin-top: 1em;
+
+    h3 {
+        display: inline;
     }
+
+    aside {
+        font-size: 12pt;
+        font-style: italic;
+    }
+
+    #comment-form {
+        margin-top: 1em;
+
+        textarea {
+            width: 100%;
+            height: 300px;
+            resize: none;
+        }
+    }
+
 }
 
 .editor-toolbar {

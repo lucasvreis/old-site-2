@@ -73,46 +73,49 @@ function toggleDisplayMath(editor) {
 }
 
 
-var mde = new EasyMDE({
-  element: document.getElementById('mensagem'),
-  spellChecker: false,
-  autoDownloadFontAwesome: false,
-  autosave: {
-    enabled: true,
-    uniqueId: 'abobringela-' + uuid
-  },
-  toolbar: ['bold', 'italic', 'strikethrough', '|',
-    {
-      name: 'inlMath',
-      action: toggleInlineMath,
-      className: 'fas fa-square-root-alt',
-      noDisable: true,
-      title: 'Inline math',
-      default: true,
+function initMDE() {
+  mde = new EasyMDE({
+    element: document.getElementById('mensagem'),
+    spellChecker: false,
+    autoDownloadFontAwesome: false,
+    autosave: {
+      enabled: true,
+      uniqueId: 'abobringela-' + uuid
     },
-    {
-      name: 'inlMath',
-      action: toggleDisplayMath,
-      className: 'fas fa-infinity',
-      noDisable: false,
-      title: 'Display math',
-      default: true,
-    },
-    '|',
-    'code', 'quote', 'unordered-list', 'ordered-list', 'link', '|',
-    {
-      name: 'preview',
-      action: togglePreviewMathjax,
-      className: 'fa fa-eye',
-      noDisable: true,
-      title: 'Toggle Preview',
-      default: true,
-    },
-  ],
-});
+    toolbar: ['bold', 'italic', 'strikethrough', '|',
+      {
+        name: 'inlMath',
+        action: toggleInlineMath,
+        className: 'fas fa-square-root-alt',
+        noDisable: false,
+        title: 'Inline math',
+        default: true,
+      },
+      {
+        name: 'inlMath',
+        action: toggleDisplayMath,
+        className: 'fas fa-infinity',
+        noDisable: false,
+        title: 'Display math',
+        default: true,
+      },
+      '|',
+      'code', 'quote', 'unordered-list', 'ordered-list', 'link', '|',
+      {
+        name: 'preview',
+        action: togglePreviewMathjax,
+        className: 'fa fa-eye',
+        noDisable: true,
+        title: 'Toggle Preview',
+        default: true,
+      },
+    ],
+  });
+}
 
 const form = document.getElementById('comment-form');
 const ad = document.getElementById('action-description')
+const detail = document.getElementById('novo-comentário')
 
 function answerComment(ref) {
   if (ad.firstChild) {
@@ -121,10 +124,34 @@ function answerComment(ref) {
     el = document.createElement("aside")
     ad.appendChild(el)
   }
+  detail.open = true;
   n = document.getElementById(ref).querySelector("title").text
-  el.innerHTML = "Respondendo a <a href='#" + ref + "'>um comentário feito por " + n + "</a>."
+  el.innerHTML = "Respondendo a <a href='#" + ref + "'>um comentário</a> feito por " + n + "."
   form.querySelector("#ref-input").value = ref
 }
+
+var commentsOpened = false
+
+detail.addEventListener('toggle', e => {
+  if (!commentsOpened) {
+    commentsOpened = true
+    st = document.createElement('link')
+    st.rel = 'stylesheet'
+    st.href = "https://unpkg.com/easymde/dist/easymde.min.css"
+    document.head.appendChild(st)
+
+    sc1 = document.createElement('script')
+    sc1.src = "https://unpkg.com/easymde@2.15.0/dist/easymde.min.js"
+    sc1.onload = initMDE
+    sc1.crossorigin = "anonymous"
+    document.head.appendChild(sc1)
+
+    sc2 = document.createElement('script')
+    sc2.src = "https://kit.fontawesome.com/6660da8cb8.js"
+    sc2.crossorigin = "anonymous"
+    document.head.appendChild(sc2)
+  }
+})
 
 form.addEventListener('submit', e => {
   e.preventDefault();

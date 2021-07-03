@@ -1,6 +1,5 @@
 # Coisas
 
-.
 
 ## coisas daqui
 - [$\pi$ e probabilidades](pi)
