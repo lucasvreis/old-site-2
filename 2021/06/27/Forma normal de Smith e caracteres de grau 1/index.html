@@ -3,7 +3,7 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>interseções - tags</title>
+    <title>interseções - Calculando os caracteres de grau 1 com a forma normal de Smith</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/stylesheet.css" type="text/css" />
@@ -159,19 +159,68 @@ function darkToggle() {
             </nav>
         </header>
         <div id="main">
-            <h1>Etiquetas</h1>
+                <h1>Calculando os caracteres de grau 1 com a forma normal de Smith</h1>
 
-<p></p>
+    <aside>
+        tags: (nenhuma)
+        ~ postado em 27/06/2021
+    </aside>
 
-<ul>
-        <li><a href="/tags/álgebra" rel="tag">álgebra</a></li>
-        <li><a href="/tags/anotações" rel="tag">anotações</a></li>
-        <li><a href="/tags/disciplinas" rel="tag">disciplinas</a></li>
-        <li><a href="/tags/grupos" rel="tag">grupos</a></li>
-        <li><a href="/tags/iniciação científica" rel="tag">iniciação científica</a></li>
-        <li><a href="/tags/representações" rel="tag">representações</a></li>
-        <li><a href="/tags/sistemas dinâmicos" rel="tag">sistemas dinâmicos</a></li>
-</ul>
+    <p>Esse post foi motivado por uma pergunta do meu colega Guido.</p>
+<p>Suponha que temos um grupo <span class="math inline">\(G\)</span> definido por uma presentação <span class="math inline">\(\langle X \mid \mathcal{R} \rangle\)</span>, onde <span class="math inline">\(X\)</span> é um conjunto finito de geradores e <span class="math inline">\(\mathcal{R}\)</span> um conjunto finito de palavras. Podemos escrever a abelianização <span class="math inline">\(G/G&#39;\)</span> de <span class="math inline">\(G\)</span> como a presentação <span class="math inline">\(\langle X \mid \mathcal{R} \cup \mathcal{C}
+\rangle\)</span> onde <span class="math inline">\(\mathcal{C} = \{aba^{-1}b^{-1} : a, b \in X\}\)</span>, já que a abelianização é o maior grupo com as mesmas relações de <span class="math inline">\(G\)</span> mas tal que a multiplicação é comutativa. Equivalentemente, <span class="math inline">\(G/G&#39;\)</span> é o quociente do grupo livre abeliano <span class="math inline">\(L(X)\)</span> de <span class="math inline">\(X\)</span> pelo normalizador <span class="math inline">\(N(\mathcal{R})\)</span> do conjunto <span class="math inline">\(\mathcal{R}\)</span>.</p>
+<p>Vamos ver como aparece a álgebra linear!</p>
+<p>Vamos chamar de <span class="math inline">\(x_1, \dots ,x_n\)</span> os elementos de <span class="math inline">\(X\)</span> e <span class="math inline">\(\pi : L(X) \to G/G&#39;\)</span> a projeção canônica.</p>
+
+
+        <hr class="end"/>
+
+<h2 class=comments>Comentários e respostas</h2>
+
+
+
+<details id="novo-comentário">
+    <summary><h3>Novo comentário</h3></summary>
+    <div id="action-description"></div>
+
+    <form method="POST" id="comment-form" action="https://lucastatic.herokuapp.com/v3/entry/github/lucasvreis/lucasvreis.github.io/main/commentshttinputps://lucastatic.herokuapp.com/v3/entry/github/lucasvreis/lucasvreis.github.io/main/comments">
+        <input type="hidden" name="options[slug]" value="smith-caracteres-grau-um" />
+        <input type="hidden" name="options[action]" value="ans" />
+        <input type="hidden" name="fields[ref]" value="" id="ref-input" />
+        <label id="haha">Armadilha para robôs spammers, não escreva nada aqui!
+            <input type="text" name="fields[password]" tabindex="banana" autocomplete="off" />
+        </label>
+        <textarea aria-label="Conteúdo do comentário" id="mensagem" name="fields[message]" maxlength="10000"></textarea>
+        <label>Nome:
+            <input name="fields[name]" type="text" maxlength="30"/>
+        </label>
+        <br />
+        <p> Os dois campos abaixo <strong>são opcionais</strong> e possuem dois propósitos: <i>garantir a
+            unicidade</i> do seu ícone (assim ninguém pode se passar por você) e permitir que
+            você <i>edite</i> ou <i>apague</i> o seu comentário.
+        </p>
+        <p> Deixe em branco caso não queira utilizá-los. Não é necessário "criar nova conta",
+            apenas escreva campos novos ou reutilize anteriores.
+        </p>
+        <label>Apelido secreto.
+            <input name="fields[user]" type="text" maxlength="80"/>
+        </label>
+        <br />
+        <label>
+            Senha:
+            <input name="fields[key]" type="password" maxlength="30"/>
+        </label>
+        <br />
+        <br />
+        <button type="submit">Enviar</button>
+    </form>
+</details>
+
+<script type="text/javascript">
+ const uuid = 'smith-caracteres-grau-um'
+</script>
+<script src="/commentForm.js" defer></script>
+
 
             <div class="page-foot">
   Site em construção... <i class="twa twa-building-construction"></i> <br><br>

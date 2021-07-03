@@ -6,55 +6,123 @@
     <title>interseções - </title>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/stylesheet.css">
-    <link rel="stylesheet" href="/css/latex.css">
-    <link rel="stylesheet" href="/css/citations.css">
-    <link rel="preload" href="/css/twemoji.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/code.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <script type="text/javascript" src="/js/extras.js" defer></script>
-    <!-- <script type="text/javascript" src="/js/paper-full.min.js"></script> -->
-    <!-- <script type="text/paperscript" src="/js/myDrawing.js" canvas="fundo"></script> -->
+    <link rel="stylesheet" href="/stylesheet.css" type="text/css" />
+    <link rel="stylesheet" href="/dark.css" type="text/css" />
+    <link rel="stylesheet" href="/latex.css" type="text/css" />
+    <link rel="stylesheet" href="/comments.css" type="text/css" />
+    <link rel="stylesheet" href="/citations.css" type="text/css" />
+    <link rel="preload" href="/twemoji.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/code.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script type="text/javascript" src="/extras.js" defer></script>
 
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script type="text/javascript">
-     l1 = false
-     l2 = false
-     MathJax = {
-         tex: {
-             macros: {
-                 R: "{\\mathbb R}",
-                 Z: "{\\mathbb R}",
-                 Q: "{\\mathbb Q}",
-                 N: "{\\mathbb N}",
-             }
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<script type="text/javascript">
+
+function darkToggle() {
+     if (document.documentElement.classList.contains("dark")) {
+         document.documentElement.classList.remove("dark")
+         document.querySelectorAll('.dark-mode object').forEach(e => {
+             e.data = "/darkmode.svg"
+         })
+         document.getElementById("menu-icon").getSVGDocument()
+                 .querySelector("path").setAttribute("fill", "#b09f80")
+     } else {
+         document.documentElement.classList.add("dark")
+         document.querySelectorAll('.dark-mode object').forEach(e => {
+             e.data = "/darkmode-on.svg"
+         })
+         document.getElementById("menu-icon").getSVGDocument()
+                 .querySelector("path").setAttribute("fill", "#f2e7d3")
+     }
+ }
+
+ window.jdenticon_config = {
+     lightness: {
+         color: [0.51, 0.70],
+         grayscale: [0.38, 0.47]
+     },
+     saturation: {
+         color: 0.66,
+         grayscale: 0.70
+     },
+ };
+
+ l1 = false
+ l2 = false
+ MathJax = {
+     loader: {load: ['[tex]/mathtools']},
+     tex: {
+         inlineMath: [['$', '$'], ['\\(', '\\)']],
+         macros: {
+             R: "{\\mathbb R}",
+             Z: "{\\mathbb R}",
+             Q: "{\\mathbb Q}",
+             N: "{\\mathbb N}",
          },
-         startup: {
-             ready: () => {
-                 l1 = true;
-                 if (l2) {
-                     MathJax.startup.defaultReady();
-                 };
-                 setTimeout(() => { if (!l2) { MathJax.startup.defaultReady() }}, 1000)
+         packages: {'[+]': ['mathtools']}
+     },
+     startup: {
+         ready: () => {
+             l1 = true
+             if (l2) {
+                 MathJax.startup.defaultReady()
              }
+             setTimeout(() => { if (!l2) { MathJax.startup.defaultReady() }}, 10000)
          }
-     };
+     }
+ };
 
-     WebFont.load(
-         { google: { families: ['Crimson Pro:300,300italic,500,500italic', 'Patrick Hand'] },
-           active: () => { l2 = true; if (l1) { MathJax.startup.defaultReady() }; } }
-     );
+ WebFont.load(
+     { google: { families: ['Crimson Pro:300,300italic,500,500italic', 'Patrick Hand'] },
+       active: () => { l2 = true; if (l1) { MathJax.startup.defaultReady() }; } }
+ );
+</script>
 
-    </script>
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous"> -->
 
-    <!-- MathJax -->
-    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script> -->
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script> -->
+
+<!-- <script>
+     document.addEventListener("DOMContentLoaded", function() {
+     renderMathInElement(document.body, {
+     macros: {
+     "\\RR": "{\\mathbb R}",
+     "\\ZZ": "{\\mathbb R}",
+     "\\QQ": "{\\mathbb Q}",
+     "\\NN": "{\\mathbb N}",
+     },
+     globalGroup: true,
+     });
+     });
+     </script> -->
+<!-- <style type="text/css" media="screen">
+     .katex { font-size: 0.95em; }
+     </style>
+-->
+
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+
+<script type="text/javascript">
+ const jdenticon_config = { padding: 0 }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.0/dist/jdenticon.min.js" defer
+        integrity="sha384-VngWWnG9GS4jDgsGEUNaoRQtfBGiIKZTiXwm9KpgAeaRn6Y/1tAFiyXqSzqC8Ga/" crossorigin="anonymous"></script>
+
+
 
     <noscript>
-        <link rel="stylesheet" href="/css/twemoji.css">
-        <link rel="stylesheet" href="/css/code.css">
+        <link rel="stylesheet" href="/twemoji.css">
+        <link rel="stylesheet" href="/code.css">
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,500&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
@@ -68,31 +136,39 @@
     <body>
         <canvas style="position:fixed; top:0; left:0; z-index:-1" id="fundo" resize></canvas>
         <header>
-              <a href="/" class="blog-name"><h2>interseções <i class="twa twa-cat"></i></h2></a>
-              <nav>
-                  <ul>
-                      
-                      <li><a href="/feed">feed</a></li>
-                      
-                      <li><a href="/artigos">artigos</a></li>
-                      
-                      <li><a href="/tags">tags</a></li>
-                      
-                      <li><a href="/coisas">outras coisas</a></li>
-                      
-                      <li><a href="/sobre">sobre</a></li>
-                      
-                  </ul>
-                  <img src="/assets/hamburger.svg" id="menu-icon">
-              </nav>
-          </header>
-          <div id="main">
-            
-    <h1></h1>
-    <aside>tags: (nenhuma) ~ postado em sem data</aside>
-    <p>Vamos usar o binding&nbsp;léxico:</p>
+            <h2 class="blog-name"><a href="/">interseções <i class="twa twa-cat"></i></a></h2>
+            <div class="dark-mode">
+                <button onclick="darkToggle()">
+                    <object data="/darkmode.svg" type="image/svg+xml">
+                        Dark
+                    </object>
+                </button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/feed">blog</a></li>
+                    <li><a href="/notas">notas</a></li>
+                    <li><a href="/artigos">artigos</a></li>
+                    <li><a href="/tags">tags</a></li>
+                    <li><a href="/coisas">outras coisas</a></li>
+                    <li><a href="/sobre">sobre</a></li>
+                </ul>
+                <object id="menu-icon" data="/hamburger.svg" type="image/svg+xml">
+                    Menu
+                </object>
+            </nav>
+        </header>
+        <div id="main">
+                <h1></h1>
+
+    <aside>
+        tags: (nenhuma)
+        ~ postado em (?)
+    </aside>
+
+    <p>Vamos usar o binding léxico:</p>
 <div class="sourceCode" id="cb1" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">;;; -*- lexical-binding: t; -*-</span></span></code></pre></div>
-<h2 id="o-básico">O&nbsp;básico</h2>
+<h2 id="o-básico">O básico</h2>
 <h3 id="tema">Tema</h3>
 <h4 id="escolha">Escolha</h4>
 <div class="sourceCode" id="cb2" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">setq</span> doom-theme &#39;doom-material)</span>
@@ -129,8 +205,8 @@
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>(add-hook! &#39;after-setting-font-hook</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  (set-fontset-font <span class="kw">t</span> &#39;unicode (font-spec :family <span class="st">&quot;JuliaMono&quot;</span>))</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  (set-fontset-font <span class="kw">t</span> &#39;unicode <span class="st">&quot;Twemoji&quot;</span> <span class="kw">nil</span> &#39;prepend))</span></code></pre></div>
-<h4 id="faces-e-ícones">Faces e&nbsp;ícones</h4>
-<p>Deixamos os comentários itálicas, e os <code>keywords</code>&nbsp;oblíquos.</p>
+<h4 id="faces-e-ícones">Faces e ícones</h4>
+<p>Deixamos os comentários itálicas, e os <code>keywords</code> oblíquos.</p>
 <div class="sourceCode" id="cb4" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(custom-set-faces!</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  &#39;(font-lock-comment-face :slant italic)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  &#39;(font-lock-keyword-face :slant oblique)</span>
@@ -139,18 +215,18 @@
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  &#39;(doom-modeline-buffer-modified :foreground <span class="st">&quot;orange&quot;</span>)</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  &#39;(doom-modeline-info :foreground <span class="st">&quot;white&quot;</span>))</span></code></pre></div>
-<p>Ajusta o tamanho dos&nbsp;ícones.</p>
+<p>Ajusta o tamanho dos ícones.</p>
 <div class="sourceCode" id="cb5" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">setq</span> all-the-icons-scale-factor <span class="fl">0.88</span>)</span></code></pre></div>
 <h3 id="dashboard">Dashboard</h3>
 <h4 id="estético">Estético</h4>
-<p>Pequenas modificações ao&nbsp;dashboard:</p>
+<p>Pequenas modificações ao dashboard:</p>
 <div class="sourceCode" id="cb6" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">;; Desabilita o modeline</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>(add-hook! &#39;+doom-dashboard-mode-hook (hide-mode-line-mode <span class="dv">1</span>))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">;; Desabilita o &quot;benchmark&quot;</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>(remove-hook &#39;window-setup-hook #&#39;doom-display-benchmark-h)</span></code></pre></div>
 <h4 id="banner">Banner</h4>
-<p>Pequenos acrobatas, que&nbsp;tal?</p>
+<p>Pequenos acrobatas, que tal?</p>
 <div class="sourceCode" id="cb7" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">defun</span><span class="fu"> doom-dashboard-draw-ascii-emacs-banner-fn </span>()</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  (<span class="kw">let*</span> ((banner</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>          &#39;(<span class="st">&quot;&quot;</span> <span class="st">&quot;&quot;</span></span>
@@ -173,34 +249,34 @@
 <span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>               <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>))</span>
 <span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>     &#39;face &#39;doom-dashboard-banner)))</span>
 <span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>(<span class="kw">setq</span> +doom-dashboard-ascii-banner-fn #&#39;doom-dashboard-draw-ascii-emacs-banner-fn)</span></code></pre></div>
-<p>A fonte padrão é itálica e deixa os acrobatas tortos, vamos resolver&nbsp;isso:</p>
+<p>A fonte padrão é itálica e deixa os acrobatas tortos, vamos resolver isso:</p>
 <div class="sourceCode" id="cb8" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>(custom-set-faces!</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  &#39;(doom-dashboard-banner</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    :inherit font-lock-comment-face</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    :slant normal))</span></code></pre></div>
-<h2 id="minha-biblioteca-elisp">Minha biblioteca&nbsp;elisp</h2>
+<h2 id="minha-biblioteca-elisp">Minha biblioteca elisp</h2>
 <h3 id="pasta-bibioteca">Pasta-bibioteca</h3>
-<p>Com algumas bibliotecas externas, por&nbsp;exemplo.</p>
+<p>Com algumas bibliotecas externas, por exemplo.</p>
 <div class="sourceCode" id="cb9" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>(add-load-path! <span class="st">&quot;lisp/lib&quot;</span>)</span></code></pre></div>
-<h3 id="excluir-todos-os-conselhos">Excluir todos os&nbsp;conselhos</h3>
+<h3 id="excluir-todos-os-conselhos">Excluir todos os conselhos</h3>
 <div class="sourceCode" id="cb10" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">defun</span><span class="fu"> advice-unadvice </span>(sym)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;Remove all advices from symbol SYM.&quot;</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  (interactive <span class="st">&quot;aFunction symbol: &quot;</span>)</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  (advice-mapc (<span class="kw">lambda</span> (advice _props) (advice-remove sym advice)) sym))</span></code></pre></div>
-<h3 id="conselhos-úteis"><span class="dquo">&#8220;</span>Conselhos&#8221;&nbsp;úteis</h3>
-<p>Para desabilitar as mensagens&nbsp;chatas:</p>
+<h3 id="conselhos-úteis">“Conselhos” úteis</h3>
+<p>Para desabilitar as mensagens chatas:</p>
 <div class="sourceCode" id="cb11" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">defun</span><span class="fu"> advice--inhibit-message </span>(f &amp;<span class="kw">rest</span> r) (<span class="kw">let</span> ((inhibit-message <span class="kw">t</span>)) (<span class="kw">apply</span> f r)))</span></code></pre></div>
-<h2 id="emacs-em-geral">Emacs em&nbsp;geral</h2>
+<h2 id="emacs-em-geral">Emacs em geral</h2>
 <h3 id="edição">Edição</h3>
-<h4 id="variáveis-comuns">Variáveis&nbsp;comuns</h4>
+<h4 id="variáveis-comuns">Variáveis comuns</h4>
 <div class="sourceCode" id="cb12" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>(setq-default fill-column <span class="dv">80</span>)</span></code></pre></div>
 <h4 id="salvando">Salvando</h4>
-<p>Desabilita uma mensagem que rapidamente aparece na tela e&nbsp;some.</p>
-<p>Era para resolver algo que aparece com o <code>literate</code>, mas não resolve e não sei como&nbsp;resolver.</p>
+<p>Desabilita uma mensagem que rapidamente aparece na tela e some.</p>
+<p>Era para resolver algo que aparece com o <code>literate</code>, mas não resolve e não sei como resolver.</p>
 <div class="sourceCode" id="cb13" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">;; </span><span class="al">FIXME</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>(advice-add &#39;save-buffer :around #&#39;advice--inhibit-message)</span></code></pre></div>
-<h3 id="me-organize"><span class="caps">ME</span>&nbsp;<span class="caps">ORGANIZE</span>!</h3>
-<p>Coisas que precisam ir para algum&nbsp;lugar…</p>
+<h3 id="me-organize">ME ORGANIZE!</h3>
+<p>Coisas que precisam ir para algum lugar…</p>
 <div class="sourceCode" id="cb14" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>(remove-hook! &#39;(org-mode-hook text-mode-hook) #&#39;flyspell-mode)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>(<span class="kw">when</span> (display-graphic-p)</span>
@@ -222,12 +298,12 @@
 <span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>      scroll-step <span class="dv">1</span>) <span class="co">;; keyboard scroll one line at a time</span></span>
 <span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>(pcre-mode +<span class="dv">1</span>)</span></code></pre></div>
-<h3 id="maximizar-a-janela">Maximizar a&nbsp;janela?</h3>
-<p>Maximizar a janela ao&nbsp;iniciar?</p>
+<h3 id="maximizar-a-janela">Maximizar a janela?</h3>
+<p>Maximizar a janela ao iniciar?</p>
 <div class="sourceCode" id="cb15" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">;; (add-to-list &#39;initial-frame-alist &#39;(fullscreen . maximized))</span></span></code></pre></div>
-<h2 id="atalhos-de-teclado">Atalhos de&nbsp;teclado</h2>
-<h3 id="deixando-o-emacs-mais-familiar">Deixando o Emacs mais&nbsp;familiar</h3>
-<p>Porque ninguém merece tantos atalhos&nbsp;diferentes…</p>
+<h2 id="atalhos-de-teclado">Atalhos de teclado</h2>
+<h3 id="deixando-o-emacs-mais-familiar">Deixando o Emacs mais familiar</h3>
+<p>Porque ninguém merece tantos atalhos diferentes…</p>
 <div class="sourceCode" id="cb16" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>(map! <span class="st">&quot;C-S-s&quot;</span> &#39;isearch-forward)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>(map! :egni <span class="st">&quot;C-s&quot;</span> &#39;save-buffer)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>(map! :egni <span class="st">&quot;C-/&quot;</span> &#39;evilnc-comment-or-uncomment-lines)</span>
@@ -236,8 +312,8 @@
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>(map! :i <span class="st">&quot;C-z&quot;</span> &#39;evil-undo)</span>
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>(map! :i <span class="st">&quot;C-S-z&quot;</span> &#39;evil-redo)</span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>(map! :i <span class="st">&quot;C-x&quot;</span> &#39;evil-delete)</span></code></pre></div>
-<h3 id="evil-brazuca">Evil&nbsp;brazuca</h3>
-<p>Nossos teclados têm uma tecla a mais no melhor lugar possível, não podemos desperdiçar a oportunidade de usar&nbsp;<code class="verbatim">jklç</code>:</p>
+<h3 id="evil-brazuca">Evil brazuca</h3>
+<p>Nossos teclados têm uma tecla a mais no melhor lugar possível, não podemos desperdiçar a oportunidade de usar <code class="verbatim">jklç</code>:</p>
 <div class="sourceCode" id="cb17" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">;; no dia em que eu precisar usar teclado americano, eu vou me arrepender...</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>(map! :map evil-motion-state-map</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;j&quot;</span> &#39;evil-backward-char</span>
@@ -291,10 +367,10 @@
 <span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>(map! :map lean-mode-map <span class="st">&quot;M-.&quot;</span> &#39;lean-find-definition)</span>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>(map! :map TeX-mode-map <span class="st">&quot;C-S-s&quot;</span> &#39;TeX-command-run-all)</span></code></pre></div>
-<h2 id="configurações-de-pacotes">Configurações de&nbsp;pacotes</h2>
-<p>Primeiro, alguns pacotes configurados com o&nbsp;<code class="verbatim">use-package</code>:</p>
+<h2 id="configurações-de-pacotes">Configurações de pacotes</h2>
+<p>Primeiro, alguns pacotes configurados com o <code class="verbatim">use-package</code>:</p>
 <div class="sourceCode" id="cb19" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>(load! <span class="st">&quot;lisp/use-packages&quot;</span>)</span></code></pre></div>
-<p>O trecho a seguir carrega os arquivos de configurações nos diretórios <code class="verbatim">lisp/major</code> e <code class="verbatim">lisp/minor</code>, e faz com que cada arquivo seja carregado apenas depois do módulo de mesmo nome ser carregado (com a função&nbsp;<code class="verbatim">after!</code>).</p>
+<p>O trecho a seguir carrega os arquivos de configurações nos diretórios <code class="verbatim">lisp/major</code> e <code class="verbatim">lisp/minor</code>, e faz com que cada arquivo seja carregado apenas depois do módulo de mesmo nome ser carregado (com a função <code class="verbatim">after!</code>).</p>
 <div class="sourceCode" id="cb20" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>(<span class="kw">dolist</span> (<span class="kw">type</span> &#39;(major minor))</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  (<span class="kw">let</span> ((folder (<span class="kw">format</span> <span class="st">&quot;~/.doom.d/lisp/%s/&quot;</span> <span class="kw">type</span>)))</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    (<span class="kw">dolist</span> (file (file-expand-wildcards (concat folder <span class="st">&quot;*.el&quot;</span>)))</span>
@@ -302,32 +378,34 @@
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        (<span class="kw">eval</span> `(after! ,(<span class="kw">intern</span> f) (load! ,f ,folder)))))))</span></code></pre></div>
 
 
+
             <div class="page-foot">
   Site em construção... <i class="twa twa-building-construction"></i> <br><br>
-    <a href="javascript:var i,s,ss=['/js/kh.js','https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'];for(i=0;i!=ss.length;i++){s=document.createElement('script');s.src=ss[i];document.body.appendChild(s);}void(0);" >
+    <a href="#void" id="extra1" >
         Katamari!  <i class="twa twa-volleyball"></i></a>
-     ~ <a href="#void" id="extra2">
+    ~ <a href="#void" id="extra2">
         Boids  <i class="twa twa-bird"></i></a>
     <br>
 </div>
 
         </div>
         <div id="sidebar">
-            <a href="/" class="blog-name"><h2>interseções <i class="twa twa-cat"></i></h2></a>
+            <h2 class="blog-name"><a href="/">interseções <i class="twa twa-cat"></i></a></h2>
             <ul>
-                
-                <li><a href="/feed">feed</a></li>
-                
+                <li><a href="/feed">blog</a></li>
+                <li><a href="/notas">notas</a></li>
                 <li><a href="/artigos">artigos</a></li>
-                
                 <li><a href="/tags">tags</a></li>
-                
                 <li><a href="/coisas">outras coisas</a></li>
-                
                 <li><a href="/sobre">sobre</a></li>
-                
             </ul>
+            <div class="dark-mode">
+                <button onClick="darkToggle()">
+                    <object data="/darkmode.svg" type="image/svg+xml">
+                        Dark
+                    </object>
+                </button>
+            </div>
         </div>
     </body>
 </html>
-

@@ -1,0 +1,52 @@
+.dark body {
+  background: #171716;
+  color: #ffffff;
+}
+.dark a:link,
+.dark a:visited {
+  color: #eeff9d;
+}
+.dark .blog-name a {
+  color: #f5e7e3;
+}
+.dark #sidebar {
+  border-right-color: #4e5351;
+}
+.dark aside {
+  color: #d4c7b2;
+}
+.dark hr {
+  background-color: #565b59;
+}
+.dark pre {
+  background-color: rgba(47, 48, 48, 0.4);
+}
+.dark img[src$=".svg"] {
+  filter: invert() hue-rotate(180deg);
+}
+.dark .dark-mode button:hover {
+  background: #fff3;
+}
+.dark #main .comment {
+  border-color: #565b59;
+}
+.dark .CodeMirror {
+  color: white;
+  border-color: #efefef;
+  background-color: inherit;
+}
+.dark .cm-s-easymde .CodeMirror-cursor {
+  border-color: #efefef;
+}
+.dark .editor-toolbar > * {
+  color: #ffffff;
+}
+.dark .editor-toolbar > .active,
+.dark .editor-toolbar > button:hover,
+.dark .editor-preview pre,
+.dark .cm-s-easymde .cm-comment {
+  background-color: #222222;
+}
+.dark .editor-preview {
+  background-color: #171716;
+}

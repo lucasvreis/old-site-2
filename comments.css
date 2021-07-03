@@ -1,0 +1,93 @@
+hr.end {
+  height: 1px;
+  margin-bottom: 1em;
+}
+h2.comments {
+  margin-bottom: 1em;
+}
+#haha {
+  position: absolute !important;
+  height: 0 !important;
+  width: 0 !important;
+  z-index: -1 !important;
+  visibility: hidden !important;
+}
+#main .comment {
+  border-radius: 7px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ccc;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+#main .comment .comment {
+  margin: 9px -6px;
+}
+#main .comment .header {
+  margin-top: 10px;
+  display: flex;
+}
+#main .comment .header svg {
+  display: inline;
+  margin-top: 1.5px;
+  margin-left: -3px;
+  margin-right: 5px;
+  width: 35px;
+  height: 35px;
+  opacity: 100%;
+}
+#main .comment .header title {
+  display: inline;
+  font-weight: 500;
+  font-size: 18px;
+}
+#main .comment .header aside {
+  font-style: italic;
+  font-size: 13px;
+}
+#main .comment .header .info {
+  margin-top: 1px;
+}
+#main .comment p {
+  margin: 5px 0;
+}
+#main .comment h1 {
+  font-size: 24px;
+}
+#main .comment h2 {
+  font-size: 20px;
+}
+#main .comment .end {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  font-weight: 500;
+  font-size: 15px;
+}
+#main .comment .end aside a {
+  margin-right: 10px;
+  font-size: 14px;
+}
+#novo-comentário {
+  margin-top: 1em;
+}
+#novo-comentário h3 {
+  display: inline;
+}
+#novo-comentário aside {
+  font-size: 12pt;
+  font-style: italic;
+}
+#novo-comentário #comment-form {
+  margin-top: 1em;
+}
+#novo-comentário #comment-form textarea {
+  width: 100%;
+  height: 300px;
+  resize: none;
+}
+.editor-toolbar {
+  padding: 0px 5px !important;
+}
+.EasyMDEContainer .CodeMirror {
+  padding: 0 !important;
+}

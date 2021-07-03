@@ -6,55 +6,123 @@
     <title>interseções - Teorema de Dini ligeiramente mais forte</title>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="/css/stylesheet.css">
-    <link rel="stylesheet" href="/css/latex.css">
-    <link rel="stylesheet" href="/css/citations.css">
-    <link rel="preload" href="/css/twemoji.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/code.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <script type="text/javascript" src="/js/extras.js" defer></script>
-    <!-- <script type="text/javascript" src="/js/paper-full.min.js"></script> -->
-    <!-- <script type="text/paperscript" src="/js/myDrawing.js" canvas="fundo"></script> -->
+    <link rel="stylesheet" href="/stylesheet.css" type="text/css" />
+    <link rel="stylesheet" href="/dark.css" type="text/css" />
+    <link rel="stylesheet" href="/latex.css" type="text/css" />
+    <link rel="stylesheet" href="/comments.css" type="text/css" />
+    <link rel="stylesheet" href="/citations.css" type="text/css" />
+    <link rel="preload" href="/twemoji.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/code.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+    <script type="text/javascript" src="/extras.js" defer></script>
 
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <script type="text/javascript">
-     l1 = false
-     l2 = false
-     MathJax = {
-         tex: {
-             macros: {
-                 R: "{\\mathbb R}",
-                 Z: "{\\mathbb R}",
-                 Q: "{\\mathbb Q}",
-                 N: "{\\mathbb N}",
-             }
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<script type="text/javascript">
+
+function darkToggle() {
+     if (document.documentElement.classList.contains("dark")) {
+         document.documentElement.classList.remove("dark")
+         document.querySelectorAll('.dark-mode object').forEach(e => {
+             e.data = "/darkmode.svg"
+         })
+         document.getElementById("menu-icon").getSVGDocument()
+                 .querySelector("path").setAttribute("fill", "#b09f80")
+     } else {
+         document.documentElement.classList.add("dark")
+         document.querySelectorAll('.dark-mode object').forEach(e => {
+             e.data = "/darkmode-on.svg"
+         })
+         document.getElementById("menu-icon").getSVGDocument()
+                 .querySelector("path").setAttribute("fill", "#f2e7d3")
+     }
+ }
+
+ window.jdenticon_config = {
+     lightness: {
+         color: [0.51, 0.70],
+         grayscale: [0.38, 0.47]
+     },
+     saturation: {
+         color: 0.66,
+         grayscale: 0.70
+     },
+ };
+
+ l1 = false
+ l2 = false
+ MathJax = {
+     loader: {load: ['[tex]/mathtools']},
+     tex: {
+         inlineMath: [['$', '$'], ['\\(', '\\)']],
+         macros: {
+             R: "{\\mathbb R}",
+             Z: "{\\mathbb R}",
+             Q: "{\\mathbb Q}",
+             N: "{\\mathbb N}",
          },
-         startup: {
-             ready: () => {
-                 l1 = true;
-                 if (l2) {
-                     MathJax.startup.defaultReady();
-                 };
-                 setTimeout(() => { if (!l2) { MathJax.startup.defaultReady() }}, 1000)
+         packages: {'[+]': ['mathtools']}
+     },
+     startup: {
+         ready: () => {
+             l1 = true
+             if (l2) {
+                 MathJax.startup.defaultReady()
              }
+             setTimeout(() => { if (!l2) { MathJax.startup.defaultReady() }}, 10000)
          }
-     };
+     }
+ };
 
-     WebFont.load(
-         { google: { families: ['Crimson Pro:300,300italic,500,500italic', 'Patrick Hand'] },
-           active: () => { l2 = true; if (l1) { MathJax.startup.defaultReady() }; } }
-     );
+ WebFont.load(
+     { google: { families: ['Crimson Pro:300,300italic,500,500italic', 'Patrick Hand'] },
+       active: () => { l2 = true; if (l1) { MathJax.startup.defaultReady() }; } }
+ );
+</script>
 
-    </script>
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.css" integrity="sha384-Um5gpz1odJg5Z4HAmzPtgZKdTBHZdw8S29IecapCSB31ligYPhHQZMIlWLYQGVoc" crossorigin="anonymous"> -->
 
-    <!-- MathJax -->
-    <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<!-- The loading of KaTeX is deferred to speed up page rendering -->
+<!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/katex.min.js" integrity="sha384-YNHdsYkH6gMx9y3mRkmcJ2mFUjTd0qNQQvY9VYZgQd7DcN7env35GzlmFaZ23JGp" crossorigin="anonymous"></script> -->
+
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<!-- <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.11/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script> -->
+
+<!-- <script>
+     document.addEventListener("DOMContentLoaded", function() {
+     renderMathInElement(document.body, {
+     macros: {
+     "\\RR": "{\\mathbb R}",
+     "\\ZZ": "{\\mathbb R}",
+     "\\QQ": "{\\mathbb Q}",
+     "\\NN": "{\\mathbb N}",
+     },
+     globalGroup: true,
+     });
+     });
+     </script> -->
+<!-- <style type="text/css" media="screen">
+     .katex { font-size: 0.95em; }
+     </style>
+-->
+
+<script id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" defer></script>
+
+<script type="text/javascript">
+ const jdenticon_config = { padding: 0 }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.0/dist/jdenticon.min.js" defer
+        integrity="sha384-VngWWnG9GS4jDgsGEUNaoRQtfBGiIKZTiXwm9KpgAeaRn6Y/1tAFiyXqSzqC8Ga/" crossorigin="anonymous"></script>
+
+
 
     <noscript>
-        <link rel="stylesheet" href="/css/twemoji.css">
-        <link rel="stylesheet" href="/css/code.css">
+        <link rel="stylesheet" href="/twemoji.css">
+        <link rel="stylesheet" href="/code.css">
         <link rel="stylesheet"
               href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,500&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
@@ -68,65 +136,75 @@
     <body>
         <canvas style="position:fixed; top:0; left:0; z-index:-1" id="fundo" resize></canvas>
         <header>
-              <a href="/" class="blog-name"><h2>interseções <i class="twa twa-cat"></i></h2></a>
-              <nav>
-                  <ul>
-                      
-                      <li><a href="/feed">feed</a></li>
-                      
-                      <li><a href="/artigos">artigos</a></li>
-                      
-                      <li><a href="/tags">tags</a></li>
-                      
-                      <li><a href="/coisas">outras coisas</a></li>
-                      
-                      <li><a href="/sobre">sobre</a></li>
-                      
-                  </ul>
-                  <img src="/assets/hamburger.svg" id="menu-icon">
-              </nav>
-          </header>
-          <div id="main">
-            
-    <h1>Teorema de Dini ligeiramente mais forte</h1>
-    <aside>tags: (nenhuma) ~ postado em 07/06/2021</aside>
-    <p>O teorema de Dini&nbsp;diz:</p>
+            <h2 class="blog-name"><a href="/">interseções <i class="twa twa-cat"></i></a></h2>
+            <div class="dark-mode">
+                <button onclick="darkToggle()">
+                    <object data="/darkmode.svg" type="image/svg+xml">
+                        Dark
+                    </object>
+                </button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/feed">blog</a></li>
+                    <li><a href="/notas">notas</a></li>
+                    <li><a href="/artigos">artigos</a></li>
+                    <li><a href="/tags">tags</a></li>
+                    <li><a href="/coisas">outras coisas</a></li>
+                    <li><a href="/sobre">sobre</a></li>
+                </ul>
+                <object id="menu-icon" data="/hamburger.svg" type="image/svg+xml">
+                    Menu
+                </object>
+            </nav>
+        </header>
+        <div id="main">
+                <h1>Teorema de Dini ligeiramente mais forte</h1>
+
+    <aside>
+        tags: (nenhuma)
+        ~ postado em 07/06/2021
+    </aside>
+
+    <p>O teorema de Dini diz:</p>
 <div class="theorem">
 <p>Seja <span class="math inline">\(\{f_n\}_{n=1}^{\infty}\)</span> uma sequência monótona de funções <span class="math inline">\(f_i : K\to \R\)</span> contínuas, onde <span class="math inline">\(K\)</span> é compacto, que converge pontualmente para uma função <span class="math inline">\(f\)</span> contínua. Então a sequência também converge uniformemente (para <span class="math inline">\(f\)</span>).</p>
 </div>
 <p>O enunciado é equivalente ao caso <span class="math inline">\(f=0\)</span>, então vamos apenas nos preocupar com esse caso. Faremos o seguinte: por compaticidade, existe uma sequência <span class="math inline">\(\{x_i\}_{i=1}^{\infty}\)</span> e <span class="math inline">\(|f_i(x_i)| = \max |f_i|\)</span>.</p>
-<p>O teorema agora fica equivalente a mostrar que <span class="math inline">\(\lim |f_i(x_i)| = 0\)</span>. Como podemos fazer isso? Por absurdo, suponha que não vale esse limite. Então (de novo, por ser compacto) existe <span class="math inline">\(\varepsilon &gt; 0\)</span> tal que podemos tomar uma subsequência convergente <span class="math inline">\((x_{i_k})_{k=1}^\infty\)</span> onde <span class="math inline">\(|f_{i_k}(x_{i_k})| \geq \varepsilon\)</span> para todo <span class="math inline">\(k\)</span>. Sendo <span class="math inline">\(x = \lim x_{i_k}\)</span>, seja <span class="math inline">\(n_0\)</span> tal que <span class="math inline">\(f_{n_0}(x) &lt; \varepsilon/2\)</span> (dado pela convergência pontual). Seja também <span class="math inline">\(\delta &gt; 0\)</span> tal que <span class="math inline">\(|f_{n_0}(x) - f_{n_0}(y)| &lt; \varepsilon / 2\)</span> sempre que <span class="math inline">\(|x - y| &lt; \delta\)</span>, assim, <span class="math inline">\(|f_{n_0}(y)| &lt; \varepsilon\)</span> nesse intervalo. Temos algumas possibilidades para&nbsp;continuar:</p>
+<p>O teorema agora fica equivalente a mostrar que <span class="math inline">\(\lim |f_i(x_i)| = 0\)</span>. Como podemos fazer isso? Por absurdo, suponha que não vale esse limite. Então (de novo, por ser compacto) existe <span class="math inline">\(\varepsilon &gt; 0\)</span> tal que podemos tomar uma subsequência convergente <span class="math inline">\((x_{i_k})_{k=1}^\infty\)</span> onde <span class="math inline">\(|f_{i_k}(x_{i_k})| \geq \varepsilon\)</span> para todo <span class="math inline">\(k\)</span>. Sendo <span class="math inline">\(x = \lim x_{i_k}\)</span>, seja <span class="math inline">\(n_0\)</span> tal que <span class="math inline">\(f_{n_0}(x) &lt; \varepsilon/2\)</span> (dado pela convergência pontual). Seja também <span class="math inline">\(\delta &gt; 0\)</span> tal que <span class="math inline">\(|f_{n_0}(x) - f_{n_0}(y)| &lt; \varepsilon / 2\)</span> sempre que <span class="math inline">\(|x - y| &lt; \delta\)</span>, assim, <span class="math inline">\(|f_{n_0}(y)| &lt; \varepsilon\)</span> nesse intervalo. Temos algumas possibilidades para continuar:</p>
 <ol>
-<li>Com a hipótese original, i.e., se a sequência for monótona, chegamos facilmente a um absurdo pois <span class="math inline">\(|f_n(y)| \leq |f_{n_0}(y)| &lt; \varepsilon\)</span> em todo esse intervalo aberto,&nbsp;o</li>
+<li>Com a hipótese original, i.e., se a sequência for monótona, chegamos facilmente a um absurdo pois <span class="math inline">\(|f_n(y)| \leq |f_{n_0}(y)| &lt; \varepsilon\)</span> em todo esse intervalo aberto, o</li>
 </ol>
+
 
 
             <div class="page-foot">
   Site em construção... <i class="twa twa-building-construction"></i> <br><br>
-    <a href="javascript:var i,s,ss=['/js/kh.js','https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js'];for(i=0;i!=ss.length;i++){s=document.createElement('script');s.src=ss[i];document.body.appendChild(s);}void(0);" >
+    <a href="#void" id="extra1" >
         Katamari!  <i class="twa twa-volleyball"></i></a>
-     ~ <a href="#void" id="extra2">
+    ~ <a href="#void" id="extra2">
         Boids  <i class="twa twa-bird"></i></a>
     <br>
 </div>
 
         </div>
         <div id="sidebar">
-            <a href="/" class="blog-name"><h2>interseções <i class="twa twa-cat"></i></h2></a>
+            <h2 class="blog-name"><a href="/">interseções <i class="twa twa-cat"></i></a></h2>
             <ul>
-                
-                <li><a href="/feed">feed</a></li>
-                
+                <li><a href="/feed">blog</a></li>
+                <li><a href="/notas">notas</a></li>
                 <li><a href="/artigos">artigos</a></li>
-                
                 <li><a href="/tags">tags</a></li>
-                
                 <li><a href="/coisas">outras coisas</a></li>
-                
                 <li><a href="/sobre">sobre</a></li>
-                
             </ul>
+            <div class="dark-mode">
+                <button onClick="darkToggle()">
+                    <object data="/darkmode.svg" type="image/svg+xml">
+                        Dark
+                    </object>
+                </button>
+            </div>
         </div>
     </body>
 </html>
-
