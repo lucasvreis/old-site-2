@@ -1,0 +1,53 @@
+<script type="text/javascript" src="/extras.js" defer></script>
+
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<% if @item[:mathjax] %>
+    <%= render '/components/mathjax.html' %>
+<% else %>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+    <% unless @item[:nomath] %>
+        <%= render '/components/katex.html' %>
+    <% end %>
+<% end %>
+
+
+<script type="text/javascript">
+function darkToggle() {
+     if (document.documentElement.classList.contains("dark")) {
+         document.documentElement.classList.remove("dark")
+         document.querySelectorAll('.dark-mode object').forEach(e => {
+             e.data = "/darkmode.svg"
+         })
+         document.getElementById("menu-icon").getSVGDocument()
+                 .querySelector("path").setAttribute("fill", "#b09f80")
+     } else {
+         document.documentElement.classList.add("dark")
+         document.querySelectorAll('.dark-mode object').forEach(e => {
+             e.data = "/darkmode-on.svg"
+         })
+         document.getElementById("menu-icon").getSVGDocument()
+                 .querySelector("path").setAttribute("fill", "#f2e7d3")
+     }
+ }
+
+ window.jdenticon_config = {
+     lightness: {
+         color: [0.51, 0.70],
+         grayscale: [0.38, 0.47]
+     },
+     saturation: {
+         color: 0.66,
+         grayscale: 0.70
+     },
+ };
+</script>
+
+<script type="text/javascript">
+ const jdenticon_config = { padding: 0 }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.0/dist/jdenticon.min.js" defer  integrity="sha384-VngWWnG9GS4jDgsGEUNaoRQtfBGiIKZTiXwm9KpgAeaRn6Y/1tAFiyXqSzqC8Ga/" crossorigin="anonymous"></script>

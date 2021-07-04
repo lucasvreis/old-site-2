@@ -12,14 +12,11 @@
     <link rel="preload" href="/twemoji.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <link rel="preload" href="/code.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
-    <%= render "/components/scripts.html" %>
+    <%= render "/components/fonts-and-scripts.erb" %>
 
     <noscript>
         <link rel="stylesheet" href="/twemoji.css">
         <link rel="stylesheet" href="/code.css">
-        <link rel="stylesheet"
-              href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,500&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
     </noscript>
 
     <!-- you don't need to keep this, but it's cool for stats! -->
