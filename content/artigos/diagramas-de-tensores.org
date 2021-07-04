@@ -44,8 +44,8 @@ lineares com domínio no produto tensorial fica condensada na seguinte
 preposição:
 
 #+begin_proposition
-Para todo espaço vetorial $W$, a função $\Gamma:\Hom_\F^k(V_1,...,V_k,
-W)\to\Hom_\F(V_1\otimes...\otimes V_k,W)$ dada por $\Gamma(\psi)=\tilde\psi$ é um isomorfismo linear
+Para todo espaço vetorial $W$, a função $$\Gamma:\Hom_\F^k(V_1,...,V_k,
+W)\to\Hom_\F(V_1\otimes...\otimes V_k,W)$$ dada por $\Gamma(\psi)=\tilde\psi$ é um isomorfismo linear
 entre os dois espaços, com inversa $\Gamma^{-1}(f)=f\circ\otimes$.
 #+end_proposition
 
@@ -75,8 +75,8 @@ transformações sendo feitas em paralelo, ao mesmo tempo:
 #+end_proposition
 
 É intuitivo pensar em "processos" que agem sobre os sistemas compondo operadores
-em paralelo ou sequencialmente, de várias maneiras distintas. Como podemos usar
-desenhos de maneira formal para pensar sobre processos que envolvem tensores?
+em paralelo ou sequencialmente. Como podemos usar desenhos de maneira formal
+para pensar sobre processos que envolvem tensores?
 
 * Diagramas
 
