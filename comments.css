@@ -21,7 +21,7 @@ h2.comments {
   padding-left: 15px;
 }
 #main .comment .comment {
-  margin: 9px -6px;
+  margin: 9px -6px 9px -6px;
 }
 #main .comment .header {
   margin-top: 10px;
@@ -29,7 +29,7 @@ h2.comments {
 }
 #main .comment .header svg {
   display: inline;
-  margin-top: 1.5px;
+  margin-top: 1px;
   margin-left: -3px;
   margin-right: 5px;
   width: 35px;
@@ -59,7 +59,7 @@ h2.comments {
 }
 #main .comment .end {
   padding-top: 1em;
-  padding-bottom: 1em;
+  padding-bottom: 10px;
   font-weight: 500;
   font-size: 15px;
 }
