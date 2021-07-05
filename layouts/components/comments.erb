@@ -1,12 +1,12 @@
-<hr class="end"/>
-
-<h2 class=comments>Comentários e respostas</h2>
+<h2 class=comments>Comentários</h2>
 
 <% comms, tree = get_comments %>
 
-<% for comm in comms %>
-    <%=render '/components/comment.erb', comment: comm, tree: tree, nesting: 0 %>
-<% end %>
+<grid id="comment-grid">
+    <% for comm in comms %>
+        <%=render '/components/comment.erb', comment: comm, tree: tree, nesting: 0 %>
+    <% end %>
+</grid>
 
 <details id="novo-comentário">
     <summary><h3>Novo comentário</h3></summary>

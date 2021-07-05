@@ -1,4 +1,4 @@
-<div class="comment" id="<%= @comment[:id] %>" original="<%=h @comment.compiled_content(snapshot: :raw) %>">
+<div class="comment <%="big" if @comment.compiled_content(snapshot: :raw).size > 260 %>" id="<%= @comment[:id] %>" original="<%=h @comment.compiled_content(snapshot: :raw) %>">
     <div class="header">
         <svg data-jdenticon-value="<%=@comment[:name] %>"></svg>
         <div class="info">
@@ -14,7 +14,7 @@
         <aside>
             <% if @nesting < 3 %>
                 <a href="#novo-comentário" onclick="answerComment('<%= @comment[:id] %>');">
-                    Responder
+                    responder
                 </a>
             <% end %>
             <!-- <a href="#novo-comentario">Editar</a> -->

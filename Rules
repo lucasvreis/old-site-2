@@ -137,7 +137,7 @@ layout '/**/*.slim', :slim
 layout '/**/*.{html,erb}', :erubi
 
 postprocess do
-  svg_scale = 1.3
+  svg_scale = 1.2
 
   unless Dir.exists? './output/media'
     Dir.mkdir './output/media/'
