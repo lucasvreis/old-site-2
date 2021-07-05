@@ -6,7 +6,7 @@ def get_comments
   if @item[:uuid]
     for comm in items.find_all("/data/comments/#{ @item[:uuid] }/*")
       ref = comm[:ref]
-      if ref
+      if !ref.nil? and !ref.empty?
         if tree[ref]
           tree[ref].append(comm)
         else
