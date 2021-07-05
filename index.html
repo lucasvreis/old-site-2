@@ -51,7 +51,7 @@
 
 
 <script type="text/javascript">
-function darkToggle() {
+ function darkToggle() {
      if (document.documentElement.classList.contains("dark")) {
          document.documentElement.classList.remove("dark")
          document.querySelectorAll('.dark-mode object').forEach(e => {
@@ -68,7 +68,10 @@ function darkToggle() {
                  .querySelector("path").setAttribute("fill", "#f2e7d3")
      }
  }
+</script>
 
+<!-- Jdenticon -->
+<script type="text/javascript">
  window.jdenticon_config = {
      lightness: {
          color: [0.51, 0.70],
@@ -80,12 +83,21 @@ function darkToggle() {
      },
  };
 </script>
-
-<script type="text/javascript">
- const jdenticon_config = { padding: 0 }
-</script>
-
 <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.0/dist/jdenticon.min.js" defer  integrity="sha384-VngWWnG9GS4jDgsGEUNaoRQtfBGiIKZTiXwm9KpgAeaRn6Y/1tAFiyXqSzqC8Ga/" crossorigin="anonymous"></script>
+
+<!-- Masonry -->
+<script src="/masonry.pkgd.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+ document.addEventListener("DOMContentLoaded", function(){
+     var msnry = new Masonry('#comment-grid', {
+         // options
+         itemSelector: '#comment-grid > .comment',
+         columnWidth: 11,
+         transitionDuration: 0,
+         gutter: 20
+     });
+ });
+</script>
 
 
     <noscript>
@@ -127,14 +139,15 @@ function darkToggle() {
             </nav>
         </header>
         <div id="main">
-                <h1>Olá</h1>
+                <div class="content">
+        <h1>Olá</h1>
 
-    <aside>
-        tags: (nenhuma)
-        ~ postado em (?)
-    </aside>
+        <aside>
+            tags: (nenhuma)
+            ~ postado em (?)
+        </aside>
 
-    <p>Bem vindos! <i class="twa twa-slightly-smiling-face"></i></p>
+        <p>Bem vindos! <i class="twa twa-slightly-smiling-face"></i></p>
 <p>Algumas coisas para se fazer aqui:</p>
 <ul>
 <li><a href="./feed">Postagens do blog</a></li>
@@ -145,227 +158,14 @@ function darkToggle() {
 <li><a href="https://twitter.com/lucas_vreis">Twitter</a></li>
 </ul>
 
-
         <hr class="end"/>
-
-<h2 class=comments>Comentários e respostas</h2>
-
-
-    <div class="comment" id="9f7f3e70-ce3f-11eb-9be3-9b594af30337" original="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse blandit
-metus dolor, eget maximus nulla finibus sit amet. Aliquam consectetur eu nibh
-ut interdum. Integer vel dictum lorem. Quisque quis ultrices mauris. In hac
-habitasse platea dictumst. Nunc suscipit non lorem id sodales. Sed ultrices,
-sem non tincidunt dictum, enim enim commodo ligula, ut tempus mi nisl at
-ante. Nam dolor justo, pellentesque sit amet turpis ut, efficitur dictum
-nisi. Donec faucibus venenatis ante, sed gravida orci efficitur et. Sed
-sagittis arcu sed tortor tempor auctor. a\\(a\\)a Nam ac magna vel neque rutrum
-luctus.
-
-\\[\int x \;dx\\]
-
-```python
-print(&quot;abracadabra&quot;)
-for i in list:
-   fun()
-```
-http://google.com
-
-**aaa** _bb_ ~~ccc~~
-
-&lt;p&gt; Eu sou perigoso!!! &lt;/p&gt;">
-    <div class="header">
-        <svg data-jdenticon-value="Lucas Viana"></svg>
-        <div class="info">
-            <title>Lucas Viana</title>
-            <aside>
-                Wed 16 Jun 2021
-            </aside>
-        </div>
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse blandit
-metus dolor, eget maximus nulla finibus sit amet. Aliquam consectetur eu nibh
-ut interdum. Integer vel dictum lorem. Quisque quis ultrices mauris. In hac
-habitasse platea dictumst. Nunc suscipit non lorem id sodales. Sed ultrices,
-sem non tincidunt dictum, enim enim commodo ligula, ut tempus mi nisl at
-ante. Nam dolor justo, pellentesque sit amet turpis ut, efficitur dictum
-nisi. Donec faucibus venenatis ante, sed gravida orci efficitur et. Sed
-sagittis arcu sed tortor tempor auctor. a\(a\)a Nam ac magna vel neque rutrum
-luctus.</p>
 
-<p>\[\int x \;dx\]</p>
-
-<pre><code class="python">print(&quot;abracadabra&quot;)
-for i in list:
-   fun()
-</code></pre>
-
-<p><a href="http://google.com">http://google.com</a></p>
-
-<p><strong>aaa</strong> <em>bb</em> ~~ccc~~</p>
-
-<p>&lt;p&gt; Eu sou perigoso!!! &lt;/p&gt;</p>
+        <h2 class=comments>Comentários</h2>
 
 
-    <div class="end">
-        <aside>
-                <a href="#novo-comentário" onclick="answerComment('9f7f3e70-ce3f-11eb-9be3-9b594af30337');">
-                    Responder
-                </a>
-            <!-- <a href="#novo-comentario">Editar</a> -->
-            <!-- <a href="#novo-comentario">Apagar</a> -->
-        </aside>
-    </div>
-            <div class="comment" id="74b75796-e0b0-48f8-a96d-470f7ed643fd" original="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse blandit
-metus dolor, eget maximus nulla finibus sit amet. Aliquam consectetur eu nibh
-ut interdum. Integer vel dictum lorem. Quisque quis ultrices mauris. In hac
-habitasse platea dictumst. Nunc suscipit non lorem id sodales. Sed ultrices,
-sem non tincidunt dictum, enim enim commodo ligula, ut tempus mi nisl at
-ante. Nam dolor justo, pellentesque sit amet turpis ut, efficitur dictum
-nisi. Donec faucibus venenatis ante, sed gravida orci efficitur et. Sed
-sagittis arcu sed tortor tempor auctor. Nam ac magna vel neque rutrum luctus.
-
-```python
-print(&quot;Oi gente&quot;)
-```
-http://google.com
-
-**aaa** _bb_ ~~ccc~~
-
-&lt;p&gt; Eu sou perigoso!!! &lt;/p&gt;">
-    <div class="header">
-        <svg data-jdenticon-value="Lucas"></svg>
-        <div class="info">
-            <title>Lucas</title>
-            <aside>
-                Wed 16 Jun 2021
-            </aside>
-        </div>
-    </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse blandit
-metus dolor, eget maximus nulla finibus sit amet. Aliquam consectetur eu nibh
-ut interdum. Integer vel dictum lorem. Quisque quis ultrices mauris. In hac
-habitasse platea dictumst. Nunc suscipit non lorem id sodales. Sed ultrices,
-sem non tincidunt dictum, enim enim commodo ligula, ut tempus mi nisl at
-ante. Nam dolor justo, pellentesque sit amet turpis ut, efficitur dictum
-nisi. Donec faucibus venenatis ante, sed gravida orci efficitur et. Sed
-sagittis arcu sed tortor tempor auctor. Nam ac magna vel neque rutrum luctus.</p>
-
-<pre><code class="python">print(&quot;Oi gente&quot;)
-</code></pre>
-
-<p><a href="http://google.com">http://google.com</a></p>
-
-<p><strong>aaa</strong> <em>bb</em> ~~ccc~~</p>
-
-<p>&lt;p&gt; Eu sou perigoso!!! &lt;/p&gt;</p>
-
-
-    <div class="end">
-        <aside>
-                <a href="#novo-comentário" onclick="answerComment('74b75796-e0b0-48f8-a96d-470f7ed643fd');">
-                    Responder
-                </a>
-            <!-- <a href="#novo-comentario">Editar</a> -->
-            <!-- <a href="#novo-comentario">Apagar</a> -->
-        </aside>
-    </div>
-</div>
-
-            <div class="comment" id="f7594f70-dc4d-11eb-bcac-c17c75835ba1" original="$|\mathbb{N^N}|=|\mathbb{R}|=|\mathbb{R^NCCC EEE XXX}|$ aasd">
-    <div class="header">
-        <svg data-jdenticon-value="Joaquim"></svg>
-        <div class="info">
-            <title>Joaquim</title>
-            <aside>
-                Sat 03 Jul 2021
-            </aside>
-        </div>
-    </div>
-    <p>$|\mathbb{N^N}|=|\mathbb{R}|=|\mathbb{R^NCCC EEE XXX}|$ aasd</p>
-
-
-    <div class="end">
-        <aside>
-                <a href="#novo-comentário" onclick="answerComment('f7594f70-dc4d-11eb-bcac-c17c75835ba1');">
-                    Responder
-                </a>
-            <!-- <a href="#novo-comentario">Editar</a> -->
-            <!-- <a href="#novo-comentario">Apagar</a> -->
-        </aside>
-    </div>
-            <div class="comment" id="312f6990-dc4f-11eb-bcac-c17c75835ba1" original="Joaquim seu preguiçoso!!! Tu largue de escrever essas besteiras e vai estudar seu moço!!">
-    <div class="header">
-        <svg data-jdenticon-value="Joaquina"></svg>
-        <div class="info">
-            <title>Joaquina</title>
-            <aside>
-                Sat 03 Jul 2021
-            </aside>
-        </div>
-    </div>
-    <p>Joaquim seu preguiçoso!!! Tu largue de escrever essas besteiras e vai estudar seu moço!!</p>
-
-
-    <div class="end">
-        <aside>
-                <a href="#novo-comentário" onclick="answerComment('312f6990-dc4f-11eb-bcac-c17c75835ba1');">
-                    Responder
-                </a>
-            <!-- <a href="#novo-comentario">Editar</a> -->
-            <!-- <a href="#novo-comentario">Apagar</a> -->
-        </aside>
-    </div>
-            <div class="comment" id="76109060-dc55-11eb-aa35-8d9d58e958a8" original="Num largo não mainha! TÔ fazeno minha matemática, vê não em? Cardunalidades, assunto sério ó">
-    <div class="header">
-        <svg data-jdenticon-value="Joaquim"></svg>
-        <div class="info">
-            <title>Joaquim</title>
-            <aside>
-                Sat 03 Jul 2021
-            </aside>
-        </div>
-    </div>
-    <p>Num largo não mainha! TÔ fazeno minha matemática, vê não em? Cardunalidades, assunto sério ó</p>
-
-
-    <div class="end">
-        <aside>
-            <!-- <a href="#novo-comentario">Editar</a> -->
-            <!-- <a href="#novo-comentario">Apagar</a> -->
-        </aside>
-    </div>
-</div>
-
-</div>
-
-            <div class="comment" id="b47700b0-dc59-11eb-aa35-8d9d58e958a8" original="Tá certo filho! Muito bem!">
-    <div class="header">
-        <svg data-jdenticon-value="Joacano"></svg>
-        <div class="info">
-            <title>Joacano</title>
-            <aside>
-                Sat 03 Jul 2021
-            </aside>
-        </div>
-    </div>
-    <p>Tá certo filho! Muito bem!</p>
-
-
-    <div class="end">
-        <aside>
-                <a href="#novo-comentário" onclick="answerComment('b47700b0-dc59-11eb-aa35-8d9d58e958a8');">
-                    Responder
-                </a>
-            <!-- <a href="#novo-comentario">Editar</a> -->
-            <!-- <a href="#novo-comentario">Apagar</a> -->
-        </aside>
-    </div>
-</div>
-
-</div>
-
-</div>
-
+<grid id="comment-grid">
+</grid>
 
 <details id="novo-comentário">
     <summary><h3>Novo comentário</h3></summary>

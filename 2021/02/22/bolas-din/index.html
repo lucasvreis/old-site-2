@@ -51,7 +51,7 @@
 
 
 <script type="text/javascript">
-function darkToggle() {
+ function darkToggle() {
      if (document.documentElement.classList.contains("dark")) {
          document.documentElement.classList.remove("dark")
          document.querySelectorAll('.dark-mode object').forEach(e => {
@@ -68,7 +68,10 @@ function darkToggle() {
                  .querySelector("path").setAttribute("fill", "#f2e7d3")
      }
  }
+</script>
 
+<!-- Jdenticon -->
+<script type="text/javascript">
  window.jdenticon_config = {
      lightness: {
          color: [0.51, 0.70],
@@ -80,12 +83,21 @@ function darkToggle() {
      },
  };
 </script>
-
-<script type="text/javascript">
- const jdenticon_config = { padding: 0 }
-</script>
-
 <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.0/dist/jdenticon.min.js" defer  integrity="sha384-VngWWnG9GS4jDgsGEUNaoRQtfBGiIKZTiXwm9KpgAeaRn6Y/1tAFiyXqSzqC8Ga/" crossorigin="anonymous"></script>
+
+<!-- Masonry -->
+<script src="/masonry.pkgd.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+ document.addEventListener("DOMContentLoaded", function(){
+     var msnry = new Masonry('#comment-grid', {
+         // options
+         itemSelector: '#comment-grid > .comment',
+         columnWidth: 11,
+         transitionDuration: 0,
+         gutter: 20
+     });
+ });
+</script>
 
 
     <noscript>
@@ -127,14 +139,15 @@ function darkToggle() {
             </nav>
         </header>
         <div id="main">
-                <h1>Bolas Dinâmicas</h1>
+                <div class="content">
+        <h1>Bolas Dinâmicas</h1>
 
-    <aside>
-        tags: <a href="/tags/iniciação científica" rel="tag">iniciação científica</a>, <a href="/tags/sistemas dinâmicos" rel="tag">sistemas dinâmicos</a>
-        ~ postado em 22/02/2021
-    </aside>
+        <aside>
+            tags: <a href="/tags/iniciação científica" rel="tag">iniciação científica</a>, <a href="/tags/sistemas dinâmicos" rel="tag">sistemas dinâmicos</a>
+            ~ postado em 22/02/2021
+        </aside>
 
-    <p>A parte preta nas imagens abaixo é o conjunto dos pontos que ficam a menos de <span class="math inline">\(r\)</span> de distância do ponto vermelho <span class="math inline">\(x\)</span> (ele tá bem pequeno, mas está lá) durante toda a trajetória dos primeiros <span class="math inline">\(n-1\)</span> iterados: a bola dinâmica <span class="math inline">\(B(x,n,r)\)</span>. Em outras palavras,</p>
+        <p>A parte preta nas imagens abaixo é o conjunto dos pontos que ficam a menos de <span class="math inline">\(r\)</span> de distância do ponto vermelho <span class="math inline">\(x\)</span> (ele tá bem pequeno, mas está lá) durante toda a trajetória dos primeiros <span class="math inline">\(n-1\)</span> iterados: a bola dinâmica <span class="math inline">\(B(x,n,r)\)</span>. Em outras palavras,</p>
 <p><span class="math display">\[B(x,n,r)=\{y : d(f^i(x),f^i(y)) &lt; r, \text{ para todo }\; i\in\{1,\dots,n-1\} \} \]</span></p>
 <p>Usamos essas bolas em uma das formas de definir a entropia topológica de uma dinâmica; se a dinâmica tem entropia topológica positiva, quando o <span class="math inline">\(n\)</span> aumenta precisamos de cada vez mais bolas de raio <span class="math inline">\(r\)</span> para cobrir uma parte do espaço: a dinâmica “gera informação” (a entropia) “evidenciando os detalhes” ao afastar os pontos uns dos outros, e assim as bolas dinâmicas tendem a perder pontos a cada iterado.</p>
 <figure>
@@ -145,6 +158,8 @@ function darkToggle() {
 <p><img src="https://live.staticflickr.com/65535/51155280107_b710f11a06_o_d.png" /></p>
 <p>Código fonte: <a href="http:dynamics.jl.html">.html</a> / <a href="http:notebook.jl">.jl</a></p>
 
+        <hr class="end"/>
+    </div>
 
 
             <div class="page-foot">

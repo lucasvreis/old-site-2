@@ -51,7 +51,7 @@
 
 
 <script type="text/javascript">
-function darkToggle() {
+ function darkToggle() {
      if (document.documentElement.classList.contains("dark")) {
          document.documentElement.classList.remove("dark")
          document.querySelectorAll('.dark-mode object').forEach(e => {
@@ -68,7 +68,10 @@ function darkToggle() {
                  .querySelector("path").setAttribute("fill", "#f2e7d3")
      }
  }
+</script>
 
+<!-- Jdenticon -->
+<script type="text/javascript">
  window.jdenticon_config = {
      lightness: {
          color: [0.51, 0.70],
@@ -80,12 +83,21 @@ function darkToggle() {
      },
  };
 </script>
-
-<script type="text/javascript">
- const jdenticon_config = { padding: 0 }
-</script>
-
 <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.0/dist/jdenticon.min.js" defer  integrity="sha384-VngWWnG9GS4jDgsGEUNaoRQtfBGiIKZTiXwm9KpgAeaRn6Y/1tAFiyXqSzqC8Ga/" crossorigin="anonymous"></script>
+
+<!-- Masonry -->
+<script src="/masonry.pkgd.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+ document.addEventListener("DOMContentLoaded", function(){
+     var msnry = new Masonry('#comment-grid', {
+         // options
+         itemSelector: '#comment-grid > .comment',
+         columnWidth: 11,
+         transitionDuration: 0,
+         gutter: 20
+     });
+ });
+</script>
 
 
     <noscript>
@@ -127,14 +139,15 @@ function darkToggle() {
             </nav>
         </header>
         <div id="main">
-                <h1></h1>
+                <div class="content">
+        <h1></h1>
 
-    <aside>
-        tags: (nenhuma)
-        ~ postado em (?)
-    </aside>
+        <aside>
+            tags: (nenhuma)
+            ~ postado em (?)
+        </aside>
 
-    <p>Vamos usar o binding léxico:</p>
+        <p>Vamos usar o binding léxico:</p>
 <div class="sourceCode" id="cb1" data-org-language="emacs-lisp"><pre class="sourceCode commonlisp"><code class="sourceCode commonlisp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">;;; -*- lexical-binding: t; -*-</span></span></code></pre></div>
 <h2 id="o-básico">O básico</h2>
 <h3 id="tema">Tema</h3>
@@ -345,6 +358,8 @@ function darkToggle() {
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>      (<span class="kw">let</span> ((f (file-name-sans-extension (file-name-nondirectory file))))</span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>        (<span class="kw">eval</span> `(after! ,(<span class="kw">intern</span> f) (load! ,f ,folder)))))))</span></code></pre></div>
 
+        <hr class="end"/>
+    </div>
 
 
             <div class="page-foot">

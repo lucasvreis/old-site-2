@@ -51,7 +51,7 @@
 
 
 <script type="text/javascript">
-function darkToggle() {
+ function darkToggle() {
      if (document.documentElement.classList.contains("dark")) {
          document.documentElement.classList.remove("dark")
          document.querySelectorAll('.dark-mode object').forEach(e => {
@@ -68,7 +68,10 @@ function darkToggle() {
                  .querySelector("path").setAttribute("fill", "#f2e7d3")
      }
  }
+</script>
 
+<!-- Jdenticon -->
+<script type="text/javascript">
  window.jdenticon_config = {
      lightness: {
          color: [0.51, 0.70],
@@ -80,12 +83,21 @@ function darkToggle() {
      },
  };
 </script>
-
-<script type="text/javascript">
- const jdenticon_config = { padding: 0 }
-</script>
-
 <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.1.0/dist/jdenticon.min.js" defer  integrity="sha384-VngWWnG9GS4jDgsGEUNaoRQtfBGiIKZTiXwm9KpgAeaRn6Y/1tAFiyXqSzqC8Ga/" crossorigin="anonymous"></script>
+
+<!-- Masonry -->
+<script src="/masonry.pkgd.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+ document.addEventListener("DOMContentLoaded", function(){
+     var msnry = new Masonry('#comment-grid', {
+         // options
+         itemSelector: '#comment-grid > .comment',
+         columnWidth: 11,
+         transitionDuration: 0,
+         gutter: 20
+     });
+ });
+</script>
 
 
     <noscript>
@@ -127,14 +139,15 @@ function darkToggle() {
             </nav>
         </header>
         <div id="main">
-                <h1>Teorema de Dini ligeiramente mais forte</h1>
+                <div class="content">
+        <h1>Teorema de Dini ligeiramente mais forte</h1>
 
-    <aside>
-        tags: (nenhuma)
-        ~ postado em 07/06/2021
-    </aside>
+        <aside>
+            tags: (nenhuma)
+            ~ postado em 07/06/2021
+        </aside>
 
-    <p>O teorema de Dini diz:</p>
+        <p>O teorema de Dini diz:</p>
 <div class="theorem">
 <p>Seja <span class="math inline">\(\{f_n\}_{n=1}^{\infty}\)</span> uma sequência monótona de funções <span class="math inline">\(f_i : K\to \R\)</span> contínuas, onde <span class="math inline">\(K\)</span> é compacto, que converge pontualmente para uma função <span class="math inline">\(f\)</span> contínua. Então a sequência também converge uniformemente (para <span class="math inline">\(f\)</span>).</p>
 </div>
@@ -144,6 +157,8 @@ function darkToggle() {
 <li>Com a hipótese original, i.e., se a sequência for monótona, chegamos facilmente a um absurdo pois <span class="math inline">\(|f_n(y)| \leq |f_{n_0}(y)| &lt; \varepsilon\)</span> em todo esse intervalo aberto, o</li>
 </ol>
 
+        <hr class="end"/>
+    </div>
 
 
             <div class="page-foot">

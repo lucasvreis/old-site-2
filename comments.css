@@ -3,25 +3,32 @@ hr.end {
   margin-bottom: 1em;
 }
 h2.comments {
+  font-size: 20px;
   margin-bottom: 1em;
 }
-#haha {
-  position: absolute !important;
-  height: 0 !important;
-  width: 0 !important;
-  z-index: -1 !important;
-  visibility: hidden !important;
+#comment-grid {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+}
+#main .comment.big {
+  width: 100%;
 }
 #main .comment {
+  font-size: 16.2px;
   border-radius: 7px;
   border-width: 1px;
   border-style: solid;
-  border-color: #ccc;
+  border-color: #eee;
   padding-right: 15px;
   padding-left: 15px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  width: calc(100% / 2 - 10px);
 }
 #main .comment .comment {
-  margin: 9px -6px 9px -6px;
+  width: unset;
+  margin: 0px -6px 9px -6px;
 }
 #main .comment .header {
   margin-top: 10px;
@@ -39,7 +46,7 @@ h2.comments {
 #main .comment .header title {
   display: inline;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
 }
 #main .comment .header aside {
   font-style: italic;
@@ -58,8 +65,9 @@ h2.comments {
   font-size: 20px;
 }
 #main .comment .end {
-  padding-top: 1em;
   padding-bottom: 10px;
+  text-align: right;
+  margin-right: -10px;
   font-weight: 500;
   font-size: 15px;
 }
@@ -67,10 +75,19 @@ h2.comments {
   margin-right: 10px;
   font-size: 14px;
 }
+@media (max-width: calc(720px / 0.85)) {
+  #main .comment {
+    width: 100%;
+  }
+}
 #novo-comentário {
   margin-top: 1em;
 }
-#novo-comentário h3 {
+#novo-comentário summary {
+  font-size: 18px;
+}
+#novo-comentário summary h3 {
+  font-size: inherit;
   display: inline;
 }
 #novo-comentário aside {
@@ -80,10 +97,20 @@ h2.comments {
 #novo-comentário #comment-form {
   margin-top: 1em;
 }
+#novo-comentário #comment-form textarea,
+#novo-comentário #comment-form .EasyMDEContainer {
+  width: 400px;
+}
 #novo-comentário #comment-form textarea {
-  width: 100%;
   height: 300px;
   resize: none;
+}
+#haha {
+  position: absolute !important;
+  height: 0 !important;
+  width: 0 !important;
+  z-index: -1 !important;
+  visibility: hidden !important;
 }
 .editor-toolbar {
   padding: 0px 5px !important;
