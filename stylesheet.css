@@ -72,7 +72,7 @@ body #main {
   left: calc(100px + 15%);
 }
 body #main h1 {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: normal;
   letter-spacing: -0.2px;
 }
@@ -201,15 +201,15 @@ body header .dark-mode {
     margin-top: 5px;
   }
 }
-.hide {
-  display: none;
-}
-.blog-name a {
+body .blog-name a {
   font-family: "Patrick Hand";
-  font-size: 24px;
+  font-size: 22px;
   font-weight: normal;
   color: #555;
   line-height: 20px;
+}
+.hide {
+  display: none;
 }
 .page-foot {
   font-size: 70%;

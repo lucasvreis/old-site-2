@@ -3,7 +3,7 @@
     <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>interseções - </title>
+    <title>interseções - Monitoria</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="/stylesheet.css" type="text/css" />
@@ -140,14 +140,73 @@
             </nav>
         </header>
         <div id="main">
-                <h2>anotações</h2>
+                <div class="content">
+        <h1>Monitoria</h1>
 
-    <aside>páginas com a tag "anotações".</aside>
-    <ul>
-            <li><h3><a href="/notas/grupos/">Representações de grupos (notas)</a></h3>
-                <aside>representações, grupos, anotações ~ sem data</aside>
-            </li>
-    </ul>
+        <aside>
+            tags: <a href="/tags/monitoria" rel="tag">monitoria</a>
+            ~ postado em 15/08/2021
+        </aside>
+
+        <p>Neste semestre estarei dando monitoria de MA327 nas quartas-feiras, 13-14h.</p>
+<ul>
+<li>link do meet: <a href="http://meet.google.com/nym-eguz-bjg">nym-eguz-bjg</a></li>
+<li>email: <a href="mailto:l240191@dac.unicamp.br">l240191@dac.unicamp.br</a></li>
+<li>sugestões de exercícios: <a href="https://forms.gle/k9ukkv2hETaagQkm7">clique aqui</a><br />
+</li>
+</ul>
+
+        <hr class="end"/>
+    </div>
+
+        <h2 class=comments>Comentários</h2>
+
+
+<grid id="comment-grid">
+</grid>
+
+<details id="novo-comentário">
+    <summary><h3>Novo comentário</h3></summary>
+    <div id="action-description"></div>
+
+    <form method="POST" id="comment-form" action="https://lucastatic.herokuapp.com/v3/entry/github/lucasvreis/lucasvreis.github.io/main/comments">
+        <input type="hidden" name="options[slug]" value="monitoria-2s2021" />
+        <input type="hidden" name="options[action]" value="ans" />
+        <input type="hidden" name="fields[ref]" value="" id="ref-input" />
+        <label id="haha">Armadilha para robôs spammers, não escreva nada aqui!
+            <input type="text" name="fields[password]" tabindex="banana" autocomplete="off" />
+        </label>
+        <textarea aria-label="Conteúdo do comentário" id="mensagem" name="fields[message]" maxlength="10000"></textarea>
+        <label>Nome:
+            <input name="fields[name]" type="text" maxlength="30"/>
+        </label>
+        <!-- <br />
+             <p> Os dois campos abaixo <strong>são opcionais</strong> e possuem dois propósitos: <i>garantir a
+             unicidade</i> do seu ícone (assim ninguém pode se passar por você) e permitir que
+             você <i>edite</i> ou <i>apague</i> o seu comentário.
+             </p>
+             <p> Deixe em branco caso não queira utilizá-los. Não é necessário "criar nova conta",
+             apenas escreva campos novos ou reutilize anteriores.
+             </p>
+             <label>Apelido secreto.
+             <input name="fields[user]" type="text" maxlength="80"/>
+             </label>
+             <br />
+             <label>
+             Senha:
+             <input name="fields[key]" type="password" maxlength="30"/>
+             </label> -->
+        <br />
+        <br />
+        <button type="submit">Enviar</button>
+    </form>
+</details>
+
+<script type="text/javascript">
+ const uuid = 'monitoria-2s2021'
+</script>
+<script src="/commentForm.js" defer></script>
+
 
             <div class="page-foot">
   Site em construção... <i class="twa twa-building-construction"></i> <br><br>
