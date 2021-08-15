@@ -1,0 +1,35 @@
+---
+draft: t
+comments: t
+emoji: t
+---
+
+Eu gosto de pensar no Emacs como um editor feito de Lego: quem usa recebe as
+peças, os manuais e toda a complicação de montar. Uma diferença é que os manuais
+do Emacs explicam muito bem como funciona cada peça, mas não incluem nenhum
+passo a passo de como construir um modelo que veio estampado na caixa pois não
+há modelo estampado na caixa.
+
+Emacs é um acrônimo para /Editor MACroS/ (e por sinal, parece até que
+programadores não são muito criativos pois os nomes de todas as coisas que
+veremos aqui são acrônimos, como o leitor constatará em breve). A parte "macros"
+soa um pouco misteriosa — até onde eu sei era um nome meio genérico para
+"funções mais simples que geram coisas mais complexas". Hoje conheço pelo nome
+de /macro/ tanto uma forma de gravar uma sequência de comandos do teclado para ser
+repetida depois, como um tipo de função em programas que é executada pelo
+compilador. Em particular, a linguagem em que as coisas são feitas no Emacs, de
+n​ome Emacs Lisp, possui macros. Lisp é um acrônimo para /LISt Programming/, um
+nome representativo do fato que basicamente tudo nas linguagens lisp são listas,
+inclusive os programas em si. Isso permite representar trechos do lisp dentro do
+lisp, o que é particularmente útil em funções lisp que produzem outros trechos
+de código lisp --- as /macros/.
+
+[[https://www.gnu.org/software/emacs/manual/html_node/efaq/Origin-of-the-term-Emacs.html][Origem do termo Emacs]]
+
+* Vim
+
+Sim, falaremos sobre o Vim :winking-face: . O Vim é um amigo "concorrente" no
+sentido que foi criado tão antigamente e sobreviveu ao tempo como o Emacs.
+
+* Evil-\TeX
+- as asdasd

@@ -1,7 +1,6 @@
 ---
 title: "Olá"
 uuid: principal
-comments: t
 emoji: t
 ---
 

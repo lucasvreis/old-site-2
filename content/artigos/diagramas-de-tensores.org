@@ -24,8 +24,8 @@ simples é o de calcular o volume de paralelogramos, paralelepípedos e seus
 correspondentes em dimensões maiores. Por conta da estrutura linear dos espaços
 vetoriais, é natural considerar que a transformação envolvida seja multilinear,
 agindo como uma transformação linear quando são fixadas todas menos uma das
-entradas. Por exemplo, uma função $f:\R^2\times\R^2\to\R$ que calcula o volume
-do paralelogramo gerado por dois vetores em $\R^2$ é $2$-linear, e na segunda
+entradas. Por exemplo, uma função $f:\R^2\times\R^2\to\R$ que calcula o volume do
+paralelogramo gerado por dois vetores em $\R^2$ é $2$-linear, e na segunda
 entrada isso significa que $f(u,v+\lambda w)=f(u,v)+\lambda f(u,w)$.
 
 A ideia dos tensores é construir uma correspondência entre as funções

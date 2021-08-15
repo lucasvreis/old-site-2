@@ -1,12 +1,11 @@
 ---
 title: Calculando os caracteres de grau 1 com a forma normal de Smith
-kind: article
 uuid: smith-caracteres-grau-um
 comments: t
+draft: t
 ---
 
 Esse post foi motivado por uma pergunta do meu colega Guido.
-
 Suponha que temos um grupo \(G\) definido por uma presentação \(\langle X \mid \mathcal{R} \rangle\), onde
 \(X\) é um conjunto finito de geradores e \(\mathcal{R}\) um conjunto finito de palavras.
 Podemos escrever a abelianização \(G/G'\) de \(G\) como a presentação \(\langle X \mid \mathcal{R} \cup \mathcal{C}
@@ -14,9 +13,3 @@ Podemos escrever a abelianização \(G/G'\) de \(G\) como a presentação \(\lan
 com as mesmas relações de \(G\) mas tal que a multiplicação é comutativa.
 Equivalentemente, \(G/G'\) é o quociente do grupo livre abeliano \(L(X)\) de \(X\)
 pelo normalizador \(N(\mathcal{R})\) do conjunto \(\mathcal{R}\).
-
-
-Vamos ver como aparece a álgebra linear! 
-
-Vamos chamar de \(x_1, \dots ,x_n\) os elementos de \(X\) e \(\pi : L(X) \to G/G'\) a projeção
-canônica.

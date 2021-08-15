@@ -57,6 +57,9 @@ preprocess do
       date,slug = /(\d+\-\d+\-\d+)[\- ]([^\/\.]+)/
                      .match(item.identifier).captures
       item[:title] ||= slug
+      unless item[:draft]
+        item[:kind] ||= "article"
+      end
       item[:created_at] ||= Date.parse(date)
 
     elsif item.identifier =~ "/notas/**/*.{org,md}"

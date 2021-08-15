@@ -1,0 +1,13 @@
+---
+title: Monitoria
+created_at: 2021-08-15
+comments: t
+uuid: monitoria-2s2021
+tags: [monitoria]
+---
+
+Neste semestre estarei dando monitoria de MA327 nas quartas-feiras, 13-14h.
+
+- link do meet: [[http://meet.google.com/nym-eguz-bjg][nym-eguz-bjg]]
+- email: [[mailto:l240191@dac.unicamp.br][l240191@dac.unicamp.br]]
+- sugestões de exercícios: [[https://forms.gle/k9ukkv2hETaagQkm7][clique aqui]] \\
