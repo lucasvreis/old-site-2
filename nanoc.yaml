@@ -21,7 +21,6 @@ name: interseções
 
 tree:
   - [blog, /feed]
-  - [notas, /notas]
   - [artigos, /artigos]
   - [monitoria, /monitoria]
   - [tags, /tags]
