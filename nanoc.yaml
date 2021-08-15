@@ -9,8 +9,8 @@ data_sources:
     encoding: utf-8
   - type: comment_data
     items_root: /data/comments
-  - type: disciplinas
-    items_root: /notas
+  # - type: disciplinas
+  #   items_root: /notas
 
 
 feed_url: "/blog/"

@@ -30,18 +30,18 @@ class CommentsDataSource < Nanoc::DataSource
   end
 end
 
-class DisciplinasDataSource < Nanoc::DataSource
-  identifier :disciplinas
+# class DisciplinasDataSource < Nanoc::DataSource
+#   identifier :disciplinas
 
-  def items
-    list = []
-    for disc in Dir.children("#{Dir.home}/Lucas/notas/disciplinas")
-      for nota in Dir["#{Dir.home}/Lucas/notas/disciplinas/#{disc}/*.org"]
-        content = File.read(nota)
-        title = content.match /#\+title: (.*)$/i
-        list.append new_item(content, { title: title[1] }, '/' + disc + '.org')
-      end
-    end
-    list
-  end
-end
+#   def items
+#     list = []
+#     for disc in Dir.children("#{Dir.home}/Lucas/notas/disciplinas")
+#       for nota in Dir["#{Dir.home}/Lucas/notas/disciplinas/#{disc}/*.org"]
+#         content = File.read(nota)
+#         title = content.match /#\+title: (.*)$/i
+#         list.append new_item(content, { title: title[1] }, '/' + disc + '.org')
+#       end
+#     end
+#     list
+#   end
+# end
