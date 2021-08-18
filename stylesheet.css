@@ -104,6 +104,10 @@ body #main ol {
 body #main li {
   line-height: 1.4em;
 }
+body #main li a:link,
+body #main li a:visited {
+  text-decoration: underline;
+}
 body #main ul li {
   list-style: none;
 }
