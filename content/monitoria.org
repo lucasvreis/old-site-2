@@ -9,5 +9,10 @@ tags: [monitoria]
 Neste semestre estarei dando monitoria de MA327 nas quartas-feiras, 13-14h.
 
 - link do meet: [[http://meet.google.com/nym-eguz-bjg][nym-eguz-bjg]]
-- email: [[mailto:l240191@dac.unicamp.br][l240191@dac.unicamp.br]]
-- sugestões de exercícios: [[https://forms.gle/k9ukkv2hETaagQkm7][clique aqui]] \\
+- página do curso coordenado, com o horário de todas as monitorias: [[http://www.ime.unicamp.br/~tafazolian/node/44][aqui]]
+- meu e-mail: [[mailto:l240191@dac.unicamp.br][l240191@dac.unicamp.br]]
+- lista de exercícios recomendados para a disciplina: [[http:/monitorias/lista.pdf][baixar aqui]]
+# - sugerir outros exercícios (forms): [[https://forms.gle/k9ukkv2hETaagQkm7][clique aqui]] \\
+
+* Monitorias:
+- 18 de agosto, [[http:/monitorias/monitoria1.pdf][pdf anotado]]
