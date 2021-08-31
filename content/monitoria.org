@@ -16,3 +16,4 @@ Neste semestre estarei dando monitoria de MA327 nas quartas-feiras, 13-14h.
 
 * Monitorias:
 - 18 de agosto, [[./monitoria1.pdf][pdf anotado]]
+- 25 de agosto, [[./monitoria2.pdf][pdf anotado]]
